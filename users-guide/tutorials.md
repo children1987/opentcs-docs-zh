@@ -1,9 +1,6 @@
 ---
 layout: default
 title: 教程
----
-
----
 title: 教程
 outline: deep
 ---
