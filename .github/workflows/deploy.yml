@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,13 +14,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
-      - run: npm ci
+      - run: npm install
 
       - run: npm run build
 
       - name: Deploy to Vercel
+        if: env.HAS_VERCEL == 'true'
+        env:
+          HAS_VERCEL: ${{ secrets.VERCEL_TOKEN != '' && 'true' || 'false' }}
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
