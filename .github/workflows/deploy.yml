@@ -26,4 +26,7 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
+          # Create .vercel/project.json so Vercel CLI knows the project
+          mkdir -p .vercel
+          echo '{"orgId":"'$VERCEL_ORG_ID'","projectId":"'$VERCEL_PROJECT_ID'"}' > .vercel/project.json
           npx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
