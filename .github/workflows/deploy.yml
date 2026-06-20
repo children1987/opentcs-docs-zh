@@ -5,6 +5,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Required for pushing to gh-pages branch
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,16 +23,6 @@ jobs:
 
       - run: npm run build
 
-      # Attempt Vercel deploy (non-blocking: won't fail the whole run)
-      - name: Deploy to Vercel (best-effort)
-        if: env.HAS_VERCEL == 'true'
-        continue-on-error: true
-        env:
-          HAS_VERCEL: ${{ secrets.VERCEL_TOKEN != '' && 'true' || 'false' }}
-        run: |
-          npx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} --yes --cwd docs/.vitepress/dist 2>&1 | tee /tmp/vercel.log
-
-      # GitHub Pages fallback — reliable, no external deps
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
