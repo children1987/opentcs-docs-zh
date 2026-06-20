@@ -533,153 +533,46 @@ SPDX-License-Identifier: CC-BY-4.0
 <link rel="stylesheet" href="_assets/css/style.css">
 </head>
 <body class="book toc2 toc-left">
-<div id="header">
-<h1>openTCS: User&#8217;s Guide</h1>
-<div class="details">
-<span id="author" class="author">The openTCS developers</span><br>
-<span id="revnumber">version 7.3.0</span>
-</div>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a>
-<ul class="sectlevel2">
-<li><a href="#_purpose_of_the_software">1.1. Purpose of the software</a></li>
-<li><a href="#_licensing">1.2. Licensing</a></li>
-<li><a href="#_further_documentation">1.3. Further documentation</a></li>
-<li><a href="#_support">1.4. Support</a></li>
-</ul>
-</li>
-<li><a href="#_tutorials">2. Tutorials</a>
-<ul class="sectlevel2">
-<li><a href="#_constructing_a_new_plant_model">2.1. Constructing a new plant model</a>
-<ul class="sectlevel3">
-<li><a href="#_starting_the_model_editor">2.1.1. Starting the Model Editor</a></li>
-<li><a href="#_adding_elements_to_the_plant_model">2.1.2. Adding elements to the plant model</a></li>
-<li><a href="#_working_with_vehicle_envelopes">2.1.3. Working with vehicle envelopes</a></li>
-<li><a href="#_working_with_layers_and_layer_groups">2.1.4. Working with layers and layer groups</a></li>
-<li><a href="#_saving_the_plant_model">2.1.5. Saving the plant model</a></li>
-</ul>
-</li>
-<li><a href="#_operating_the_plant">2.2. Operating the plant</a>
-<ul class="sectlevel3">
-<li><a href="#_starting_components_for_system_operation">2.2.1. Starting components for system operation</a></li>
-<li><a href="#_configuring_vehicle_drivers">2.2.2. Configuring vehicle drivers</a></li>
-<li><a href="#_creating_a_transport_order">2.2.3. Creating a transport order</a></li>
-<li><a href="#_withdrawing_transport_orders_using_the_operations_desk_application">2.2.4. Withdrawing transport orders using the Operations Desk application</a></li>
-<li><a href="#_continuous_creation_of_transport_orders">2.2.5. Continuous creation of transport orders</a></li>
-<li><a href="#_configuring_peripheral_device_drivers">2.2.6. Configuring peripheral device drivers</a></li>
-<li><a href="#_creating_a_peripheral_job">2.2.7. Creating a peripheral job</a></li>
-<li><a href="#_withdrawing_peripheral_jobs_using_the_operations_desk_application">2.2.8. Withdrawing peripheral jobs using the Operations Desk application</a></li>
-<li><a href="#_removing_a_vehicle_from_a_running_system">2.2.9. Removing a vehicle from a running system</a></li>
-<li><a href="#_pausing_and_resuming_the_operation_of_vehicles">2.2.10. Pausing and resuming the operation of vehicles</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_how_to_guides">3. How-to Guides</a>
-<ul class="sectlevel2">
-<li><a href="#_creating_curved_paths_between_points">3.1. Creating curved paths between points</a></li>
-<li><a href="#_automatically_enabling_drivers_on_startup">3.2. Automatically enabling drivers on startup</a></li>
-<li><a href="#_automatically_selecting_a_specific_vehicle_driver_on_startup">3.3. Automatically selecting a specific vehicle driver on startup</a></li>
-<li><a href="#_configuring_a_virtual_vehicles_characteristics">3.4. Configuring a virtual vehicle&#8217;s characteristics</a></li>
-<li><a href="#_transforming_coordinates_sent_to_received_from_vehicles">3.5. Transforming coordinates sent to / received from vehicles</a></li>
-<li><a href="#_running_kernel_and_its_clients_on_separate_systems">3.6. Running kernel and its clients on separate systems</a></li>
-<li><a href="#_encrypting_communication_with_the_kernel">3.7. Encrypting communication with the kernel</a></li>
-<li><a href="#_enabling_rmi_on_multihomed_kernel_host">3.8. Enabling RMI on multihomed kernel host</a></li>
-<li><a href="#_configuring_automatic_parking_and_recharging">3.9. Configuring automatic parking and recharging</a></li>
-<li><a href="#_configuring_order_pool_cleanup">3.10. Configuring order pool cleanup</a></li>
-<li><a href="#_using_model_element_properties_for_project_specific_data">3.11. Using model element properties for project-specific data</a></li>
-</ul>
-</li>
-<li><a href="#_reference">4. Reference</a>
-<ul class="sectlevel2">
-<li><a href="#_supported_navigation_principles_vehicle_types">4.1. Supported navigation principles / vehicle types</a></li>
-<li><a href="#_maximum_vehicle_fleet_size">4.2. Maximum vehicle fleet size</a></li>
-<li><a href="#_requirements_for_vehicles">4.3. Requirements for vehicles</a></li>
-<li><a href="#_system_requirements">4.4. System requirements</a></li>
-<li><a href="#_system_components_and_structure">4.5. System components and structure</a></li>
-<li><a href="#_plant_model_elements">4.6. Plant model elements</a>
-<ul class="sectlevel3">
-<li><a href="#_point">4.6.1. Point</a></li>
-<li><a href="#_path">4.6.2. Path</a></li>
-<li><a href="#_location">4.6.3. Location</a></li>
-<li><a href="#_location_type">4.6.4. Location type</a></li>
-<li><a href="#_vehicle">4.6.5. Vehicle</a></li>
-<li><a href="#_block">4.6.6. Block</a></li>
-<li><a href="#_layer">4.6.7. Layer</a></li>
-<li><a href="#_layer_group">4.6.8. Layer group</a></li>
-</ul>
-</li>
-<li><a href="#_plant_operation_elements">4.7. Plant operation elements</a>
-<ul class="sectlevel3">
-<li><a href="#_transport_order">4.7.1. Transport order</a></li>
-<li><a href="#_order_sequence">4.7.2. Order sequence</a></li>
-<li><a href="#_peripheral_job">4.7.3. Peripheral job</a></li>
-</ul>
-</li>
-<li><a href="#_common_element_attributes">4.8. Common element attributes</a>
-<ul class="sectlevel3">
-<li><a href="#_unique_name">4.8.1. Unique name</a></li>
-<li><a href="#_generic_properties">4.8.2. Generic properties</a></li>
-</ul>
-</li>
-<li><a href="#_default_strategies">4.9. Default strategies</a>
-<ul class="sectlevel3">
-<li><a href="#_default_dispatcher">4.9.1. Default dispatcher</a></li>
-<li><a href="#_default_router">4.9.2. Default router</a></li>
-<li><a href="#_default_scheduler">4.9.3. Default scheduler</a></li>
-<li><a href="#_default_peripheral_job_dispatcher">4.9.4. Default peripheral job dispatcher</a></li>
-</ul>
-</li>
-<li><a href="#_configuring_opentcs">4.10. Configuring openTCS</a>
-<ul class="sectlevel3">
-<li><a href="#_application_language">4.10.1. Application language</a></li>
-<li><a href="#_kernel_configuration">4.10.2. Kernel configuration</a></li>
-<li><a href="#_kernel_control_center_configuration">4.10.3. Kernel Control Center configuration</a></li>
-<li><a href="#_model_editor_configuration">4.10.4. Model Editor configuration</a></li>
-<li><a href="#_operations_desk_configuration">4.10.5. Operations Desk configuration</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 
+<div id="header">
+<h1>openTCS：用户手册</h1>
+<span>openTCS 开发团队</span><br>
+<span>版本 7.3.0（中文译本）</span><br>
+</div>
 <div id="toc" class="toc">
 <div id="toctitle">目录</div>
 <ul class="sectlevel1">
-<li><a href="#11-软件用途">1.1. 软件用途</a></li>
-<li><a href="#12-许可证">1.2. 许可证</a></li>
-<li><a href="#13-扩展文档">1.3. 扩展文档</a></li>
-<li><a href="#14-支持">1.4. 支持</a></li>
+<li><a href="#目录">目录</a></li>
+  <li><a href="#11-软件用途">1.1. 软件用途</a></li>
+  <li><a href="#12-许可证">1.2. 许可证</a></li>
+  <li><a href="#13-扩展文档">1.3. 扩展文档</a></li>
+  <li><a href="#14-支持">1.4. 支持</a></li>
 <li><a href="#2-教程">2. 教程</a></li>
-<li><a href="#21-构建新的工厂模型">2.1. 构建新的工厂模型</a></li>
-<li><a href="#22-操作工厂">2.2. 操作工厂</a></li>
+  <li><a href="#21-构建新的工厂模型">2.1. 构建新的工厂模型</a></li>
+  <li><a href="#22-操作工厂">2.2. 操作工厂</a></li>
 <li><a href="#3-操作指南">3. 操作指南</a></li>
-<li><a href="#31-在点位之间创建曲线路径">3.1. 在点位之间创建曲线路径</a></li>
-<li><a href="#32-在启动时自动启用驱动器">3.2. 在启动时自动启用驱动器</a></li>
-<li><a href="#33-在启动时自动选择特定的车辆驱动器">3.3. 在启动时自动选择特定的车辆驱动器</a></li>
-<li><a href="#34-配置虚拟车辆的特性">3.4. 配置虚拟车辆的特性</a></li>
-<li><a href="#35-转换发送给从车辆接收的坐标">3.5. 转换发送给/从车辆接收的坐标</a></li>
-<li><a href="#36-在单独的系统上运行内核及其客户端">3.6. 在单独的系统上运行内核及其客户端</a></li>
-<li><a href="#37-加密与内核的通信">3.7. 加密与内核的通信</a></li>
-<li><a href="#38-在多宿主内核主机上启用-rmi">3.8. 在多宿主内核主机上启用 RMI</a></li>
-<li><a href="#39-配置自动停车和充电">3.9. 配置自动停车和充电</a></li>
-<li><a href="#310-配置订单池清理">3.10. 配置订单池清理</a></li>
-<li><a href="#311-使用模型元素属性进行项目特定数据存储">3.11. 使用模型元素属性进行项目特定数据存储</a></li>
+  <li><a href="#31-在点位之间创建曲线路径">3.1. 在点位之间创建曲线路径</a></li>
+  <li><a href="#32-在启动时自动启用驱动器">3.2. 在启动时自动启用驱动器</a></li>
+  <li><a href="#33-在启动时自动选择特定的车辆驱动器">3.3. 在启动时自动选择特定的车辆驱动器</a></li>
+  <li><a href="#34-配置虚拟车辆的特性">3.4. 配置虚拟车辆的特性</a></li>
+  <li><a href="#35-转换发送给从车辆接收的坐标">3.5. 转换发送给/从车辆接收的坐标</a></li>
+  <li><a href="#36-在单独的系统上运行内核及其客户端">3.6. 在单独的系统上运行内核及其客户端</a></li>
+  <li><a href="#37-加密与内核的通信">3.7. 加密与内核的通信</a></li>
+  <li><a href="#38-在多宿主内核主机上启用-rmi">3.8. 在多宿主内核主机上启用 RMI</a></li>
+  <li><a href="#39-配置自动停车和充电">3.9. 配置自动停车和充电</a></li>
+  <li><a href="#310-配置订单池清理">3.10. 配置订单池清理</a></li>
+  <li><a href="#311-使用模型元素属性进行项目特定数据存储">3.11. 使用模型元素属性进行项目特定数据存储</a></li>
 <li><a href="#4-参考">4. 参考</a></li>
-<li><a href="#41-支持的导航原理车辆类型">4.1. 支持的导航原理/车辆类型</a></li>
-<li><a href="#42-最大车队规模">4.2. 最大车队规模</a></li>
-<li><a href="#43-车辆要求">4.3. 车辆要求</a></li>
-<li><a href="#44-系统要求">4.4. 系统要求</a></li>
-<li><a href="#45-系统组件和结构">4.5. 系统组件和结构</a></li>
-<li><a href="#46-工厂模型元素">4.6. 工厂模型元素</a></li>
-<li><a href="#47-工厂运行元素">4.7. 工厂运行元素</a></li>
-<li><a href="#48-公共元素属性">4.8. 公共元素属性</a></li>
-<li><a href="#49-默认策略">4.9. 默认策略</a></li>
-<li><a href="#410-配置-opentcs">4.10. 配置 openTCS</a></li>
+  <li><a href="#41-支持的导航原理车辆类型">4.1. 支持的导航原理/车辆类型</a></li>
+  <li><a href="#42-最大车队规模">4.2. 最大车队规模</a></li>
+  <li><a href="#43-车辆要求">4.3. 车辆要求</a></li>
+  <li><a href="#44-系统要求">4.4. 系统要求</a></li>
+  <li><a href="#45-系统组件和结构">4.5. 系统组件和结构</a></li>
+  <li><a href="#46-工厂模型元素">4.6. 工厂模型元素</a></li>
+  <li><a href="#47-工厂运行元素">4.7. 工厂运行元素</a></li>
+  <li><a href="#48-公共元素属性">4.8. 公共元素属性</a></li>
+  <li><a href="#49-默认策略">4.9. 默认策略</a></li>
+  <li><a href="#410-配置-opentcs">4.10. 配置 openTCS</a></li>
 </ul>
 </div>
 <div id="content">
@@ -780,7 +673,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/screenshot_modelling.png" alt="screenshot">
+<img src="_images/screenshot_modelling.png" alt="screenshot">
 </div>
 </div>
 <div class="olist arabic">
@@ -870,7 +763,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/screenshot_envelope_editing.drawio.png" alt="screenshot">
+<img src="_images/screenshot_envelope_editing.drawio.png" alt="screenshot">
 </div>
 </div>
 <div class="paragraph">
@@ -878,7 +771,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/screenshot_vehicle_envelope_key.drawio.png" alt="screenshot">
+<img src="_images/screenshot_vehicle_envelope_key.drawio.png" alt="screenshot">
 </div>
 </div>
 </div>
@@ -914,7 +807,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/screenshot_layers_panel.png" alt="screenshot">
+<img src="_images/screenshot_layers_panel.png" alt="screenshot">
 </div>
 </div>
 <div class="paragraph">
@@ -934,7 +827,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/screenshot_layer_groups_panel.png" alt="screenshot">
+<img src="_images/screenshot_layer_groups_panel.png" alt="screenshot">
 </div>
 </div>
 </div>
@@ -969,7 +862,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/screenshot_operations_desk.png" alt="screenshot">
+<img src="_images/screenshot_operations_desk.png" alt="screenshot">
 </div>
 </div>
 <div class="olist arabic">
@@ -995,7 +888,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/screenshot_driver_panel.png" alt="screenshot">
+<img src="_images/screenshot_driver_panel.png" alt="screenshot">
 </div>
 </div>
 </div>
@@ -1263,7 +1156,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/screenshot_operations_desk_pause_and_resume.png" alt="screenshot">
+<img src="_images/screenshot_operations_desk_pause_and_resume.png" alt="screenshot">
 </div>
 </div>
 </div>
@@ -1667,7 +1560,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/system_overview.png" alt="screenshot">
+<img src="_images/system_overview.png" alt="screenshot">
 </div>
 </div>
 <div class="paragraph">
@@ -1755,7 +1648,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/bounding-box.drawio.png" alt="screenshot">
+<img src="_images/bounding-box.drawio.png" alt="screenshot">
 </div>
 </div>
 <div class="paragraph">
@@ -1778,7 +1671,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/bounding-box-for-vehicle-and-point.drawio.png" alt="screenshot">
+<img src="_images/bounding-box-for-vehicle-and-point.drawio.png" alt="screenshot">
 </div>
 </div>
 <div class="paragraph">
@@ -1801,7 +1694,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/bounding-box-vehicle-on-point.drawio.png" alt="screenshot">
+<img src="_images/bounding-box-vehicle-on-point.drawio.png" alt="screenshot">
 </div>
 </div>
 <div class="paragraph">
@@ -2105,7 +1998,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/transportorder_dependencies_example.png" alt="screenshot">
+<img src="_images/transportorder_dependencies_example.png" alt="screenshot">
 </div>
 </div>
 <div class="paragraph">
@@ -2171,7 +2064,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ordersequence_example.png" alt="screenshot">
+<img src="_images/ordersequence_example.png" alt="screenshot">
 </div>
 </div>
 </div>
@@ -2948,8 +2841,11 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 </div>
 </div>
+
 </div>
-</div>
+<div id="footer">
+<div id="footer-text">
+Version 7.3.0<br>
 </div>
 </div>
 </body>
