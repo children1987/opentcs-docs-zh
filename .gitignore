@@ -1,0 +1,14 @@
+# Build output
+node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
