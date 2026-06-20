@@ -2,6 +2,7 @@
   "name": "opentcs-docs-zh",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "openTCS 用户手册中文翻译",
   "scripts": {
     "dev": "vitepress dev docs",
