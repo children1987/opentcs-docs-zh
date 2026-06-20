@@ -83,7 +83,7 @@ opentcs-docs-zh/
 |------|------|
 | [openTCS 官方](https://github.com/openTCS/opentcs) | 交通控制系统的上游仓库 |
 | [opentcs-i18n-zh](https://github.com/children1987/opentcs-i18n-zh) | openTCS 中文界面语言包（JAR，丢入即用） |
-| [官方文档（英文）](https://www.opentcs.org/docs/) | 英文原版在线文档 |
+| [官方文档（英文）](https://opentcs.org/docs/7/index.html) | 英文原版在线文档 |
 | [科聪 openTCS 驱动](https://github.com/children1987/kecong-opentcs-driver) | 科聪 AGV 的 openTCS VehicleCommAdapter 驱动 |
 
 ## 许可证

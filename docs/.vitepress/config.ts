@@ -22,7 +22,7 @@ export default defineConfig({
         items: [
           { text: 'openTCS 官方', link: 'https://github.com/openTCS/opentcs' },
           { text: '中文 i18n JAR', link: 'https://github.com/children1987/opentcs-i18n-zh' },
-          { text: '官方文档 (英文)', link: 'https://www.opentcs.org/docs/' },
+          { text: '官方文档 (英文)', link: 'https://opentcs.org/docs/7/index.html' },
         ]
       }
     ],
