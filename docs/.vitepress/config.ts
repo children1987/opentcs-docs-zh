@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: '/opentcs-docs-zh/',
   lang: 'zh-CN',
   title: 'openTCS 用户手册',
   description: 'openTCS 中文用户手册 — 面向最终用户和部署实施人员',
