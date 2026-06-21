@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.opentcs.customizations"},{"l":"org.opentcs.customizations.controlcenter"},{"l":"org.opentcs.customizations.kernel"},{"l":"org.opentcs.customizations.plantoverview"}];updateSearchResults();

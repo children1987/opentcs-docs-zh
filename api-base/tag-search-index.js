@@ -1,0 +1,1 @@
+tagSearchIndex = [{"l":"Constant Field Values","h":"","u":"constant-values.html"},{"l":"Serialized Form","h":"","u":"serialized-form.html"},{"l":"Support for parallelization","h":"interface org.opentcs.components.kernel.routing.EdgeEvaluator","d":"Section","u":"org/opentcs/components/kernel/routing/EdgeEvaluator.html#support-for-parallelization-heading"}];updateSearchResults();
