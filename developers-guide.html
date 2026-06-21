@@ -540,93 +540,93 @@ SPDX-License-Identifier: CC-BY-4.0
 <span id="revnumber">version 7.3.0</span>
 </div>
 <div class="toc2" id="toc">
-<div id="toctitle">Table of Contents</div>
+<div id="toctitle">目录</div>
 <ul class="sectlevel1">
-<li><a href="#_tutorials">1. Tutorials</a>
+<li><a href="#_tutorials">1. 教程</a>
 <ul class="sectlevel2">
-<li><a href="#_getting_started">1.1. Getting started</a>
+<li><a href="#_getting_started">1.1. 入门指南</a>
 <ul class="sectlevel3">
-<li><a href="#_prepare_integration_project">1.1.1. Prepare integration project</a></li>
-<li><a href="#_add_custom_kernel_extension">1.1.2. Add custom kernel extension</a></li>
-<li><a href="#_add_custom_plugin_panel_to_operations_desk">1.1.3. Add custom plugin panel to Operations Desk</a></li>
-<li><a href="#_build_custom_binary_distribution">1.1.4. Build custom binary distribution</a></li>
-<li><a href="#_try_the_custom_components_at_runtime">1.1.5. Try the custom components at runtime</a></li>
+<li><a href="#_prepare_integration_project">1.1.1. 准备集成项目</a></li>
+<li><a href="#_add_custom_kernel_extension">1.1.2. 添加自定义内核扩展</a></li>
+<li><a href="#_add_custom_plugin_panel_to_operations_desk">1.1.3. 向操作台添加自定义插件面板</a></li>
+<li><a href="#_build_custom_binary_distribution">1.1.4. 构建自定义二进制发行版</a></li>
+<li><a href="#_try_the_custom_components_at_runtime">1.1.5. 在运行时尝试自定义组件</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_how_to_guides">2. How-to Guides</a>
+<li><a href="#_how_to_guides">2. 操作指南</a>
 <ul class="sectlevel2">
-<li><a href="#_acquiring_service_objects">2.1. Acquiring service objects</a></li>
-<li><a href="#_working_with_transport_orders">2.2. Working with transport orders</a>
+<li><a href="#_acquiring_service_objects">2.1. 获取服务对象</a></li>
+<li><a href="#_working_with_transport_orders">2.2. 处理运输单</a>
 <ul class="sectlevel3">
-<li><a href="#_how_to_create_a_transport_order">2.2.1. How to create a transport order</a></li>
-<li><a href="#_how_to_create_a_transport_order_that_sends_a_vehicle_to_a_point_instead_of_a_location">2.2.2. How to create a transport order that sends a vehicle to a point instead of a location</a></li>
-<li><a href="#_how_to_work_with_order_sequences">2.2.3. How to work with order sequences</a></li>
-<li><a href="#_how_to_withdraw_a_transport_order">2.2.4. How to withdraw a transport order</a></li>
-<li><a href="#_how_to_withdraw_a_transport_order_via_a_vehicle_reference">2.2.5. How to withdraw a transport order via a vehicle reference</a></li>
+<li><a href="#_how_to_create_a_transport_order">2.2.1. 如何创建运输单</a></li>
+<li><a href="#_how_to_create_a_transport_order_that_sends_a_vehicle_to_a_point_instead_of_a_location">2.2.2. 如何创建将车辆发送到点位而非位置的运输单</a></li>
+<li><a href="#_how_to_work_with_order_sequences">2.2.3. 如何使用订单序列</a></li>
+<li><a href="#_how_to_withdraw_a_transport_order">2.2.4. 如何撤回运输单</a></li>
+<li><a href="#_how_to_withdraw_a_transport_order_via_a_vehicle_reference">2.2.5. 如何通过车辆引用撤回运输单</a></li>
 </ul>
 </li>
-<li><a href="#_using_the_event_bus">2.3. Using the event bus</a></li>
-<li><a href="#_customizing_and_extending_the_kernel_application">2.4. Customizing and extending the kernel application</a>
+<li><a href="#_using_the_event_bus">2.3. 使用事件总线</a></li>
+<li><a href="#_customizing_and_extending_the_kernel_application">2.4. 自定义和扩展内核应用程序</a>
 <ul class="sectlevel3">
-<li><a href="#_guice_modules_for_customizing_the_kernel_application">2.4.1. Guice modules for customizing the kernel application</a></li>
-<li><a href="#_replacing_default_kernel_components">2.4.2. Replacing default kernel components</a></li>
-<li><a href="#_customizing_transformation_of_data_sent_to_received_from_vehicles">2.4.3. Customizing transformation of data sent to / received from vehicles</a></li>
-<li><a href="#_customizing_allowed_deviation_for_vehicle_positions">2.4.4. Customizing allowed deviation for vehicle positions</a></li>
-<li><a href="#_developing_vehicle_drivers">2.4.5. Developing vehicle drivers</a></li>
-<li><a href="#_sending_messages_to_communication_adapters">2.4.6. Sending messages to communication adapters</a></li>
-<li><a href="#_acquiring_data_from_communication_adapters">2.4.7. Acquiring data from communication adapters</a></li>
-<li><a href="#_developing_peripheral_drivers">2.4.8. Developing peripheral drivers</a></li>
-<li><a href="#section-kernel-executor">2.4.9. Executing code in kernel context</a></li>
+<li><a href="#_guice_modules_for_customizing_the_kernel_application">2.4.1. 用于自定义内核应用程序的 Guice 模块</a></li>
+<li><a href="#_replacing_default_kernel_components">2.4.2. 替换默认内核组件</a></li>
+<li><a href="#_customizing_transformation_of_data_sent_to_received_from_vehicles">2.4.3. 自定义发送给/从车辆接收的数据转换</a></li>
+<li><a href="#_customizing_allowed_deviation_for_vehicle_positions">2.4.4. 自定义车辆位置的允许偏差</a></li>
+<li><a href="#_developing_vehicle_drivers">2.4.5. 开发车辆驱动程序</a></li>
+<li><a href="#_sending_messages_to_communication_adapters">2.4.6. 向通信适配器发送消息</a></li>
+<li><a href="#_acquiring_data_from_communication_adapters">2.4.7. 从通信适配器获取数据</a></li>
+<li><a href="#_developing_peripheral_drivers">2.4.8. 开发外设驱动程序</a></li>
+<li><a href="#section-kernel-executor">2.4.9. 在内核上下文中执行代码</a></li>
 </ul>
 </li>
-<li><a href="#_customizing_and_extending_the_control_center_application">2.5. Customizing and extending the control center application</a>
+<li><a href="#_customizing_and_extending_the_control_center_application">2.5. 定制和扩展控制中心应用程序</a>
 <ul class="sectlevel3">
-<li><a href="#_guice_modules_for_customizing_the_control_center_application">2.5.1. Guice modules for customizing the control center application</a></li>
-<li><a href="#_registering_driver_panels_with_the_control_center">2.5.2. Registering driver panels with the control center</a></li>
-<li><a href="#_how_to_change_the_window_icon">2.5.3. How to change the window icon</a></li>
+<li><a href="#_guice_modules_for_customizing_the_control_center_application">2.5.1. 用于定制控制中心应用程序的 Guice 模块</a></li>
+<li><a href="#_registering_driver_panels_with_the_control_center">2.5.2. 将驾驶员面板注册到控制中心</a></li>
+<li><a href="#_how_to_change_the_window_icon">2.5.3. 如何更改窗口图标</a></li>
 </ul>
 </li>
-<li><a href="#_customizing_and_extending_the_model_editor_and_operations_desk_applications">2.6. Customizing and extending the Model Editor and Operations Desk applications</a>
+<li><a href="#_customizing_and_extending_the_model_editor_and_operations_desk_applications">2.6. 自定义和扩展模型编辑器和操作台应用程序</a>
 <ul class="sectlevel3">
-<li><a href="#_guice_modules_for_extending_the_operations_desk_application">2.6.1. Guice modules for extending the Operations Desk application</a></li>
-<li><a href="#_how_to_add_importexport_functionality_for_plant_model_data">2.6.2. How to add import/export functionality for plant model data</a></li>
-<li><a href="#_how_to_create_a_plugin_panel_for_the_operations_desk_client">2.6.3. How to create a plugin panel for the Operations Desk client</a></li>
-<li><a href="#_how_to_create_a_locationvehicle_theme_for_opentcs">2.6.4. How to create a location/vehicle theme for openTCS</a></li>
-<li><a href="#_how_to_change_the_window_icon_2">2.6.5. How to change the window icon</a></li>
+<li><a href="#_guice_modules_for_extending_the_operations_desk_application">2.6.1. 用于扩展操作台应用程序的 Guice 模块</a></li>
+<li><a href="#_how_to_add_importexport_functionality_for_plant_model_data">2.6.2. 如何为工厂模型数据添加导入/导出功能</a></li>
+<li><a href="#_how_to_create_a_plugin_panel_for_the_operations_desk_client">2.6.3. 如何为操作台客户端创建插件面板</a></li>
+<li><a href="#_how_to_create_a_locationvehicle_theme_for_opentcs">2.6.4. 如何为 openTCS 创建位置/车辆主题</a></li>
+<li><a href="#_how_to_change_the_window_icon_2">2.6.5. 如何更改窗口图标</a></li>
 </ul>
 </li>
-<li><a href="#_application_configuration">2.7. Application configuration</a>
+<li><a href="#_application_configuration">2.7. 应用程序配置</a>
 <ul class="sectlevel3">
-<li><a href="#_supplementing_configuration_sources_using_gestalt">2.7.1. Supplementing configuration sources using gestalt</a></li>
+<li><a href="#_supplementing_configuration_sources_using_gestalt">2.7.1. 使用 gestalt 补充配置源</a></li>
 </ul>
 </li>
-<li><a href="#_translating_the_user_interfaces">2.8. Translating the user interfaces</a>
+<li><a href="#_translating_the_user_interfaces">2.8. 翻译用户界面</a>
 <ul class="sectlevel3">
-<li><a href="#_extracting_default_language_files">2.8.1. Extracting default language files</a></li>
-<li><a href="#_creating_a_translation">2.8.2. Creating a translation</a></li>
-<li><a href="#_integrating_a_translation">2.8.3. Integrating a translation</a></li>
-<li><a href="#_updating_a_translation">2.8.4. Updating a translation</a></li>
+<li><a href="#_extracting_default_language_files">2.8.1. 提取默认语言文件</a></li>
+<li><a href="#_creating_a_translation">2.8.2. 创建翻译</a></li>
+<li><a href="#_integrating_a_translation">2.8.3. 集成翻译</a></li>
+<li><a href="#_updating_a_translation">2.8.4. 更新翻译</a></li>
 </ul>
 </li>
-<li><a href="#_updating_to_a_new_version_of_opentcs">2.9. Updating to a new version of openTCS</a></li>
+<li><a href="#_updating_to_a_new_version_of_opentcs">2.9. 升级到新版本 openTCS</a></li>
 </ul>
 </li>
-<li><a href="#_reference">3. Reference</a>
+<li><a href="#_reference">3. 参考</a>
 <ul class="sectlevel2">
-<li><a href="#_system_requirements">3.1. System requirements</a></li>
-<li><a href="#_available_artifacts_and_api_compatibility">3.2. Available artifacts and API compatibility</a></li>
-<li><a href="#_third_party_dependencies">3.3. Third-party dependencies</a></li>
-<li><a href="#_modularity_and_extensibility">3.4. Modularity and extensibility</a></li>
-<li><a href="#_logging">3.5. Logging</a></li>
-<li><a href="#_integration_project_template">3.6. Integration project template</a></li>
-<li><a href="#_opentcs_apis">3.7. openTCS APIs</a></li>
-<li><a href="#section-kernel-api">3.8. The kernel’s Java API</a></li>
-<li><a href="#_transport_orders_in_opentcs">3.9. Transport orders in openTCS</a>
+<li><a href="#_system_requirements">3.1. 系统要求</a></li>
+<li><a href="#_available_artifacts_and_api_compatibility">3.2. 可用工件和 API 兼容性</a></li>
+<li><a href="#_third_party_dependencies">3.3. 第三方依赖项</a></li>
+<li><a href="#_modularity_and_extensibility">3.4. 模块化与可扩展性</a></li>
+<li><a href="#_logging">3.5. 日志记录</a></li>
+<li><a href="#_integration_project_template">3.6. 集成项目模板</a></li>
+<li><a href="#_opentcs_apis">3.7. openTCS API</a></li>
+<li><a href="#section-kernel-api">3.8. 内核的 Java API</a></li>
+<li><a href="#_transport_orders_in_opentcs">3.9. openTCS 中的运输单</a>
 <ul class="sectlevel3">
-<li><a href="#_a_transport_orders_life_cycle">3.9.1. A transport order’s life cycle</a></li>
-<li><a href="#_structure_and_processing_of_transport_orders">3.9.2. Structure and processing of transport orders</a></li>
+<li><a href="#_a_transport_orders_life_cycle">3.9.1. 运输单的生命周期</a></li>
+<li><a href="#_structure_and_processing_of_transport_orders">3.9.2. 运输单的结构和处理</a></li>
 </ul>
 </li>
 </ul>
