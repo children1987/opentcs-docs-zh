@@ -653,20 +653,17 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect2">
 <h3 id="_purpose_of_the_software">1.1. 软件用途</h3>
 <div class="paragraph">
-<p>openTCS (short for <em>open Transportation Control System</em>) is a free control system software for coordinating fleets of <a href="https://en.wikipedia.org/wiki/Automated_guided_vehicle">automated guided vehicles (AGVs)</a> and mobile robots, e.g. in production plants.
+<p>openTCS（open Transportation Control System 的缩写）是一款免费的控制系统软件，用于协调自动导引车（AGV）和移动机器人车队，例如在生产工厂中。<em>open Transportation Control System</em>) is a free control system software for coordinating fleets of <a href="https://en.wikipedia.org/wiki/Automated_guided_vehicle">automated guided vehicles (AGVs)</a> and mobile robots, e.g. in production plants.
 It should generally be possible to control any automatic vehicle with communication capabilities with it, but AGVs are the main target.</p>
 </div>
 <div class="paragraph">
-<p>openTCS controls vehicles independent of their specific characteristics like navigation principle/track guidance system or load handling device.
-It can manage vehicles of different types (and performing different tasks) at the same time.</p>
+<p>openTCS 控制车辆时独立于其具体特性，如导航原理/轨道引导系统或负载处理装置。</p>
 </div>
 <div class="paragraph">
-<p>openTCS itself is not a complete product you use out-of-the-box to control AGVs with.
-Primarily, it is a framework/an implementation of the basic data structures and algorithms (routing of vehicles, dispatching orders to them, managing the fleet’s traffic) needed for running an AGV system with more than one vehicle.
-It tries to be as generic as possible to allow interoperation with vehicles of practically any vendor.</p>
+<p>openTCS 本身并不是一个开箱即用以控制 AGV 的完整产品。</p>
 </div>
 <div class="paragraph">
-<p>As a consequence, it is usually necessary to at least create and plug in a vehicle driver (called <em>communication adapter</em> in openTCS-speak) that translates between the abstract interface of the openTCS kernel and the communication protocol your vehicle understands.
+<p>因此，通常至少需要创建并插入一个车辆驱动程序（在 openTCS 术语中称为通信适配器），该驱动程序负责在 openTCS 内核的抽象接口与您的车辆所理解的通信协议之间进行转换。<em>communication adapter</em> in openTCS-speak) that translates between the abstract interface of the openTCS kernel and the communication protocol your vehicle understands.
 (Such vehicle drivers are similar to device drivers in operating systems, in a way.)
 Depending on your needs, it might also be necessary to adapt algorithms or add project-specific strategies.</p>
 </div>
@@ -674,28 +671,25 @@ Depending on your needs, it might also be necessary to adapt algorithms or add p
 <div class="sect2">
 <h3 id="_licensing">1.2. 许可证</h3>
 <div class="paragraph">
-<p>openTCS is being maintained by the openTCS team at the <a href="https://www.iml.fraunhofer.de/">Fraunhofer Institute for Material Flow and Logistics</a>.</p>
+<p>openTCS 由弗劳恩霍夫材料流动与物流研究所的 openTCS 团队维护。<a href="https://www.iml.fraunhofer.de/">Fraunhofer Institute for Material Flow and Logistics</a>.</p>
 </div>
 <div class="paragraph">
-<p>The openTCS source code is licensed under the terms of the MIT License.
-Please note that openTCS is distributed without any warranty - without even the implied warranty of merchantability or fitness for a particular purpose.
-Please refer to the license (<code>LICENSE.txt</code>) for details.</p>
+<p>openTCS 源代码根据 MIT 许可证条款授权。<code>LICENSE.txt</code>) for details.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_further_documentation">1.3. 扩展文档</h3>
 <div class="paragraph">
-<p>If you intend to extend and customize openTCS, please also see the Developer’s Guide and the JavaDoc documentation that is part of the openTCS distribution.</p>
+<p>如果您打算扩展和自定义 openTCS，请参阅开发者指南以及 openTCS 发行版中包含的 JavaDoc 文档。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_support">1.4. 支持</h3>
 <div class="paragraph">
-<p>Please note that, while Fraunhofer IML is happy to be able to release openTCS to the public as free software and would like to see it used and improved continuously, the development team cannot provide unlimited free support for it.</p>
+<p>请注意，虽然弗劳恩霍夫 IML 很高兴能够将 openTCS 作为免费软件发布给公众，并希望看到它被持续使用和改进，但开发团队无法为其提供无限的免费支持。</p>
 </div>
 <div class="paragraph">
-<p>If you have technical/support questions, please post them on the project’s discussion forum, where the community and the developers involved will respond as time permits.
-You can find the discussion forum at <a class="bare" href="https://github.com/openTCS/opentcs/discussions">https://github.com/openTCS/opentcs/discussions</a>.
+<p>如果您有技术问题/支持问题，请将其发布在项目讨论论坛上，社区和涉及的开发人员将在时间允许的情况下作出回应。<a class="bare" href="https://github.com/openTCS/opentcs/discussions">https://github.com/openTCS/opentcs/discussions</a>.
 Please remember to include enough data in your problem report to help the developers help you, e.g.:</p>
 </div>
 <div class="ulist">
@@ -715,19 +709,18 @@ Please remember to include enough data in your problem report to help the develo
 <h2 id="_tutorials">2. 教程</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To create or to edit the plant model of a transport system, use the Model Editor application.</p>
+<p>要创建或编辑运输系统的工厂模型，请使用模型编辑器应用程序。</p>
 </div>
 <div class="paragraph">
-<p>As a graphical frontend for a transportation control system based on an existing plant model, use the Operations Desk application.
-Note that the Operations Desk application always requires a running openTCS kernel that it can connect to.</p>
+<p>作为基于现有工厂模型的运输控制系统的图形前端，请使用操作台应用程序。</p>
 </div>
 <div class="paragraph">
-<p>Starting an application is done by executing the respective Unix shell script (<code>*.sh</code>) or Windows batch file (<code>*.bat</code>).</p>
+<p>启动应用程序是通过执行相应的 Unix shell 脚本（*.sh）或 Windows 批处理文件（*.bat）来完成的。<code>*.sh</code>) or Windows batch file (<code>*.bat</code>).</p>
 </div>
 <div class="sect2">
 <h3 id="_constructing_a_new_plant_model">2.1. 构建新的工厂模型</h3>
 <div class="paragraph">
-<p>These instructions demonstrate how a new plant model is created and filled with driving course elements so that it can eventually be used for plant operation.</p>
+<p>这些说明演示了如何创建新的工厂模型并填充行驶路线元素，以便最终可用于工厂运营。</p>
 </div>
 <div class="sect3">
 <h4 id="_starting_the_model_editor">2.1.1. 启动模型编辑器</h4>
@@ -830,7 +823,7 @@ You will not be able to create any transport orders and assign them to vehicles 
 <div class="sect4">
 <h5 id="_adding_and_configuring_peripheral_devices">2.1.2.1. 添加和配置外设</h5>
 <div class="paragraph">
-<p>As described in <a href="#_plant_model_elements">Plant model elements</a>, locations can be used to map peripheral devices.
+<p>如工厂模型元素中所述，位置可用于映射外设。<a href="#_plant_model_elements">Plant model elements</a>, locations can be used to map peripheral devices.
 This means that, after executing the steps described above, there are now two locations available in the plant model that can potentially be used to integrate two peripheral devices.
 To integrate an exemplary peripheral device, the following additional steps are required:</p>
 </div>
@@ -916,7 +909,7 @@ You will not be able to create any peripheral jobs and assign them to peripheral
 <div class="sect3">
 <h4 id="_working_with_vehicle_envelopes">2.1.3. 使用车辆包络线</h4>
 <div class="paragraph">
-<p>As described in <a href="#_plant_model_elements">Plant model elements</a>, vehicle envelopes can be defined at points and paths.
+<p>如工厂模型元素中所述，可以在点位和路径上定义车辆包络线。<a href="#_plant_model_elements">Plant model elements</a>, vehicle envelopes can be defined at points and paths.
 A vehicle envelope is a sequence of vertices (i.e., points with x and y coordinates) that, when connected in their defined order, represent the area that may be occupied by a vehicle.
 In addition to the sequence of vertices, an <em>envelope key</em> is always assigned to a vehicle envelope.
 By referencing an envelope key, a vehicle indicates which envelopes (that may be defined at points or paths) should be considered when it allocates resources.
@@ -951,8 +944,7 @@ If an envelope key is set for a vehicle, but no envelope with the respective key
 <div class="sect3">
 <h4 id="_working_with_layers_and_layer_groups">2.1.4. 使用图层和图层组</h4>
 <div class="paragraph">
-<p>In addition to adding elements to the plant model, the Model Editor allows plant models to be created with different layers and layer groups.
-For more details on the properties of layers and layer groups see <a href="#_layer">Layer</a> and <a href="#_layer_group">Layer group</a>.</p>
+<p>除了向工厂模型添加元素外，模型编辑器还允许使用不同的图层和图层组创建工厂模型。<a href="#_layer">Layer</a> and <a href="#_layer_group">Layer group</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -969,9 +961,7 @@ With the Operations Desk application it’s only possible to show/hide layers an
 <div class="sect4">
 <h5 id="_layers">2.1.4.1. 图层</h5>
 <div class="paragraph">
-<p>A layer groups points, paths, locations and links and allows the driving course elements it contains to be shown or hidden on demand.
-Layers can be created, removed and edited using the panel shown in the screenshot below (see red frame).
-There are a few things to keep in mind when working with layers:</p>
+<p>图层对点位、路径、位置和链接进行分组，并允许按需显示或隐藏其包含的行驶路线元素。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1019,9 +1009,7 @@ If a vehicle is reported at a point that is part of a hidden layer (or layer gro
 <div class="sect4">
 <h5 id="_layer_groups">2.1.4.2. 图层组</h5>
 <div class="paragraph">
-<p>A layer group groups, as the name implies, one or more layers and allows multiple layers to be shown or hidden at once.
-Layer groups can be created, removed and edited using the panel shown in the screenshot below (see red frame).
-There are a few things to keep in mind when working with layer groups:</p>
+<p>正如名称所示，图层组对一个或多个图层进行分组，并允许同时显示或隐藏多个图层。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1044,18 +1032,18 @@ There are a few things to keep in mind when working with layer groups:</p>
 <div class="sect3">
 <h4 id="_saving_the_plant_model">2.1.5. 保存工厂模型</h4>
 <div class="paragraph">
-<p>You have two options to save the model: on your local hard drive or in a running kernel instance the Model Editor can connect to.</p>
+<p>您有两种保存模型的选项：保存在本地硬盘上，或保存在模型编辑器可以连接的正在运行的内核实例中。</p>
 </div>
 <div class="sect4">
 <h5 id="_saving_the_model_locally">2.1.5.1. 在本地保存模型</h5>
 <div class="paragraph">
-<p>Select <b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">Save Model</b></span></b> or <b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">Save Model As…​</b></span></b> and enter a file name for the model.</p>
+<p>选择文件 &gt; 保存模型 或 文件 &gt; 另存为模型…​ 并为模型输入文件名。<b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">Save Model</b></span></b> or <b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">Save Model As…​</b></span></b> and enter a file name for the model.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_loading_the_model_into_a_running_kernel">2.1.5.2. 将模型加载到正在运行的内核中</h5>
 <div class="paragraph">
-<p>Select <b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">Upload model to kernel</b></span></b> and your model will be loaded into the kernel, letting you use it for operating a plant.
+<p>选择“文件上传”模型至内核，您的模型将被加载到内核中，从而可用于工厂操作。<b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">Upload model to kernel</b></span></b> and your model will be loaded into the kernel, letting you use it for operating a plant.
 This, though, requires you to save it locally first.
 Note that any model that was previously loaded in the kernel will be replaced, as the kernel can only store a single model at a time.</p>
 </div>
@@ -1065,7 +1053,7 @@ Note that any model that was previously loaded in the kernel will be replaced, a
 <div class="sect2">
 <h3 id="_operating_the_plant">2.2. 操作工厂</h3>
 <div class="paragraph">
-<p>These instructions explain how the newly created model that was loaded into the kernel can be used for plant operation, how vehicle drivers are used and how transport orders can be created and processed by a vehicle.</p>
+<p>这些说明解释了如何将在内核中加载的新创建的模型用于工厂操作，如何使用车辆驱动器，以及如何创建运输单并由车辆处理运输单。</p>
 </div>
 <div class="sect3">
 <h4 id="_starting_components_for_system_operation">2.2.1. 启动系统运行组件</h4>
@@ -1167,7 +1155,7 @@ The integration level shown is now <code>TO_BE_RESPECTED</code> and the vehicle 
 <div class="sect3">
 <h4 id="_creating_a_transport_order">2.2.3. 创建运输单</h4>
 <div class="paragraph">
-<p>To create a transport order, the Operations Desk application provides a dialog window presented when selecting <b class="button"><span class="menuseq"><b class="menu">Actions</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">Create transport order…​</b></span></b> from the menu.
+<p>要创建运输单，操作台应用程序提供了一个对话框窗口，当从菜单中选择“操作 创建运输单…”时显示。<b class="button"><span class="menuseq"><b class="menu">Actions</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">Create transport order…​</b></span></b> from the menu.
 Transport orders are defined as a sequence of destination locations at which operations are to be performed by the vehicle processing the order.
 You can select a destination location and operation from a dropdown menu.
 You may also optionally select the vehicle intended to process this order.
@@ -1177,7 +1165,7 @@ Furthermore, a transport order can be given a deadline specifying the point of t
 This deadline will primarily be considered when there are multiple transport orders in the pool and openTCS needs to decide which to assign next.</p>
 </div>
 <div class="paragraph">
-<p>To create a new transport order, do the following:</p>
+<p>要创建新的运输单，请执行以下操作：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1200,9 +1188,7 @@ The loopback driver then simulates the vehicle’s movement to the destinations 
 <div class="sect3">
 <h4 id="_withdrawing_transport_orders_using_the_operations_desk_application">2.2.4. 使用操作台应用程序撤回运输单</h4>
 <div class="paragraph">
-<p>A transport order can be withdrawn from a vehicle that is currently processing it.
-When withdrawing a transport order, its processing will be cancelled and the vehicle (driver) will not receive any further movement commands for it.
-A withdrawal can be issued by right-clicking on the respective vehicle in the Operations Desk application, selecting <b class="button"><span class="menuseq"><b class="menu">Context menu</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">Withdraw transport order</b></span></b> and then selecting one of the following actions:</p>
+<p>可以从正在处理它的车辆中撤回运输单。<b class="button"><span class="menuseq"><b class="menu">Context menu</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">Withdraw transport order</b></span></b> and then selecting one of the following actions:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1238,7 +1224,7 @@ In all other cases, the regular withdrawal should be used.
 </table>
 </div>
 <div class="paragraph">
-<p>Processing of a withdrawn transport order <em>cannot</em> be resumed later.
+<p>已撤回的运输单的处理无法稍后恢复。<em>cannot</em> be resumed later.
 To resume a transportation process that was interrupted by withdrawing a transport order, you need to create a new transport order, which may, of course, contain the same destinations as the withdrawn one.
 Note, however, that the new transport order may not be created with the same name.
 The reason for this is:</p>
@@ -1256,7 +1242,7 @@ The transport order data is kept as historical information for a while before it
 </ol>
 </div>
 <div class="paragraph">
-<p>As a result, a name used for a transport order may eventually be reused, but only after the actual data of the old order has been removed.</p>
+<p>因此，运输单使用的名称最终可能会被重用，但只有在旧订单的实际数据被移除之后才能重用。</p>
 </div>
 </div>
 <div class="sect3">
@@ -1351,8 +1337,7 @@ In order to perform the following steps, make sure you first associate a locatio
 <div class="sect3">
 <h4 id="_creating_a_peripheral_job">2.2.7. 创建外设任务</h4>
 <div class="paragraph">
-<p>A peripheral job is defined as a single operation that is to be performed by the peripheral device processing the job.
-Peripheral jobs can be created either explicitly or implicitly; both ways are described in the following sections.</p>
+<p>外设作业定义为由处理该作业的外设设备执行的单个操作。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1370,7 +1355,7 @@ For information on how the control system’s internal strategies for assigning 
 <div class="sect4">
 <h5 id="_explicit_creation_of_peripheral_jobs">2.2.7.1. 显式创建外设任务</h5>
 <div class="paragraph">
-<p>To create a new peripheral job, do the following in the Operations Desk application:</p>
+<p>要在操作台应用程序中创建新的外设作业，请执行以下操作：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1418,9 +1403,7 @@ In order for implicit creation of peripheral jobs to work, make sure to first de
 </table>
 </div>
 <div class="paragraph">
-<p>Peripheral jobs can be created implicitly by vehicles as they traverse paths that have peripheral operations defined on them.
-When exactly a peripheral job is created for a peripheral operation defined on a path depends on the configuration of the peripheral operation itself.
-As described in <a href="#_peripheral_operation">Peripheral operation</a>, the <em>execution trigger</em> of a peripheral operation defines when the operation is to be performed by the peripheral device.
+<p>车辆可以在遍历定义了外设操作的行驶路线时隐式创建外设作业。<a href="#_peripheral_operation">Peripheral operation</a>, the <em>execution trigger</em> of a peripheral operation defines when the operation is to be performed by the peripheral device.
 Note the following regarding the creation time of the peripheral job belonging to a peripheral operation:</p>
 </div>
 <div class="ulist">
@@ -1439,7 +1422,7 @@ This means that if a vehicle can accept multiple (points and) paths in advance, 
 <div class="sect3">
 <h4 id="_withdrawing_peripheral_jobs_using_the_operations_desk_application">2.2.8. 使用操作台应用程序撤回外设任务</h4>
 <div class="paragraph">
-<p>How a peripheral job can be withdrawn depends on whether it is related to a transport order:</p>
+<p>如何撤回外设作业取决于它是否与运输单相关联：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1465,7 +1448,7 @@ Withdrawing them independently from the related transport order is not supported
 <div class="sect4">
 <h5 id="_consequence_of_peripheral_jobs_failing">2.2.8.1. 外设任务失败的后果</h5>
 <div class="paragraph">
-<p>When a peripheral job fails, the related transport order (if any) is implicitly withdrawn under the following circumstances:</p>
+<p>当外设作业失败时，相关的运输单（如果有）会在以下情况下被隐式撤回：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1478,7 +1461,7 @@ Withdrawing them independently from the related transport order is not supported
 </ul>
 </div>
 <div class="paragraph">
-<p>In such cases, it is not reasonable to continue the transport order, as the <em>completion required</em> flag not only indicates that the vehicle should wait for the peripheral operation to be completed, but also for it to be completed <em>successfully</em>.
+<p>在这种情况下，继续运输单是不合理的，因为“完成必需”标志不仅表示车辆应等待外设操作完成，还表示必须成功完成。<em>completion required</em> flag not only indicates that the vehicle should wait for the peripheral operation to be completed, but also for it to be completed <em>successfully</em>.
 Otherwise, the prerequisites for continuing driving / the transport order may not be met.</p>
 </div>
 </div>
@@ -1486,8 +1469,7 @@ Otherwise, the prerequisites for continuing driving / the transport order may no
 <div class="sect3">
 <h4 id="_removing_a_vehicle_from_a_running_system">2.2.9. 从运行中的系统中移除车辆</h4>
 <div class="paragraph">
-<p>There may be situations in which you want to remove a single vehicle from a system, e.g. because the vehicle temporarily cannot be used by openTCS due to a hardware defect that has to be dealt with first.
-The following steps will ensure that no further transport orders are assigned to the vehicle and that the resources it might still be occupying are freed for use by other vehicles.</p>
+<p>在某些情况下，您可能希望从系统中移除单个车辆，例如，由于硬件缺陷导致车辆暂时无法被 openTCS 使用，且该缺陷需首先处理。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1503,8 +1485,7 @@ The following steps will ensure that no further transport orders are assigned to
 <div class="sect3">
 <h4 id="_pausing_and_resuming_the_operation_of_vehicles">2.2.10. 暂停和恢复车辆操作</h4>
 <div class="paragraph">
-<p>The Operations Desk application provides two buttons with which the operation of vehicles can be paused or resumed.
-However, in order for these buttons to have any effect, the respective vehicle drivers for the vehicles in use have to implement and support this feature.</p>
+<p>操作台应用程序提供了两个按钮，用于暂停或恢复车辆的操作。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1539,7 +1520,7 @@ Two blue control points will appear.</p>
 <div class="sect2">
 <h3 id="_automatically_enabling_drivers_on_startup">3.2. 在启动时自动启用驱动器</h3>
 <div class="paragraph">
-<p>To automatically enable vehicle drivers when the kernel is started, add the following line to the kernel configuration file (<code>config/opentcs-kernel.properties</code> in the kernel application directory):</p>
+<p>要在内核启动时自动启用车辆驱动器，请在内核配置文件（内核应用程序目录中的 config/opentcs-kernel.properties）中添加以下行：<code>config/opentcs-kernel.properties</code> in the kernel application directory):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1547,7 +1528,7 @@ Two blue control points will appear.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To enable peripheral drivers on startup, add the following line:</p>
+<p>要在启动时启用外设驱动器，请添加以下行：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1570,22 +1551,17 @@ See <a href="#_kernel_configuration">Kernel configuration</a> for a description 
 <div class="sect2">
 <h3 id="_automatically_selecting_a_specific_vehicle_driver_on_startup">3.3. 在启动时自动选择特定的车辆驱动器</h3>
 <div class="paragraph">
-<p>Automatic attachment of vehicle drivers by default works as follows:
-The kernel asks every available vehicle driver if it can attach to a given vehicle and selects the first one that can.
-It asks the loopback driver last, as that one is always available and can attach to any vehicle, but should not prevent actual vehicle drivers to be attached.
-As a result, if there is only one driver for your vehicle(s), you usually do not have to do anything for it to be selected.</p>
+<p>默认情况下，车辆驱动器的自动附加工作方式如下：</p>
 </div>
 <div class="paragraph">
-<p>In some less common cases, you may have multiple vehicle drivers registered with the kernel that can all attach to the vehicles in your plant model.
-To automatically select a specific driver in such cases, set a property with the key <code>tcs:preferredAdapterClass</code> on the vehicles, with its value being the name of the Java class implementing the driver’s adapter factory.
+<p>在一些较少见的情况下，您可能在内核中注册了多个车辆驱动器，它们都可以附加到工厂模型中的车辆。<code>tcs:preferredAdapterClass</code> on the vehicles, with its value being the name of the Java class implementing the driver’s adapter factory.
 (If you do not know this class name, ask the developer who provided the vehicle driver to you for it.)</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_configuring_a_virtual_vehicles_characteristics">3.4. 配置虚拟车辆的特性</h3>
 <div class="paragraph">
-<p>The loopback driver supports some (limited) configuration of the virtual vehicle’s characteristics via properties set in the plant model.
-You can set the properties the following way:</p>
+<p>回环驱动器支持通过工厂模型中设置的属性对虚拟车辆的某些（有限的）特性进行配置。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1605,7 +1581,7 @@ In the dialog shown, add a property key and value according to the list below.</
 </ol>
 </div>
 <div class="paragraph">
-<p>The loopback driver interprets properties with the following keys:</p>
+<p>回环驱动程序解释具有以下键的属性：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1651,9 +1627,7 @@ When the virtual vehicle executes an operation, the loopback adapter will simula
 <div class="sect2">
 <h3 id="_transforming_coordinates_sent_to_received_from_vehicles">3.5. 转换发送给/从车辆接收的坐标</h3>
 <div class="paragraph">
-<p>It is possible that not all vehicles managed by an openTCS kernel instance are using the same coordinate system as the one in the plant model.
-To ease integration with such situations, the kernel can transform coordinates when they are sent to / received from vehicles.
-This section describes the included transformation.</p>
+<p>由 openTCS 内核实例管理的所有车辆可能并不都使用与工厂模型相同的坐标系。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1669,8 +1643,7 @@ Developers can integrate their own transformation components with the openTCS ke
 </table>
 </div>
 <div class="paragraph">
-<p>The included transformation method maps coordinates from the plant model’s coordinate system to the coordinate system of a vehicle (when sending coordinates to the vehicle) and vice versa (when receiving coordinates from the vehicle).
-For this, the position and orientation of the vehicle’s coordinate system in relation to the plant model’s coordinate system can be defined by providing…​</p>
+<p>包含的转换方法将坐标从工厂模型的坐标系映射到车辆的坐标系（当向车辆发送坐标时），反之亦然（当从车辆接收坐标时）。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1685,7 +1658,7 @@ For this, the position and orientation of the vehicle’s coordinate system in r
 </ul>
 </div>
 <div class="paragraph">
-<p>To make use of this transformation method for a specific vehicle, do the following for the respective vehicle element in the plant model:</p>
+<p>要为特定车辆使用此转换方法，请对工厂模型中的相应车辆元素执行以下操作：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1708,12 +1681,10 @@ If the property is not set, a rotation of 0 degrees is used.</p>
 <div class="sect2">
 <h3 id="_running_kernel_and_its_clients_on_separate_systems">3.6. 在单独的系统上运行内核及其客户端</h3>
 <div class="paragraph">
-<p>The kernel and its clients (the Model Editor, Operations Desk and Kernel Control Center applications) communicate via the Java Remote Method Invocation (RMI) mechanism.
-This makes it possible to run the kernel and the clients on separate hosts, as long as a usable network connection between these systems exists.</p>
+<p>内核及其客户端（模型编辑器、操作台和内核控制中心应用程序）通过 Java 远程方法调用 (RMI) 机制进行通信。</p>
 </div>
 <div class="paragraph">
-<p>By default, the Model Editor, the Operations Desk and the Kernel Control Center are configured to connect to a kernel running on the same host.
-To connect them to a kernel running on a remote host, e.g. on a host named myhost.example.com, do the following:</p>
+<p>默认情况下，模型编辑器、操作台和内核控制中心配置为连接到在同一主机上运行的内核。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1729,7 +1700,7 @@ To connect them to a kernel running on a remote host, e.g. on a host named myhos
 </ul>
 </div>
 <div class="paragraph">
-<p>The configuration value can be a comma-separated list of <code>&lt;description&gt;|&lt;host&gt;|&lt;port&gt;</code> sets.
+<p>配置值可以是逗号分隔的 &lt;描述&gt;|&lt;主机&gt;|&lt;端口&gt; 集合列表。<code>&lt;description&gt;|&lt;host&gt;|&lt;port&gt;</code> sets.
 The applications will automatically try to connect to the first host in the list.
 If that fails, they will show a dialog to select an entry or enter a different address to connect to.</p>
 </div>
@@ -1737,9 +1708,7 @@ If that fails, they will show a dialog to select an entry or enter a different a
 <div class="sect2">
 <h3 id="_encrypting_communication_with_the_kernel">3.7. 加密与内核的通信</h3>
 <div class="paragraph">
-<p>By default, client applications and the kernel communicate via plain Java Remote Method Invocation (RMI) calls or HTTP requests.
-These communication channels can optionally be encrypted via SSL/TLS.
-To achieve this, do the following:</p>
+<p>默认情况下，客户端应用程序和内核通过纯 Java 远程方法调用 (RMI) 调用或 HTTP 请求进行通信。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1778,19 +1747,17 @@ Leave the file in the kernel application’s <code>config</code> directory as we
 <div class="sect2">
 <h3 id="_enabling_rmi_on_multihomed_kernel_host">3.8. 在多宿主内核主机上启用 RMI</h3>
 <div class="paragraph">
-<p>If your kernel is running on a host with multiple IP addresses, you may observe connection problems with remote clients via RMI connections.
-Clients may be unable to connect to the kernel, or communication between client and kernel may be slow, especially when SSL is enabled for the RMI interface.</p>
+<p>如果您的内核运行在具有多个 IP 地址的主机上，您可能会观察到通过 RMI 连接的远程客户端出现连接问题。</p>
 </div>
 <div class="paragraph">
-<p>In that case, set the kernel JVM’s property <code>java.rmi.server.hostname</code> to the correct IP address of the machine running it.
+<p>在这种情况下，将内核 JVM 的属性 java.rmi.server.hostname 设置为运行它的机器的正确 IP 地址。<code>java.rmi.server.hostname</code> to the correct IP address of the machine running it.
 (Also see <a class="bare" href="https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/faq.html#netmultihomed">https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/faq.html#netmultihomed</a>.)</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_configuring_automatic_parking_and_recharging">3.9. 配置自动停车和充电</h3>
 <div class="paragraph">
-<p>By default, idle vehicles remain where they are after processing their last transport order.
-You can change this in the kernel’s configuration file:</p>
+<p>默认情况下，空闲车辆在处理完其最后一个运输单后保持在原地。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1809,9 +1776,7 @@ The default dispatcher will then look for unoccupied parking positions and creat
 <div class="sect2">
 <h3 id="_configuring_order_pool_cleanup">3.10. 配置订单池清理</h3>
 <div class="paragraph">
-<p>By default, openTCS checks every minute for finished or failed transport orders and peripheral jobs that are older than 24 hours.
-These orders and jobs are removed from the pool.
-To customize this behaviour, do the following:</p>
+<p>默认情况下，openTCS 每分钟检查一次已完成或失败的运输单以及超过 24 小时的外设作业。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1829,13 +1794,10 @@ The default value is 86.400.000 (milliseconds, corresponding to 24 hours that a 
 <div class="sect2">
 <h3 id="_using_model_element_properties_for_project_specific_data">3.11. 使用模型元素属性进行项目特定数据存储</h3>
 <div class="paragraph">
-<p>Every object in the plant model - i.e. points, paths, locations, location types and vehicles - can be augmented with arbitrary project-specific data that can be used, e.g. by vehicle drivers, custom client applications, etc..
-Possible uses for such data could be informing the vehicle driver about additional actions to be performed by a vehicle when moving along a path in the model (e.g. flashing direction indicators, displaying a text string on a display, giving an acoustic warning) or controlling the behaviour of peripheral systems (e.g. automatic fire protection gates).</p>
+<p>工厂模型中的每个对象——即点位、路径、位置、位置类型和车辆——都可以增强任意项目特定的数据，这些数据可用于，例如，车辆驱动程序、自定义客户端应用程序等。</p>
 </div>
 <div class="paragraph">
-<p>The data can be stored in properties, i.e. key-value pairs attached to the model elements, where both the key and the corresponding value are text strings.
-These key-value pairs can be created and edited using the Model Editor application:
-Simply select the model element you want to add a key-value pair to and click into the value field labelled <b class="button">Miscellaneous</b> in the properties table.
+<p>数据可以存储在属性中，即附加到模型元素的键值对，其中键和相应的值都是文本字符串。<b class="button">Miscellaneous</b> in the properties table.
 In the dialog shown, set the key-value pairs you need to store your project-specific information.</p>
 </div>
 <div class="admonitionblock note">
@@ -1862,27 +1824,22 @@ Any keys with this prefix are reserved for official openTCS features, and using 
 <div class="sect2">
 <h3 id="_supported_navigation_principles_vehicle_types">4.1. 支持的导航原理/车辆类型</h3>
 <div class="paragraph">
-<p>openTCS works independently of specific navigation implementations, so any kind of navigation principle may be used.
-Locating and navigating are tasks usually performed on the vehicle side:
-The vehicle simply reports its current state — including its position — to the control system, and the control system orders the vehicle to move to a different position.</p>
+<p>openTCS 独立于特定的导航实现工作，因此可以使用任何类型的导航原理。</p>
 </div>
 <div class="paragraph">
-<p>Note that openTCS focuses on the dispatching of vehicles for transport orders.
-This task should not be confused with lower-level vehicle-side tasks like accelerating, decelerating and steering the vehicle, which are out of openTCS’s scope.
-As such, the use of openTCS is not limited to a specific type of vehicle.</p>
+<p>请注意，openTCS 专注于运输单的车辆调度。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_maximum_vehicle_fleet_size">4.2. 最大车队规模</h3>
 <div class="paragraph">
-<p>The design of the software does not impose a specific limit on the number of vehicles that can be managed by a single openTCS instance.
-The hardware equipment / runtime environment used (CPU, RAM, communication bandwidth etc.) can, however, limit the system’s effective performance.</p>
+<p>软件的设计不对单个 openTCS 实例可以管理的车辆数量施加特定限制。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_requirements_for_vehicles">4.3. 车辆要求</h3>
 <div class="paragraph">
-<p>For a vehicle to be managed by openTCS, it needs to meet certain minimal set of requirements:</p>
+<p>要使车辆被 openTCS 管理，它需要满足某些最低要求集：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1904,13 +1861,10 @@ In many cases, standard Wi-Fi hardware is used.</p>
 <div class="sect2">
 <h3 id="_system_requirements">4.4. 系统要求</h3>
 <div class="paragraph">
-<p>openTCS does not come with any specific hardware requirements.
-CPU power and RAM capacity highly depend on the use case, e.g. the size and complexity of the driving course and the number of vehicles managed.
-Some kind of networking hardware — in most cases simply a standard Ethernet controller — is required for communicating with the vehicles (and possibly other systems, like a warehouse management system).</p>
+<p>openTCS 没有任何特定的硬件要求。</p>
 </div>
 <div class="paragraph">
-<p>To run openTCS, a Java Runtime Environment (JRE) version 21 is required.
-(The directory <code>bin</code> of the installed JRE, for example <code>C:\Program Files\Eclipse Adoptium\jdk-21.0.3.9-hotspot\bin</code>, should be included in the enviroment variable PATH to be able to use the included start scripts.)</p>
+<p>要运行 openTCS，需要 Java 运行时环境 (JRE) 版本 21。<code>bin</code> of the installed JRE, for example <code>C:\Program Files\Eclipse Adoptium\jdk-21.0.3.9-hotspot\bin</code>, should be included in the enviroment variable PATH to be able to use the included start scripts.)</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -1930,7 +1884,7 @@ The recommended JRE to use is the one provided by the <a href="https://adoptium.
 <div class="sect2">
 <h3 id="_system_components_and_structure">4.5. 系统组件和结构</h3>
 <div class="paragraph">
-<p>openTCS consists of the following components running as separate processes and working together in a client-server architecture:</p>
+<p>openTCS 由以下作为独立进程运行并在客户端-服务器架构中协同工作的组件组成：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1965,11 +1919,10 @@ The recommended JRE to use is the one provided by the <a href="https://adoptium.
 <div class="title">Figure 9. openTCS system overview</div>
 </div>
 <div class="paragraph">
-<p>The purpose of the openTCS kernel is to provide an abstract driving model of a transportation system/plant, to manage transport orders and to compute routes for the vehicles.
-Clients can communicate with this server process to, for instance, modify the plant model, to visualize the driving course and the processing of transport orders and to create new transport orders.</p>
+<p>openTCS 内核的目的是提供运输系统/工厂的抽象驾驶模型，管理运输单并为车辆计算路线。</p>
 </div>
 <div class="paragraph">
-<p>Three major strategy modules within the kernel implement processing of transport orders:</p>
+<p>内核中的三个主要策略模块负责处理运输单：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1986,44 +1939,33 @@ Additionally, it needs to decide what vehicles should do in certain situation, e
 </ul>
 </div>
 <div class="paragraph">
-<p>The openTCS distribution comes with default implementations for each of these strategies.
-These implementations can be easily replaced by a developer to adapt to environment-specific requirements.</p>
+<p>openTCS 发行版为每种策略提供了默认实现。</p>
 </div>
 <div class="paragraph">
-<p>The driver framework that is part of the openTCS kernel manages communication channels and associates vehicle drivers with vehicles.
-A vehicle driver is an adapter between kernel and vehicle and translates each vehicle-specific communication protocol to the kernel’s internal communication schemes and vice versa.
-Furthermore, a driver may offer low-level functionality to the user via the kernel control center client, e.g. manually sending telegrams to the associated vehicle.
-By using suitable vehicle drivers, vehicles of different types can be managed simultaneously by a single openTCS instance.</p>
+<p>作为 openTCS 内核一部分的驱动程序框架管理通信通道并将车辆驱动程序与车辆关联。</p>
 </div>
 <div class="paragraph">
-<p>The model editor client that is part of the openTCS distribution allows editing of plant models, which can be loaded into the kernel.
-This includes, for instance, the definition of load-change stations, driving tracks and vehicles.</p>
+<p>作为 openTCS 发行版一部分的模型编辑器客户端允许编辑可以加载到内核中的工厂模型。</p>
 </div>
 <div class="paragraph">
-<p>The operations desk client that is part of the openTCS distribution is used to display the transportation system’s general state and any active transport processes, and to create new transport orders interactively.</p>
+<p>作为 openTCS 发行版一部分的操作台客户端用于显示运输系统的总体状态和任何活跃的运输过程，并交互式地创建新的运输单。</p>
 </div>
 <div class="paragraph">
-<p>The kernel control center client that is part of the openTCS distribution allows controlling and monitoring the kernel.
-Part of that is assigning vehicle drivers to vehicles and controlling them by enabling the communication and monitoring them by displaying vehicle state information, for instance.</p>
+<p>作为 openTCS 发行版一部分的内核控制中心客户端允许控制和监控内核。</p>
 </div>
 <div class="paragraph">
-<p>Other clients, e.g. to control higher-level plant processes, can be implemented and attached.
-For Java clients, the openTCS kernel provides an interface based on Java RMI (Remote Method Invocation).
-Additionally, openTCS provides a web API for creating and withdrawing transport orders and retrieving transport order status updates.</p>
+<p>可以实现并附加其他客户端，例如控制更高级别的工厂流程。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_plant_model_elements">4.6. 工厂模型元素</h3>
 <div class="paragraph">
-<p>In openTCS, a plant model consists of a set of the following elements.
-The attributes of these elements that are relevant for the plant model, e.g. the coordinates of a point or the length of a path, can be edited using the model editor client.</p>
+<p>在 openTCS 中，工厂模型由以下一组元素组成。</p>
 </div>
 <div class="sect3">
 <h4 id="_point">4.6.1. 点位</h4>
 <div class="paragraph">
-<p>Points are logical mappings of discrete vehicle positions in the driving course.
-In plant operation mode, vehicles are ordered (and thus move) from one point to another in the model.
-A point carries the following attributes:</p>
+<p>点位是行驶路线中离散车辆位置的逻辑映射。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2081,25 +2023,20 @@ In openTCS, an angle of 0 degrees is at the 3 o’clock position, and a positive
 <div class="title">Figure 10. A bounding box in openTCS</div>
 </div>
 <div class="paragraph">
-<p>A bounding box is characterised by a reference point that is — by default — located in the center of the bounding box’s base (i.e. at height 0), named <em>base center</em> for the remainder of this section.
+<p>边界框的特征在于一个参考点，该参考点默认位于边界框底部（即高度为 0）的中心，本节后续部分将其称为底部中心。<em>base center</em> for the remainder of this section.
 The length and width of the bounding box are symmetrical in relation to the base center and the height is measured from the base of the bounding box.</p>
 </div>
 <div class="paragraph">
-<p>Optionally, a reference point offset describes the position of the reference point in relation to the base center.
-The coordinates of the reference point refer to a coordinate system whose origin is located at the base center and whose axes run along the longitudinal and transverse axes of the bounding box — i.e. the x-axis runs along the length and the y-axis along the width of the bounding box.</p>
+<p>可选地，参考点偏移量描述了参考点相对于底部中心的位置。</p>
 </div>
 <div class="paragraph">
-<p>For a vehicle, the bounding box is oriented so that its longitudinal axis runs parallel to the longitudinal axis of the vehicle.
-For the reference point offset, positive x values indicate an offset in the forward direction of the vehicle, positive y values an offset towards the left-hand side.
-As an example, a vehicle’s physical reference point — i.e. the point which its reported coordinates refer to — and the reference point of its bounding box are probably always aligned.</p>
+<p>对于车辆，边界框的方向使其纵轴与车辆的纵轴平行。</p>
 </div>
 <div class="paragraph">
-<p>For a point, the bounding box is oriented according to the orientation angle of the point so that the longitudinal axis of the bounding box runs parallel to the longitudinal axis of a vehicle located at the point.
-For the reference point offset, positive x values indicate an offset in the forward direction of the vehicle, positive y values an offset towards the left-hand side.</p>
+<p>对于点位，边界框的方向根据点位的方向角确定，使得边界框的纵轴与位于该点位的车辆的纵轴平行。</p>
 </div>
 <div class="paragraph">
-<p>The following figure shows examples of bounding boxes for a vehicle (on the left) and a point (on the right).
-(Although a bounding box is three-dimensional in openTCS, the example bounding boxes shown here are only two-dimensional for an easy-to-understand visualisation.)</p>
+<p>下图显示了车辆（左侧）和点位（右侧）的边界框示例。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2108,10 +2045,7 @@ For the reference point offset, positive x values indicate an offset in the forw
 <div class="title">Figure 11. Bounding boxes for vehicles and points</div>
 </div>
 <div class="paragraph">
-<p>In both cases, the blue dots represent the base centers of the respective bounding boxes and the green dots represent their reference points.
-The dashed line represents the perimeter of the respective bounding box.
-On the right, the orange dot represents the actual plant model point.
-In the example above, the bounding boxes have the following properties:</p>
+<p>在这两种情况下，蓝点代表各自边界框的底部中心，绿点代表它们的参考点。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2134,7 +2068,7 @@ In the example above, the bounding boxes have the following properties:</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vehicle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">车辆</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1100</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">700</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>omitted</em></p></td>
@@ -2152,8 +2086,7 @@ In the example above, the bounding boxes have the following properties:</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p>As an additional example, the following figure shows the bounding boxes in relation to each other and what it would look like if the vehicle was located at the point.
-(Note that the reference points of both bounding boxes are aligned.)</p>
+<p>作为另一个示例，下图显示了边界框彼此之间的关系，以及如果车辆位于该点位时的样子。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2162,17 +2095,14 @@ In the example above, the bounding boxes have the following properties:</p>
 <div class="title">Figure 12. Relation of vehicle and point bounding boxes</div>
 </div>
 <div class="paragraph">
-<p>In this example, the point’s bounding box encloses the vehicle’s bounding box completely.
-However, there may be situations where this is not the case and where the vehicle’s bounding box would protrude beyond one or more sides of the point’s bounding box.
-To prevent a vehicle from being sent to a point in such situations, the router provides a dedicated cost function — see <a href="#_default_router">Default router</a>.</p>
+<p>在此示例中，点位的边界框完全包围了车辆的边界框。<a href="#_default_router">Default router</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_path">4.6.2. 路径</h4>
 <div class="paragraph">
-<p>Paths are connections between points that are navigable for vehicles.
-A path’s main attributes, next to its source and destination point, are:</p>
+<p>路径是点位之间供车辆通行的连接。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2198,7 +2128,7 @@ Depending on the router configuration, it may also be used for computing routing
 <div class="sect4">
 <h5 id="_peripheral_operation">4.6.2.1. Peripheral operation</h5>
 <div class="paragraph">
-<p>A peripheral operation’s attributes are:</p>
+<p>外设操作的属性包括：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2235,8 +2165,7 @@ With the <code>AFTER_MOVEMENT</code> execution trigger and the completion requir
 <div class="sect3">
 <h4 id="_location">4.6.3. 位置</h4>
 <div class="paragraph">
-<p>Locations are markers for points at which vehicles may execute special operations (load or unload cargo, charge their battery etc.).
-A location’s attributes are:</p>
+<p>位置是用于标记车辆可执行特殊操作（如装载或卸载货物、充电等）的点位。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2253,15 +2182,13 @@ To be of any use for vehicles in the plant model, a location needs to be linked 
 </ul>
 </div>
 <div class="paragraph">
-<p>Additionally, locations can map peripheral devices for the purpose of communicating with them and allowing vehicles to interact with them (e.g. opening/closing fire doors along paths).
-See <a href="#_adding_and_configuring_peripheral_devices">Adding and configuring peripheral devices</a> for details on how to add and configure peripheral devices.</p>
+<p>此外，位置还可以映射外设设备，以便与其通信并允许车辆与之交互（例如，沿路径打开/关闭防火门）。<a href="#_adding_and_configuring_peripheral_devices">Adding and configuring peripheral devices</a> for details on how to add and configure peripheral devices.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_location_type">4.6.4. 位置类型</h4>
 <div class="paragraph">
-<p>Location types are abstract elements that group locations.
-A location type has only two relevant attributes:</p>
+<p>位置类型是对位置进行分组的抽象元素。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2277,8 +2204,7 @@ A location type has only two relevant attributes:</p>
 <div class="sect3">
 <h4 id="_vehicle">4.6.5. 车辆</h4>
 <div class="paragraph">
-<p>Vehicles map physical vehicles for the purpose of communicating with them and visualizing their positions and other characteristics.
-A vehicle provides the following attributes:</p>
+<p>车辆映射物理车辆，以便与其通信并可视化其位置和其他特征。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2366,9 +2292,7 @@ Also see <a href="#_transport_order">Transport order</a>.</p>
 <div class="sect3">
 <h4 id="_block">4.6.6. 区块</h4>
 <div class="paragraph">
-<p>Blocks (or block areas) are areas for which special traffic rules may apply.
-They can be useful to prevent deadlock situations, e.g. at path intersections or dead ends.
-A block has two relevant attributes:</p>
+<p>区块（或区块区域）是可能适用特殊交通规则的区域。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2412,9 +2336,7 @@ If there is no such property the path’s name is being used as the direction.
 <div class="sect3">
 <h4 id="_layer">4.6.7. 图层</h4>
 <div class="paragraph">
-<p>Layers are abstract elements that group points, paths, locations and links.
-They can be useful for modelling complex plants and dividing plant sections into logical groups (e.g. floors in a multi-floor plant).
-A layer has the following properties:</p>
+<p>图层是对点位、路径、位置和链接进行分组的抽象元素。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2440,16 +2362,13 @@ A layer can only be assigned to one layer group at a time.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>In addition to the properties listed above, layers also have an ordinal number (which is not displayed) that defines the order of the layers in relation to each other.
-The order of the layers is represented by the order of the entries in the "Layers" table in the Model Editor and the Operations Desk clients.
-The topmost entry corresponds to the topmost layer (which is displayed above all other layers) and the bottommost entry corresponds to the bottommost layer (which is displayed below all other layers).</p>
+<p>除上述属性外，图层还有一个序数号（不显示），用于定义图层之间的相对顺序。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_layer_group">4.6.8. 图层组</h4>
 <div class="paragraph">
-<p>Layer groups are abstract elements that group layers.
-A layer group has the following properties:</p>
+<p>图层组是对图层进行分组的抽象元素。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2468,14 +2387,12 @@ The visibility state of a layer group doesn’t affect the visibility state of t
 <div class="sect2">
 <h3 id="_plant_operation_elements">4.7. 工厂运行元素</h3>
 <div class="paragraph">
-<p>Transport orders and order sequences are elements that are available only at plant operation time.
-Their attributes are primarily set when the respective elements are created.</p>
+<p>运输单和订单序列是仅在工厂运行时可用的元素。</p>
 </div>
 <div class="sect3">
 <h4 id="_transport_order">4.7.1. 运输单</h4>
 <div class="paragraph">
-<p>A transport order is a parameterized sequence of movements and operations to be processed by a vehicle.
-When creating a transport order, the following attributes can be set:</p>
+<p>运输单是由车辆处理的一系列参数化的移动和操作。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2518,12 +2435,10 @@ The following image shows an example of dependencies between multiple transport 
 <div class="sect4">
 <h5 id="_transport_order_priorities">4.7.1.1. Transport order priorities</h5>
 <div class="paragraph">
-<p>With openTCS, transport orders do not have a priority attribute.
-This is because a transport order’s priority may change over time or when other transport orders are added.</p>
+<p>在 openTCS 中，运输单没有优先级属性。</p>
 </div>
 <div class="paragraph">
-<p>In the end, a single transport order’s effective priority depends on the dispatcher implementation used.
-With openTCS’s default dispatcher, transport orders' <em>deadline</em> attributes are intended to be used for prioritizing - the sooner the deadline, the higher an order’s effective priority.
+<p>最终，单个运输单的有效优先级取决于所使用的调度器实现。<em>deadline</em> attributes are intended to be used for prioritizing - the sooner the deadline, the higher an order’s effective priority.
 To give a transport order a higher priority from the beginning, you can set its deadline to something earlier than all other orders' deadlines, e.g. to "right now" or a point of time in the past.</p>
 </div>
 </div>
@@ -2544,15 +2459,13 @@ They can only be created programmatically, using dedicated clients that are not 
 </table>
 </div>
 <div class="paragraph">
-<p>An order sequence describes a process spanning multiple transport orders which are to be executed subsequently — in the exact order defined by the sequence — by a single vehicle.
-Once a vehicle is assigned to an order sequence, it may not process transport orders not belonging to the sequence, until the latter is finished.</p>
+<p>订单序列描述了一个跨越多个运输单的过程，这些运输单必须由同一辆车辆按照序列定义的精确顺序依次执行。</p>
 </div>
 <div class="paragraph">
-<p>Order sequences are useful when a complex process to be executed by one and the same vehicle cannot be mapped to a single transport order.
-This can be the case, for instance, when the details of some steps in the process become known only after processing previous steps.</p>
+<p>当由同一辆车执行的复杂过程无法映射到单个运输单时，订单序列非常有用。</p>
 </div>
 <div class="paragraph">
-<p>An order sequence carries the following attributes:</p>
+<p>订单序列携带以下属性：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2590,8 +2503,7 @@ If set, all transport orders added to the order sequence must carry the same int
 <div class="sect3">
 <h4 id="_peripheral_job">4.7.3. 外设任务</h4>
 <div class="paragraph">
-<p>A peripheral job describes an operation to be performed by a peripheral device.
-A peripheral job carries the following attributes:</p>
+<p>外设作业描述了由外设设备执行的操作。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2617,16 +2529,13 @@ A peripheral device that is reserved for a specific token can only process jobs 
 <div class="sect3">
 <h4 id="_unique_name">4.8.1. 唯一名称</h4>
 <div class="paragraph">
-<p>Every plant model and plant operation element has a unique name identifying it in the system, regardless of what type of element it is.
-Two elements may not be given the same name, even if e.g. one is a point and the other one is a transport order.</p>
+<p>每个工厂模型和工厂运行元素都有一个唯一的名称，用于在系统中标识它，无论其元素类型是什么。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_generic_properties">4.8.2. 通用属性</h4>
 <div class="paragraph">
-<p>In addition to the listed attributes, it is possible to define arbitrary properties as key-value pairs for all driving course elements, which for example can be read and evaluated by vehicle drivers or client software.
-Both the key and the value can be arbitrary character strings.
-For example, a key-value pair <code>"IP address"</code>:<code>"192.168.23.42"</code> could be defined for a vehicle in the model, stating which IP address is to be used to communicate with the vehicle; a vehicle driver could now check during runtime whether a value for the key <code>"IP address"</code> was defined, and if yes, use it to automatically configure the communication channel to the vehicle.
+<p>除列出的属性外，还可以为所有行驶路线元素定义任意属性作为键值对，例如，车辆驱动程序或客户端软件可以读取和评估这些属性。<code>"IP address"</code>:<code>"192.168.23.42"</code> could be defined for a vehicle in the model, stating which IP address is to be used to communicate with the vehicle; a vehicle driver could now check during runtime whether a value for the key <code>"IP address"</code> was defined, and if yes, use it to automatically configure the communication channel to the vehicle.
 Another use for these generic attributes can be vehicle-specific actions to be executed on certain paths in the model.
 If a vehicle should, for instance, issue an acoustic warning and/or turn on the right-hand direction indicator when currently on a certain path, attributes with the keys <code>"acoustic warning"</code> and/or <code>"right-hand direction indicator"</code> could be defined for this path and evaluated by the respective vehicle driver.</p>
 </div>
@@ -2635,15 +2544,12 @@ If a vehicle should, for instance, issue an acoustic warning and/or turn on the 
 <div class="sect2">
 <h3 id="_default_strategies">4.9. 默认策略</h3>
 <div class="paragraph">
-<p>openTCS comes with a default implementation for each of the strategy modules.
-These implementations can easily be replaced to adapt to project-specific requirements.
-(See developer’s guide.)</p>
+<p>openTCS 为每个策略模块提供了默认实现。</p>
 </div>
 <div class="sect3">
 <h4 id="_default_dispatcher">4.9.1. 默认调度器</h4>
 <div class="paragraph">
-<p>When either a transport order or a vehicle becomes available, the dispatcher needs to decide what should happen with which transport order and which vehicle should do what.
-To make this decision, the default dispatcher takes the following steps:</p>
+<p>当运输单或车辆可用时，调度器需要决定如何处理哪个运输单，以及哪辆车执行什么任务。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2772,8 +2678,7 @@ The default dispatcher then iterates over the sorted list and, for every transpo
 <div class="sect4">
 <h5 id="_default_parking_position_selection">4.9.1.1. Default parking position selection</h5>
 <div class="paragraph">
-<p>When sending a vehicle to a parking position, the closest (according to the router) unoccupied position is selected by default.
-It is possible to assign fixed positions to vehicles instead, by setting properties with the following keys on them:</p>
+<p>当将车辆发送到停车位时，默认选择最近（根据路由器计算）的空闲位置。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2794,13 +2699,13 @@ Takes precedence over <code>tcs:preferredParkingPosition</code>.</p>
 <div class="sect4">
 <h5 id="_optional_parking_position_priorities">4.9.1.2. Optional parking position priorities</h5>
 <div class="paragraph">
-<p>Optionally (see <a href="#_default_dispatcher_configuration_entries">Default dispatcher configuration entries</a> for how to enable it), parking positions may be explicitly prioritized, and vehicles can be reparked in a kind of "parking position queues".
+<p>可选地（参见默认调度器配置条目以了解如何启用），可以显式优先选择停车位，并且车辆可以像“停车位队列”一样被重新停放。<a href="#_default_dispatcher_configuration_entries">Default dispatcher configuration entries</a> for how to enable it), parking positions may be explicitly prioritized, and vehicles can be reparked in a kind of "parking position queues".
 This can be desirable e.g. to park vehicles close to locations that are frequent first destinations for transport orders.
 (For example, imagine a plant in which goods are transported from A to B all the time.
 Even if there currently aren’t any transport orders, it might nevertheless be a good idea to prefer parking positions near A to reduce reaction times when transport orders arrive.)</p>
 </div>
 <div class="paragraph">
-<p>To assign a priority to a parking position, set a property with the key <code>tcs:parkingPositionPriority</code> on the point.
+<p>要为停车位分配优先级，请在点位上设置键为 tcs:parkingPositionPriority 的属性。<code>tcs:parkingPositionPriority</code> on the point.
 The property’s value should be a decimal integer, with lower values resulting in a higher priority for the parking position.</p>
 </div>
 <div class="admonitionblock note">
@@ -2819,8 +2724,7 @@ If a parking position with a higher priority is unoccupied but unreachable for a
 <div class="sect4">
 <h5 id="_default_recharging_location_selection">4.9.1.3. Default recharging location selection</h5>
 <div class="paragraph">
-<p>When sending a vehicle to a recharge location, the closest (according to the router) unoccupied position is selected by default.
-It is possible to assign fixed positions to vehicles instead, by setting properties with the following keys on them:</p>
+<p>当将车辆发送到充电位置时，默认选择最近（根据路由器计算）的空闲位置。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2841,13 +2745,12 @@ Takes precedence over <code>tcs:preferredRechargeLocation</code>.</p>
 <div class="sect4">
 <h5 id="_immediate_transport_order_assignment">4.9.1.4. Immediate transport order assignment</h5>
 <div class="paragraph">
-<p>In addition to the <em>implicit</em> assignment of transport orders according to the flow and rules described in the previous sections, transport orders can also be assigned <em>explicitly</em> (i.e. immediately).
+<p>除了根据前几节中描述的流程和规则隐式分配运输单外，还可以显式（即立即）分配运输单。<em>implicit</em> assignment of transport orders according to the flow and rules described in the previous sections, transport orders can also be assigned <em>explicitly</em> (i.e. immediately).
 Immediate assignment of transport orders is supported for transport orders that have their intended vehicle set.
 This can be helpful in situations where a transport order and its intended vehicle are generally in a state where an assignment would be possible, but is prevented by certain filter criteria in the regular dispatcher flow.</p>
 </div>
 <div class="paragraph">
-<p>Although the immediate assignment of transport orders bypasses some of the filter criteria in the regular dispatcher flow, it works only in specific situations.
-Regarding the transport order’s state:</p>
+<p>尽管运输单的立即分配绕过了常规调度器流程中的一些过滤条件，但它仅在特定情况下有效。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2863,7 +2766,7 @@ Regarding the transport order’s state:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>As for the (intended) vehicle’s state:</p>
+<p>关于（预期）车辆的状态：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2901,16 +2804,14 @@ In addition to the state of the respective transport order and its intended vehi
 <div class="sect3">
 <h4 id="_default_router">4.9.2. 默认路由器</h4>
 <div class="paragraph">
-<p>The default router finds the cheapest route from one position in the driving course to another one.
-(It uses an implementation of <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra’s algorithm</a> to do that.)
+<p>默认路由器在行驶路线中的一个位置到另一个位置之间找到最便宜的路线。<a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra’s algorithm</a> to do that.)
 It takes into account paths that have been locked, but not positions and/or assumed future behaviour of other vehicles.
 As a result, it does not route around slower or stopped vehicles blocking the way.</p>
 </div>
 <div class="sect4">
 <h5 id="_cost_functions">4.9.2.1. Cost functions</h5>
 <div class="paragraph">
-<p>The cost function used for evaluating the paths in the driving course can be selected via configuration.
-(See <a href="#_default_router_configuration_entries">Default router configuration entries</a>, the relevant configuration entry is <code>defaultrouter.shortestpath.edgeEvaluators</code>.)
+<p>用于评估行驶路线中路径的成本函数可以通过配置进行选择。<a href="#_default_router_configuration_entries">Default router configuration entries</a>, the relevant configuration entry is <code>defaultrouter.shortestpath.edgeEvaluators</code>.)
 The following cost functions/configuration options are available:</p>
 </div>
 <div class="ulist">
@@ -2946,12 +2847,10 @@ This can be used to prevent vehicles from being routed to/through points where t
 </ul>
 </div>
 <div class="paragraph">
-<p>Developers can integrate additional custom cost functions using the openTCS API.</p>
+<p>开发人员可以使用 openTCS API 集成其他自定义成本函数。</p>
 </div>
 <div class="paragraph">
-<p>More than one cost function can be selected in the configuration by listing them separated by commas.
-The costs computed by the respective functions are then added up.
-For example, when using <code>"DISTANCE, TRAVELTIME"</code>, costs for routes are computed as the sum of the paths' lengths and the time a vehicle needs to pass it.</p>
+<p>在配置中可以通过用逗号分隔列出多个成本函数来选择它们。<code>"DISTANCE, TRAVELTIME"</code>, costs for routes are computed as the sum of the paths' lengths and the time a vehicle needs to pass it.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2970,32 +2869,26 @@ It is the user’s responsibility to choose a configuration that is usable and a
 <div class="sect4">
 <h5 id="_routing_groups">4.9.2.2. Routing groups</h5>
 <div class="paragraph">
-<p>It is possible to treat vehicles in a plant differently when computing their routes.
-This may be desirable if they have different characteristics and actually have different optimal routes through the driving course.
-For this to work, the paths in the model or the cost function used need to reflect this difference.
-This isn’t done by default — the default router computes routes for all vehicles the same way unless told otherwise.
-To let the router know that it should compute routes for a vehicle separately, set a property with the key <code>tcs:routingGroup</code> to an arbitrary string.
+<p>在计算路线时，可以对工厂中的车辆区别对待。<code>tcs:routingGroup</code> to an arbitrary string.
 (Vehicles that have the same value set share the same routing table, and the empty string is the default value for all vehicles.)</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_avoidingexcluding_resources_when_computing_routes">4.9.2.3. Avoiding/Excluding resources when computing routes</h5>
 <div class="paragraph">
-<p>When computing a route for a transport order, it is possible to define a set of resources (i.e., points, paths or locations) that should be avoided by vehicles processing the respective transport order.
-For this, a property with the key <code>tcs:resourcesToAvoid</code> can be set on a transport order to a comma-separated list of resource names.</p>
+<p>在为运输单计算路线时，可以定义一组应避免由处理相应运输单的车辆使用的资源（即点位、路径或位置）。<code>tcs:resourcesToAvoid</code> can be set on a transport order to a comma-separated list of resource names.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_default_scheduler">4.9.3. 默认调度器</h4>
 <div class="paragraph">
-<p>The default scheduler implements a simple strategy for traffic management.
-It does this by allowing only mutually exclusive use of resources in the plant model (points, paths and locations), as described below.</p>
+<p>默认调度器实施了一种简单的交通管理策略。</p>
 </div>
 <div class="sect4">
 <h5 id="_allocating_resources">4.9.3.1. Allocating resources</h5>
 <div class="paragraph">
-<p>When an allocation of a set of resources for a vehicle is requested, the scheduler performs the following checks to determine whether the allocation can be granted immediately:</p>
+<p>当请求为车辆分配一组资源时，调度器执行以下检查以确定是否可以立即授予分配：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3022,33 +2915,26 @@ In case requested resources or resources occupied by other vehicles are part of 
 </ol>
 </div>
 <div class="paragraph">
-<p>If all checks succeed, the allocation is made.
-If any of the checks fail, the allocation is queued for later.</p>
+<p>如果所有检查都成功，则进行分配。</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_freeing_resources">4.9.3.2. Freeing resources</h5>
 <div class="paragraph">
-<p>Whenever resources are freed (e.g. when a vehicle has finished its movement to the next point and the vehicle driver reports this to the kernel), the allocations waiting in the queue are checked (in the order the requests happened).
-Any allocations that can now be made are made.
-Allocations that cannot be made are kept waiting.</p>
+<p>每当资源释放时（例如，当车辆完成移动到下一个点位且车辆驱动器向内核报告此情况时），都会检查队列中等待的分配（按照请求发生的顺序）。</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_fairness_of_scheduling">4.9.3.3. Fairness of scheduling</h5>
 <div class="paragraph">
-<p>This strategy ensures that resources are used when they are available.
-It does not, however, strictly ensure fairness/avoid starvation:
-Vehicles waiting for allocation of a large resource set may theoretically wait forever if other vehicles can keep allocating subsets of those resources continuously.
-Such situations are likely a hint at problems in the plant model graph’s topology, which is why this deficiency is considered acceptable for the default implementation.</p>
+<p>此策略确保在资源可用时使用它们。</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_default_peripheral_job_dispatcher">4.9.4. 默认外设任务调度器</h4>
 <div class="paragraph">
-<p>When either a peripheral job or a peripheral device becomes available, the peripheral job dispatcher needs to decide what should happen with which peripheral job and which peripheral device should do what.
-To make this decision, the default peripheral job dispatcher takes the following steps:</p>
+<p>当外设作业或外设设备可用时，外设作业调度器需要决定哪个外设作业应如何处理，以及哪个外设设备应执行什么操作。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3164,8 +3050,7 @@ The default strategy selects peripheral jobs according to the following rules:</
 <div class="sect4">
 <h5 id="_reservation_token">4.9.4.1. Reservation token</h5>
 <div class="paragraph">
-<p>As described above, reservation tokens are relevant for the assignment of peripheral jobs to peripheral devices.
-This section describes the different types of reservation tokens:</p>
+<p>如上所述，预留令牌与外设作业分配给外设设备相关。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3230,13 +3115,10 @@ As a result, the peripheral device is only available for peripheral jobs with th
 <div class="sect3">
 <h4 id="_application_language">4.10.1. 应用程序语言</h4>
 <div class="paragraph">
-<p>By default, all openTCS applications with user interfaces display texts in English language.
-The applications are prepared for internationalization, though, and can be configured to display texts in a different language, provided there is a translation for it.
-The openTCS distribution comes with the default (English) language and a German translation.
-Additional translations can be integrated — how this is done is described in the Developer’s Guide.</p>
+<p>默认情况下，所有带有用户界面的 openTCS 应用程序均以英语显示文本。</p>
 </div>
 <div class="paragraph">
-<p>For setting the language, each application has a configuration entry that needs to be set to a <em>language tag</em> for the language to use.
+<p>为了设置语言，每个应用程序都有一个配置条目，需要将其设置为要使用的语言的语言标签。<em>language tag</em> for the language to use.
 (See <a href="#_kernel_control_center_application_configuration_entries">Kernel Control Center application configuration entries</a>, <a href="#_model_editor_application_configuration_entries">Model Editor application configuration entries</a> and <a href="#_operations_desk_application_configuration_entries">Operations Desk application configuration entries</a>.)
 Examples for language tags are:</p>
 </div>
@@ -3257,18 +3139,17 @@ Examples for language tags are:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>By default, the configuration entries are set to "en", resulting in English texts.
-Since a German translation is included, you can switch e.g. the Operations Desk application to German by setting its <code>locale</code> configuration entry to "de".
+<p>默认情况下，配置条目设置为 "en"，从而显示英语文本。<code>locale</code> configuration entry to "de".
 (Note that the application needs to be restarted for this.)</p>
 </div>
 <div class="paragraph">
-<p>Configuring an application to use a language for which there is no translation will result in the default (English) language to be used.</p>
+<p>如果配置应用程序使用没有相应翻译的语言，则将使用默认（英语）语言。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_kernel_configuration">4.10.2. 内核配置</h4>
 <div class="paragraph">
-<p>The kernel application reads its configuration data from the following files:</p>
+<p>内核应用程序从以下文件读取其配置数据：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3284,13 +3165,12 @@ Since a German translation is included, you can switch e.g. the Operations Desk 
 </ol>
 </div>
 <div class="paragraph">
-<p>The files are read in this order, and configuration values set in one file can be overridden in any subsequent one.
-For users, it is recommended to leave the first two files untouched and set overriding values and project-specific configuration data in <code>opentcs-kernel.properties</code> only.</p>
+<p>这些文件按此顺序读取，在一个文件中设置的配置值可以在后续的任何文件中被覆盖。<code>opentcs-kernel.properties</code> only.</p>
 </div>
 <div class="sect4">
 <h5 id="_kernel_application_configuration_entries">4.10.2.1. Kernel application configuration entries</h5>
 <div class="paragraph">
-<p>The kernel application itself can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对内核应用程序本身进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3450,7 +3330,7 @@ is the "classic" way resources were managed before vehicle envelopes were introd
 <div class="sect4">
 <h5 id="_order_pool_configuration_entries">4.10.2.2. Order pool configuration entries</h5>
 <div class="paragraph">
-<p>The kernel’s transport order pool can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对内核的运输单池进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3492,7 +3372,7 @@ is the "classic" way resources were managed before vehicle envelopes were introd
 <div class="sect4">
 <h5 id="_default_dispatcher_configuration_entries">4.10.2.3. Default dispatcher configuration entries</h5>
 <div class="paragraph">
-<p>The default dispatcher can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对默认调度器进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3804,7 +3684,7 @@ If false, vehicle must only be recharged until sufficiently charged.</p>
 <div class="sect4">
 <h5 id="_default_router_configuration_entries">4.10.2.4. Default router configuration entries</h5>
 <div class="paragraph">
-<p>The default router can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对默认路由器进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3843,7 +3723,7 @@ If false, vehicle must only be recharged until sufficiently charged.</p>
 </dl>
 </div>
 <div class="paragraph">
-<p>The shortest path algorithm can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对最短路径算法进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3891,7 +3771,7 @@ Results of multiple evaluators are added up. Valid values:<br/>
 </dl>
 </div>
 <div class="paragraph">
-<p>The edge evaluator <code>EXPLICIT_PROPERTIES</code> can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对边评估器 EXPLICIT_PROPERTIES 进行配置：<code>EXPLICIT_PROPERTIES</code> can be configured using the following configuration entries:</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3918,7 +3798,7 @@ The value should be an integer. If it is not, the edge is excluded from routing.
 <div class="sect4">
 <h5 id="_default_peripheral_job_dispatcher_configuration_entries">4.10.2.5. Default peripheral job dispatcher configuration entries</h5>
 <div class="paragraph">
-<p>The default peripheral job dispatcher can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对默认外设作业调度器进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3944,7 +3824,7 @@ The value should be an integer. If it is not, the edge is excluded from routing.
 <div class="sect4">
 <h5 id="_service_web_api_configuration_entries">4.10.2.6. Service web API configuration entries</h5>
 <div class="paragraph">
-<p>The kernel’s service web API can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对内核的服务 Web API 进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4066,7 +3946,7 @@ The value should be an integer. If it is not, the edge is excluded from routing.
 <div class="sect4">
 <h5 id="_rmi_kernel_interface_configuration_entries">4.10.2.7. RMI kernel interface configuration entries</h5>
 <div class="paragraph">
-<p>The kernel’s RMI interface can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对内核的 RMI 接口进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4316,7 +4196,7 @@ The value should be an integer. If it is not, the edge is excluded from routing.
 <div class="sect4">
 <h5 id="_ssl_server_side_encryption_configuration_entries">4.10.2.8. SSL server-side encryption configuration entries</h5>
 <div class="paragraph">
-<p>The kernel’s SSL encryption can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对内核的 SSL 加密进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4390,7 +4270,7 @@ The value should be an integer. If it is not, the edge is excluded from routing.
 <div class="sect4">
 <h5 id="_vehicle_position_resolver_configuration_entries">4.10.2.9. Vehicle position resolver configuration entries</h5>
 <div class="paragraph">
-<p>The vehicle position resolver can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对车辆位置解析器进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4432,7 +4312,7 @@ The value should be an integer. If it is not, the edge is excluded from routing.
 <div class="sect4">
 <h5 id="_virtual_vehicle_configuration_entries">4.10.2.10. Virtual vehicle configuration entries</h5>
 <div class="paragraph">
-<p>The virtual vehicle (loopback communication adapter) can be configured using the following configuration entries:</p>
+<p>可以使用以下配置条目对虚拟车辆（回环通信适配器）进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4555,7 +4435,7 @@ The value should be an integer. If it is not, the edge is excluded from routing.
 <div class="sect4">
 <h5 id="_virtual_peripheral_configuration_entries">4.10.2.11. Virtual peripheral configuration entries</h5>
 <div class="paragraph">
-<p>The virtual peripheral (peripheral loopback communication adapter) can be configured using the following configuration entries:</p>
+<p>虚拟外设（外设回环通信适配器）可以使用以下配置项进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4581,7 +4461,7 @@ The value should be an integer. If it is not, the edge is excluded from routing.
 <div class="sect4">
 <h5 id="_watchdog_configuration_entries">4.10.2.12. Watchdog configuration entries</h5>
 <div class="paragraph">
-<p>The watchdog can be configured using the following configuration entries:</p>
+<p>看门狗可以使用以下配置项进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4688,7 +4568,7 @@ The value should be an integer. If it is not, the edge is excluded from routing.
 <div class="sect3">
 <h4 id="_kernel_control_center_configuration">4.10.3. Kernel Control Center 配置</h4>
 <div class="paragraph">
-<p>The kernel control center application reads its configuration data from the following files:</p>
+<p>内核控制台应用程序从以下文件读取其配置数据：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4704,13 +4584,12 @@ The value should be an integer. If it is not, the edge is excluded from routing.
 </ol>
 </div>
 <div class="paragraph">
-<p>The files are read in this order, and configuration values set in one file can be overridden in any subsequent one.
-For users, it is recommended to leave the first two files untouched and set overriding values and project-specific configuration data in <code>opentcs-kernelcontrolcenter.properties</code> only.</p>
+<p>这些文件按此顺序读取，在一个文件中设置的配置值可以在任何后续文件中被覆盖。<code>opentcs-kernelcontrolcenter.properties</code> only.</p>
 </div>
 <div class="sect4">
 <h5 id="_kernel_control_center_application_configuration_entries">4.10.3.1. Kernel Control Center application configuration entries</h5>
 <div class="paragraph">
-<p>The kernel control center application itself can be configured using the following configuration entries:</p>
+<p>内核控制台应用程序本身可以使用以下配置项进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4803,7 +4682,7 @@ If 'false', a dialog will be shown to enter connection parameters.</p>
 <div class="sect4">
 <h5 id="_ssl_kcc_side_application_configuration_entries">4.10.3.2. SSL KCC-side application configuration entries</h5>
 <div class="paragraph">
-<p>The kernel control center application’s SSL connections can be configured using the following configuration entries:</p>
+<p>内核控制台应用程序的 SSL 连接可以使用以下配置项进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4862,7 +4741,7 @@ If 'false', a dialog will be shown to enter connection parameters.</p>
 <div class="sect3">
 <h4 id="_model_editor_configuration">4.10.4. Model Editor 配置</h4>
 <div class="paragraph">
-<p>The model editor application reads its configuration data from the following files:</p>
+<p>模型编辑器应用程序从以下文件读取其配置数据：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4878,13 +4757,12 @@ If 'false', a dialog will be shown to enter connection parameters.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>The files are read in this order, and configuration values set in one file can be overridden in any subsequent one.
-For users, it is recommended to leave the first two files untouched and set overriding values and project-specific configuration data in <code>opentcs-modeleditor.properties</code> only.</p>
+<p>这些文件按此顺序读取，在一个文件中设置的配置值可以在任何后续文件中被覆盖。<code>opentcs-modeleditor.properties</code> only.</p>
 </div>
 <div class="sect4">
 <h5 id="_model_editor_application_configuration_entries">4.10.4.1. Model Editor application configuration entries</h5>
 <div class="paragraph">
-<p>The model editor application itself can be configured using the following configuration entries:</p>
+<p>模型编辑器应用程序本身可以使用以下配置项进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4962,7 +4840,7 @@ Must be a class extending org.opentcs.components.plantoverview.LocationTheme</p>
 <div class="sect4">
 <h5 id="_ssl_model_editor_side_application_configuration_entries">4.10.4.2. SSL model editor-side application configuration entries</h5>
 <div class="paragraph">
-<p>The model editor application’s SSL connections can be configured using the following configuration entries:</p>
+<p>模型编辑器应用程序的 SSL 连接可以使用以下配置项进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -5020,7 +4898,7 @@ Must be a class extending org.opentcs.components.plantoverview.LocationTheme</p>
 <div class="sect4">
 <h5 id="_model_editor_element_naming_scheme_configuration_entries">4.10.4.3. Model Editor element naming scheme configuration entries</h5>
 <div class="paragraph">
-<p>The model editor application’s element naming schemes can be configured using the following configuration entries:</p>
+<p>模型编辑器应用程序的元素命名方案可以使用以下配置项进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -5287,7 +5165,7 @@ Must be a class extending org.opentcs.components.plantoverview.LocationTheme</p>
 <div class="sect3">
 <h4 id="_operations_desk_configuration">4.10.5. Operations Desk 配置</h4>
 <div class="paragraph">
-<p>The operations desk application reads its configuration data from the following files:</p>
+<p>操作台应用程序从以下文件读取其配置数据：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -5303,13 +5181,12 @@ Must be a class extending org.opentcs.components.plantoverview.LocationTheme</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>The files are read in this order, and configuration values set in one file can be overridden in any subsequent one.
-For users, it is recommended to leave the first two files untouched and set overriding values and project-specific configuration data in <code>opentcs-operationsdesk.properties</code> only.</p>
+<p>这些文件按此顺序读取，在一个文件中设置的配置值可以在任何后续文件中被覆盖。<code>opentcs-operationsdesk.properties</code> only.</p>
 </div>
 <div class="sect4">
 <h5 id="_operations_desk_application_configuration_entries">4.10.5.1. Operations Desk application configuration entries</h5>
 <div class="paragraph">
-<p>The operations desk application itself can be configured using the following configuration entries:</p>
+<p>操作台应用程序本身可以使用以下配置项进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -5548,7 +5425,7 @@ Must be a class extending org.opentcs.components.plantoverview.VehicleTheme</p>
 <div class="sect4">
 <h5 id="_ssl_operation_desk_side_application_configuration_entries">4.10.5.2. SSL operation desk-side application configuration entries</h5>
 <div class="paragraph">
-<p>The operation desk application’s SSL connections can be configured using the following configuration entries:</p>
+<p>操作台应用程序的 SSL 连接可以使用以下配置项进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
