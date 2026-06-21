@@ -687,7 +687,7 @@ SPDX-License-Identifier: CC-BY-4.0
 </div>
 <div class="paragraph">
 <p>如果您有技术问题/支持问题，请将其发布在项目讨论论坛上，社区和涉及的开发人员将在时间允许的情况下作出回应。<a class="bare" href="https://github.com/openTCS/opentcs/discussions">https://github.com/openTCS/opentcs/discussions</a>.
-Please remember to include enough data in your problem report to help the developers help you, e.g.:</p>
+请记住在问题报告中包含足够的数据以帮助开发人员为您提供帮助，例如：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1266,7 +1266,7 @@ Please remember to include enough data in your problem report to help the develo
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">有关如何将外设作业分配给外设的信息，请参阅<a href="#_default_peripheral_job_dispatcher">默认外设作业调度器</a>.
-For information on how the control system’s internal strategies for assigning peripheral jobs can be configured, see <a href="#_default_peripheral_job_dispatcher_configuration_entries">默认外设作业调度器配置条目</a>.
+有关如何配置控制系统内部分配外设作业的策略的信息，请参见<a href="#_default_peripheral_job_dispatcher_configuration_entries">默认外设作业调度器配置条目</a>.
 </td>
 </tr>
 </table>
@@ -1370,7 +1370,7 @@ For information on how the control system’s internal strategies for assigning 
 </div>
 <div class="paragraph">
 <p>在这种情况下，继续运输单是不合理的，因为“完成必需”标志不仅表示车辆应等待外设操作完成，还表示必须成功完成。<em>需要完成</em>标志不仅指示车辆应等待外设操作完成，还指示其必须完成<em>successfully</em>.
-Otherwise, the prerequisites for continuing driving / the transport order may not be met.</p>
+否则，可能无法满足继续行驶/运输单的前提条件。</p>
 </div>
 </div>
 </div>
@@ -1494,29 +1494,25 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 </li>
 <li>
 <p><code>loopback:acceleration</code>:
-Set the property value to a positive integer representing an acceleration in mm/s<sup>2</sup>）的正整数。</p>
+将属性值设置为表示加速度（单位：mm/s）的正整数<sup>2</sup>）的正整数。</p>
 </li>
 <li>
 <p><code>loopback:deceleration</code>:
-Set the property value to a negative integer representing an acceleration in mm/s<sup>2</sup>）的负整数。</p>
+将属性值设置为表示加速度（单位：mm/s）的负整数<sup>2</sup>）的负整数。</p>
 </li>
 <li>
 <p><code>loopback:loadOperation</code>:
-Set the property value to a string representing the virtual vehicle’s load operation.
-When the virtual vehicle executes this operation, the loopback adapter will set the its load handling device’s state to <em>full</em>.
-(Default value: not set)</p>
+将属性值设置为表示虚拟车辆装载操作的字符串。<em>full</em>.
+（默认值：未设置）</p>
 </li>
 <li>
 <p><code>loopback:unloadOperation</code>:
-Set the property value to a string representing the virtual vehicle’s unload operation.
-When the virtual vehicle executes this operation, the loopback adapter will set its load handling device’s state to <em>empty</em>.
-(Default value: not set)</p>
+将属性值设置为表示虚拟车辆卸载操作的字符串。<em>empty</em>.
+（默认值：未设置）</p>
 </li>
 <li>
 <p><code>loopback:operatingTime</code>:
-Set the property value to a positive integer representing the virtual vehicle’s operating time in milliseconds.
-When the virtual vehicle executes an operation, the loopback adapter will simulate an operating time accordingly.
-(Default value: 5000)</p>
+将属性值设置为表示虚拟车辆运行时间（毫秒）的正整数。</p>
 </li>
 </ul>
 </div>
@@ -1644,12 +1640,11 @@ When the virtual vehicle executes an operation, the loopback adapter will simula
 <ul>
 <li>
 <p>若要自动将车辆调度至充电位置，请设置配置参数<code>defaultdispatcher.rechargeIdleVehicles</code> to <code>true</code>.
-The default dispatcher will then look for locations at which the idle vehicle’s recharge operation is possible and create orders to send it to such a location (if unoccupied).
-(Note that the string used for the operation is driver-specific.)</p>
+然后，默认调度器将查找空闲车辆可以进行充电操作的位置，并创建订单将其发送到此类位置（如果未被占用）。</p>
 </li>
 <li>
 <p>若要自动将车辆调度至停车位，请设置配置参数<code>defaultdispatcher.parkIdleVehicles</code> to <code>true</code>.
-The default dispatcher will then look for unoccupied parking positions and create orders to send the idle vehicle there.</p>
+然后，默认调度器将查找未占用的停车位置，并创建订单将空闲车辆发送到那里。</p>
 </li>
 </ul>
 </div>
@@ -1841,15 +1836,11 @@ The default dispatcher will then look for unoccupied parking positions and creat
 <ul>
 <li>
 <p><em>停车位置</em>:
-Indicates a position at which a vehicle may halt temporarily while processing an order, e.g. for executing an operation.
-The vehicle is expected to report in when it arrives at such a position.
-It may not remain here for longer than necessary, though.
-Halt position is the default type for points when modelling with the model editor client.</p>
+指示车辆在处理运输单期间可临时停止的位置，例如用于执行操作。</p>
 </li>
 <li>
 <p><em>驻车位置</em>:
-Indicates a position at which a vehicle may halt for longer periods of time when it is not processing orders.
-The vehicle is also expected to report in when it arrives at such a position.</p>
+指示车辆在未处理运输单时可长时间停止的位置。</p>
 </li>
 </ul>
 </div>
@@ -2085,7 +2076,7 @@ The vehicle is also expected to report in when it arrives at such a position.</p
 </li>
 <li>
 <p>A <em>最大速度</em> and <em>最大反向速度</em>.
-Depending on the router configuration, it may be used for computing routing costs/finding an optimal route to a destination point.</p>
+根据路由器配置，它可用于计算路由代价/寻找到达目标点的最优路径。</p>
 </li>
 <li>
 <p>An <em>集成级别</em>，表示当前允许将车辆集成到系统中的程度。</p>
@@ -2140,12 +2131,11 @@ Depending on the router configuration, it may be used for computing routing cost
 <ul>
 <li>
 <p><em>仅限单车</em>:
-The resources aggregated in this block can only be used by a single vehicle at the same time.
-This is the default type for blocks when modelling with the model editor client.</p>
+此区块中聚合的资源在同一时间只能被一辆车辆使用。</p>
 </li>
 <li>
 <p><em>仅限同向</em>:
-The resources aggregated in this block can be used by multiple vehicles at the same time, but only if they traverse the block in the same direction.</p>
+此区块中聚合的资源可同时被多辆车辆使用，但前提是它们以相同的方向穿越该区块。</p>
 </li>
 </ul>
 </div>
@@ -2159,7 +2149,7 @@ The resources aggregated in this block can be used by multiple vehicles at the s
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">车辆穿越区块的方向是通过包含属于该区块资源的首个分配请求来确定的 — 参见<a href="#_default_scheduler">默认调度器</a>.
-For the requested resources (usually a point and a path) the path is checked for a property with the key <code>tcs:blockEntryDirection</code>的属性。</td>
+对于请求的资源（通常是一个点位和一条路径），会检查该路径是否具有键为<code>tcs:blockEntryDirection</code>的属性。</td>
 </tr>
 </table>
 </div>
@@ -2182,7 +2172,7 @@ For the requested resources (usually a point and a path) the path is checked for
 </li>
 <li>
 <p>A <em>group</em>，图层被分配到的 — 参见<a href="#_layer_group">图层组</a>.
-A layer can only be assigned to one layer group at a time.</p>
+一个图层一次只能分配给一个图层组。</p>
 </li>
 <li>
 <p>A <em>组可见</em>标志，指示图层所属的图层组是显示还是隐藏 — 参见<a href="#_layer_group">图层组</a>.</p>
@@ -2295,7 +2285,7 @@ A layer can only be assigned to one layer group at a time.</p>
 </li>
 <li>
 <p>A set of <em>订单类型</em> — see <a href="#_transport_order">运输单</a>.
-Only transport orders whose type is included in the set of order types of an order sequence can be added to it.</p>
+只有类型为订单序列中包含的订单类型的运输单才能添加到其中。</p>
 </li>
 <li>
 <p>An optional <em>预期车辆</em>，指示调度器将订单序列分配给指定车辆，而不是自动选择一辆。</p>
@@ -2484,14 +2474,11 @@ Only transport orders whose type is included in the set of order types of an ord
 <ul>
 <li>
 <p><code>tcs:preferredParkingPosition</code>:
-Expected to be the name of a point in the model.
-If this point is already occupied, the closest unoccupied parking position (if any) is selected instead.</p>
+预期为模型中一个点位的名称。</p>
 </li>
 <li>
 <p><code>tcs:assignedParkingPosition</code>:
-Expected to be the name of a point in the model.
-If this point is already occupied, the vehicle is not sent to any other parking position, i.e. remains where it is.
-Takes precedence over <code>tcs:preferredParkingPosition</code>.</p>
+预期为模型中一个点位的名称。<code>tcs:preferredParkingPosition</code>.</p>
 </li>
 </ul>
 </div>
@@ -2524,14 +2511,11 @@ Takes precedence over <code>tcs:preferredParkingPosition</code>.</p>
 <ul>
 <li>
 <p><code>tcs:preferredRechargeLocation</code>:
-Expected to be the name of a location.
-If this location is already occupied, the closest unoccupied recharging location (if any) is selected instead.</p>
+预期为一个位置的名称。</p>
 </li>
 <li>
 <p><code>tcs:assignedRechargeLocation</code>:
-Expected to be the name of a location.
-If this location is already occupied, the vehicle is not sent to any other recharging location.
-Takes precedence over <code>tcs:preferredRechargeLocation</code>.</p>
+预期为一个位置的名称。<code>tcs:preferredRechargeLocation</code>.</p>
 </li>
 </ul>
 </div>
@@ -2608,30 +2592,27 @@ Takes precedence over <code>tcs:preferredRechargeLocation</code>.</p>
 </li>
 <li>
 <p><code>TRAVELTIME</code>:
-Routing costs are computed as the expected time to travel on the paths (in seconds), i.e. as path length divided by maximum allowed vehicle speed.</p>
+路由代价计算为在路径上行驶的预计时间（以秒为单位），即路径长度除以允许的最大车辆速度。</p>
 </li>
 <li>
 <p><code>EXPLICIT_PROPERTIES</code>:
-Routing costs for a vehicle on a path are taken from path properties with keys <code>tcs:routingCostForward&lt;GROUP&gt;</code> and <code>tcs:routingCostReverse&lt;GROUP&gt;</code>.
-The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href="#_routing_groups">路由组</a>).
-As an example, if a vehicle’s routing group is set to "Example", routing costs for this vehicle would be taken from path properties with keys <code>tcs:routingCostForwardExample</code> and <code>tcs:routingCostReverseExample</code>.
-This way, different routing costs can be assigned to a path, e.g. for different types of vehicles.<br/>请注意，为了使此 cost function 正常工作，routing cost properties 的值应为十进制整数。<code>Infinity</code>，属性值可设置为该字符串，表示该 routing group 的车辆完全不得使用此 path。</p>
+车辆在路径上的路由代价取自键为<code>tcs:routingCostForward&lt;GROUP&gt;</code> and <code>tcs:routingCostReverse&lt;GROUP&gt;</code>.
+The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href="#_routing_groups">路由组</a>)。<code>tcs:routingCostForwardExample</code> and <code>tcs:routingCostReverseExample</code>.
+这样，可以为路径分配不同的路由代价，例如针对不同车辆类型。<br/>请注意，为了使此 cost function 正常工作，routing cost properties 的值应为十进制整数。<code>Infinity</code>，属性值可设置为该字符串，表示该 routing group 的车辆完全不得使用此 path。</p>
 </li>
 <li>
 <p><code>HOPS</code>:
-The routing costs for every path in the model is 1, which results in the route with the least paths/points being chosen.</p>
+模型中每条路径的路由代价均为 1，这将选择包含最少路径/点位的路由。</p>
 </li>
 <li>
 <p><code>BOUNDING_BOX</code>:
-Routing costs for a vehicle on a path are determined by comparing the vehicle’s bounding box with the maximum allowed bounding box at the path’s destination point — see <a href="#_bounding_box">边界框</a>.
-If the vehicle’s bounding box protrudes beyond a destination point’s bounding box, the routing costs for the corresponding path are considered infinitely high, indicating that the path may not be used by the vehicle at all.
-Otherwise, the routing costs for the corresponding path are 0.
-This can be used to prevent vehicles from being routed to/through points where there is insufficient space available.</p>
+车辆在路径上的路由代价是通过将车辆的边界框与路径目标点处允许的最大边界框进行比较来确定的 — 参见<a href="#_bounding_box">边界框</a>.
+如果车辆的边界框超出目标点的边界框，则对应路径的路由代价被视为无穷大，表明该车辆根本不能使用此路径。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>开发人员可以使用 openTCS API 集成其他自定义成本函数。</p>
+<p>开发人员可以使用 openTCS API 集成其他自定义代价函数。</p>
 </div>
 <div class="paragraph">
 <p>在配置中可以通过用逗号分隔列出多个成本函数来选择它们。<code>"DISTANCE, TRAVELTIME"</code>，路由的成本计算为 path 长度之和以及车辆通过它所需的时间。</p>
@@ -2680,8 +2661,7 @@ This can be used to prevent vehicles from being routed to/through points where t
 </li>
 <li>
 <p>检查请求的资源是否属于类型为<code>SINGLE_VEHICLE_ONLY</code>.
-If not, skip this check.
-If yes, expand the requested resource set to the effective resource set and check if the expanded resources are available for the vehicle.</p>
+如果不满足条件，则跳过此检查。</p>
 </li>
 <li>
 <p>检查请求的资源是否属于类型为<code>SAME_DIRECTION_ONLY</code>的区块。</p>
@@ -3083,7 +3063,7 @@ If yes, expand the requested resource set to the effective resource set and chec
 <p>触发更改应用：即时</p>
 </li>
 <li>
-<p>描述：车辆资源（即由车辆分配的路径、点位和位置）的管理方式类型。<br/>可能的值：<br/>LENGTH_IGNORED：释放直到（不包括）车辆当前位置的资源。当您主要希望利用车辆包络线进行交通管理时，此类型可能很有用。<em>always</em> released up to (excluding) a vehicle’s currentposition. This type can be useful when you primarily want to utilize vehicle envelopes for traffic management.<br/>LENGTH_RESPECTED：仅释放不再被车辆“覆盖”的资源（根据车辆长度及其后方路径的长度）。这是在引入车辆包络线之前管理资源的“经典”方式。</p>
+<p>描述：车辆资源（即由车辆分配的路径、点位和位置）的管理方式类型。<br/>可能的值：<br/>LENGTH_IGNORED：释放直到（不包括）车辆当前位置的资源。当您主要希望利用车辆包络线进行交通管理时，此类型可能很有用。<em>always</em>释放直到（不包括）车辆当前位置的资源。当您主要希望利用车辆包络线进行交通管理时，此类型可能很有用。<br/>LENGTH_RESPECTED：仅释放不再被车辆“覆盖”的资源（根据车辆长度及其后方路径的长度）。这是在引入车辆包络线之前管理资源的“经典”方式。</p>
 </li>
 </ul>
 </div>
@@ -3092,7 +3072,7 @@ If yes, expand the requested resource set to the effective resource set and chec
 </div>
 </div>
 <div class="sect4">
-<h5 id="_order_pool_configuration_entries">4.10.2.2. Order pool configuration entries</h5>
+<h5 id="_order_pool_configuration_entries">4.10.2.2. 订单池配置条目</h5>
 <div class="paragraph">
 <p>可以使用以下配置条目对内核的运输单池进行配置：</p>
 </div>
@@ -3145,13 +3125,13 @@ If yes, expand the requested resource set to the effective resource set and chec
 <div class="ulist">
 <ul>
 <li>
-<p>Type: Comma-separated list of strings</p>
+<p>类型：逗号分隔的字符串列表</p>
 </li>
 <li>
 <p>4.10.2.3. 默认调度器配置条目</p>
 </li>
 <li>
-<p>类型：逗号分隔的字符串列表<br/>触发更改应用：应用程序启动时<br/>描述：用于优先排序运输单候选项以进行分配的关键字。<br/>可能的关键字：<br/>DEADLINE_AT_RISK_FIRST: 优先排序截止时间有风险的运输单。<br/>BY_COMPLETE_ROUTING_COSTS: 按完整行驶路线成本排序，最低优先。<br/>BY_INITIAL_ROUTING_COSTS: 按首个目的地的行驶路线成本排序。<br/>BY_ORDER_NAME: 按运输单名称排序，字典序。<br/>BY_ORDER_TYPE_PRIORITY: 按车辆配置的单类型优先级排序，最高（即最小整数值）优先。</p>
+<p>类型：逗号分隔的字符串列表<br/>触发更改应用：应用程序启动时<br/>描述：用于优先排序运输单候选项以进行分配的关键字。<br/>可能的关键字：<br/>DEADLINE_AT_RISK_FIRST：优先排序截止时间有风险的运输单。<br/>BY_COMPLETE_ROUTING_COSTS：按完整行驶路线代价排序，最低优先。<br/>BY_INITIAL_ROUTING_COSTS：按首个目的地的行驶路线代价排序。<br/>BY_ORDER_NAME：按运输单名称排序，字典序。<br/>BY_ORDER_TYPE_PRIORITY：按车辆配置的单类型优先级排序，最高（即最小整数值）优先。</p>
 </li>
 </ul>
 </div>
@@ -3167,7 +3147,7 @@ If yes, expand the requested resource set to the effective resource set and chec
 <p>应用更改的触发时机：应用程序启动时</p>
 </li>
 <li>
-<p>描述：用于优先排序运输单以进行分配的依据键。<br/>可能的键：<br/>BY_AGE: 按年龄排序，最老优先。<br/>BY_DEADLINE: 按截止时间排序，最紧急优先。<br/>DEADLINE_AT_RISK_FIRST: 优先排序截止时间有风险的运输单。<br/>BY_NAME: 按名称排序，字典序。</p>
+<p>描述：用于优先排序运输单以进行分配的依据键。<br/>可能的键：<br/>BY_AGE: 按年龄排序，最老优先。<br/>BY_DEADLINE: 按截止时间排序，最紧急优先。<br/>DEADLINE_AT_RISK_FIRST：优先排序截止时间有风险的运输单。<br/>BY_NAME: 按名称排序，字典序。</p>
 </li>
 </ul>
 </div>
@@ -3183,7 +3163,7 @@ If yes, expand the requested resource set to the effective resource set and chec
 <p>应用更改的触发时机：应用程序启动时</p>
 </li>
 <li>
-<p>描述：用于优先排序车辆候选者以进行分配的依据键。<br/>可能的键：<br/>BY_ENERGY_LEVEL: 按车辆能量水平排序，最高优先。<br/>IDLE_FIRST: 优先排序状态为空闲的车辆。<br/>BY_COMPLETE_ROUTING_COSTS: 按完整行驶路线成本排序，最低优先。<br/>BY_INITIAL_ROUTING_COSTS: 按首个目的地的路由成本排序。<br/>BY_VEHICLE_NAME: 按车辆名称字典序排序。<br/>BY_ORDER_TYPE_PRIORITY: 按为该车辆配置的单类型优先级排序，最高优先级（即最小整数值）排在前面。</p>
+<p>描述：用于优先排序车辆候选者以进行分配的依据键。<br/>可能的键：<br/>BY_ENERGY_LEVEL：按车辆能量水平排序，最高优先。<br/>IDLE_FIRST：优先排序状态为空闲的车辆。<br/>BY_COMPLETE_ROUTING_COSTS：按完整行驶路线代价排序，最低优先。<br/>BY_INITIAL_ROUTING_COSTS：按首个目的地的路由代价排序。<br/>BY_VEHICLE_NAME：按车辆名称字典序排序。<br/>BY_ORDER_TYPE_PRIORITY：按为该车辆配置的单类型优先级排序，最高优先级（即最小整数值）排在前面。</p>
 </li>
 </ul>
 </div>
@@ -3199,7 +3179,7 @@ If yes, expand the requested resource set to the effective resource set and chec
 <p>更改生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：用于优先分配车辆的键。<br/>可能的键：<br/>BY_ENERGY_LEVEL: 按能量水平排序，最高优先。<br/>IDLE_FIRST: 将状态为空闲的车辆排在前面。<br/>BY_NAME: 按名称字典序排序。</p>
+<p>描述：用于优先分配车辆的键。<br/>可能的键：<br/>BY_ENERGY_LEVEL：按能量水平排序，最高优先。<br/>IDLE_FIRST：将状态为空闲的车辆排在前面。<br/>BY_NAME: 按名称字典序排序。</p>
 </li>
 </ul>
 </div>
@@ -5154,7 +5134,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>触发更改应用的时机：应用程序启动时</p>
 </li>
 <li>
-<p>描述：是否使用 SSL 加密与内核的 RMI 连接。</p>
+<p>Description: Whether to use SSL encryption for the RMI connection to the kernel.</p>
 </li>
 </ul>
 </div>
