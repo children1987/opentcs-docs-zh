@@ -536,8 +536,8 @@ SPDX-License-Identifier: CC-BY-4.0
 <div id="header">
 <h1>openTCS：用户手册</h1>
 <div class="details">
-<span class="author" id="author">The openTCS developers</span><br/>
-<span id="revnumber">version 7.3.0</span>
+<span class="author" id="author">openTCS 开发团队</span><br/>
+<span id="revnumber">版本 7.3.0</span>
 </div>
 <div class="toc2" id="toc">
 <div id="toctitle">目录</div>
@@ -636,9 +636,9 @@ SPDX-License-Identifier: CC-BY-4.0
 <ul class="sectlevel3">
 <li><a href="#_application_language">4.10.1. 应用程序语言</a></li>
 <li><a href="#_kernel_configuration">4.10.2. 内核配置</a></li>
-<li><a href="#_kernel_control_center_configuration">4.10.3. Kernel Control Center 配置</a></li>
-<li><a href="#_model_editor_configuration">4.10.4. Model Editor 配置</a></li>
-<li><a href="#_operations_desk_configuration">4.10.5. Operations Desk 配置</a></li>
+<li><a href="#_kernel_control_center_configuration">4.10.3. 内核控制中心配置</a></li>
+<li><a href="#_model_editor_configuration">4.10.4. 模型编辑器配置</a></li>
+<li><a href="#_operations_desk_configuration">4.10.5. 操作台配置</a></li>
 </ul>
 </li>
 </ul>
@@ -653,16 +653,13 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect2">
 <h3 id="_purpose_of_the_software">1.1. 软件用途</h3>
 <div class="paragraph">
-<p>openTCS（open Transportation Control System 的缩写）是一款免费的控制系统软件，用于协调自动导引车（AGV）和移动机器人车队，例如在生产工厂中。<em>open Transportation Control System</em>）是一款用于协调车队<a href="https://en.wikipedia.org/wiki/Automated_guided_vehicle">自动导引车（AGVs）</a>和移动机器人的免费控制系统软件，例如在生产工厂中。</p>
+<p>openTCS（<em>open Transportation Control System</em> 的缩写），是一款免费的控制系统软件，主要用于协调<a href="https://en.wikipedia.org/wiki/Automated_guided_vehicle">自动导引车（AGV）</a>和移动机器人的车队，例如在生产工厂中的应用。通常情况下，它应该能够控制任何具备通信能力的自动车辆，但其主要目标对象仍是 AGV。</p>
 </div>
 <div class="paragraph">
-<p>openTCS 控制车辆时独立于其具体特性，如导航原理/轨道引导系统或负载处理装置。</p>
+<p>openTCS 本身并非一个可直接使用来控制自动导引车（AGV）的完整产品。它主要是一个框架，用于实现运行多辆车辆AGV系统所需的基本数据结构和算法（如车辆路径规划、向车辆下发调度指令、管理车队交通等）。该框架力求尽可能通用，以便与几乎任何供应商的车辆实现互操作。</p>
 </div>
 <div class="paragraph">
-<p>openTCS 本身并不是一个开箱即用以控制 AGV 的完整产品。</p>
-</div>
-<div class="paragraph">
-<p>因此，通常至少需要创建并插入一个车辆驱动程序（在 openTCS 术语中称为通信适配器），该驱动程序负责在 openTCS 内核的抽象接口与您的车辆所理解的通信协议之间进行转换。<em>通信适配器</em>（在 openTCS 术语中）负责在 openTCS 内核的抽象接口与您车辆所理解的通信协议之间进行转换。</p>
+<p>因此，通常至少需要创建并接入一个车辆驱动程序（在 openTCS 的术语中称为<em>通信适配器</em>），用来在 openTCS 内核的抽象接口与车辆实际使用的通信协议之间进行转换。（这类车辆驱动程序在某种程度上类似于操作系统中的设备驱动。）此外，根据您的具体需求，可能还需要对算法进行调整，或者添加针对特定项目的策略。</p>
 </div>
 </div>
 <div class="sect2">
@@ -709,10 +706,10 @@ SPDX-License-Identifier: CC-BY-4.0
 <p>要创建或编辑运输系统的工厂模型，请使用模型编辑器应用程序。</p>
 </div>
 <div class="paragraph">
-<p>作为基于现有工厂模型的运输控制系统的图形前端，请使用操作台应用程序。</p>
+<p>作为基于现有工厂模型的运输控制系统图形化前端，请使用 Operations Desk 应用程序。请注意，Operations Desk 应用程序始终需要一个正在运行的 openTCS 内核以便连接。</p>
 </div>
 <div class="paragraph">
-<p>启动应用程序是通过执行相应的 Unix shell 脚本（*.sh）或 Windows 批处理文件（*.bat）来完成的。<code>*.sh</code>）或 Windows 批处理文件（<code>*.bat</code>).</p>
+<p>启动应用程序是通过执行相应的 Unix shell 脚本（*.sh）或 Windows 批处理文件（*.bat）来完成的。</p>
 </div>
 <div class="sect2">
 <h3 id="_constructing_a_new_plant_model">2.1. 构建新的工厂模型</h3>
@@ -727,10 +724,11 @@ SPDX-License-Identifier: CC-BY-4.0
 <p>启动模型编辑器（<code>startModelEditor.bat/.sh</code>).</p>
 </li>
 <li>
-<p>模型编辑器将启动一个新的空模型，但您也可以从文件加载模型（<b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">加载模型</b></span></b>）或当前内核模型（<b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">加载当前内核模型</b></span></b>）。</p>
+<p>模型编辑器将启动一个新的空模型，但您也可以从文件加载模型（<b class="button"><span class="menuseq"><b class="menu">文件</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">加载模型</b></span></b>）或当前内核模型（<b class="button"><span class="menuseq"><b class="menu">文件</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">加载当前内核模型</b></span></b>）。</p>
 </li>
 <li>
-<p>使用模型编辑器客户端的图形用户界面为您的相应应用程序/项目创建任意行驶路线。<b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">新模型</b></span></b>从主菜单。</p>
+<p>使用模型编辑器客户端的图形用户界面，为您的相应应用程序/项目创建任意行驶路线。如何向驾驶路线中添加点、路径和车辆等元素，将在下一部分中详细说明。每当您需要重新开始时，只需从主菜单中选择<b class="button"><span class="menuseq"><b class="menu">文件</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">新模型</b></span></b>即可。
+</p>
 </li>
 </ol>
 </div>
@@ -749,30 +747,30 @@ SPDX-License-Identifier: CC-BY-4.0
 <p>通过从行驶路线元素工具栏中选择点位工具（参见上图中红色方框），并在绘图区域点击三个位置来创建三个点位。</p>
 </li>
 <li>
-<p>通过</p>
+<p>通过路径将三个点连接成一个闭合环</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>从行驶路线元素工具栏中选择路径工具，</p>
 </li>
 <li>
-<p>点击一个点位，将路径拖动到下一个点位并在那里释放鼠标按钮，将这三个点位与路径链接成一个闭合回路。</p>
+<p>点击一个点，将路径拖拽至下一个点，然后在那里松开鼠标按钮。</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>通过从行驶路线元素工具栏中选择位置工具，并在绘图区域的任意两个空闲位置点击来创建两个位置。</p>
+<p>通过从驾驶课程元素工具栏中选择位置工具，并在绘图区域的任意两个空白位置上单击，创建两个位置。由于在工厂模型中尚不存在该位置类型，因此在创建第一个位置时将隐式生成一个新类型，该类型可在绘图区域左侧的树状视图中看到。</p>
 </li>
 <li>
-<p>通过</p>
+<p>通过（不同的）点将这两个地点连接起来</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>从行驶路线元素工具栏中选择链接工具，将这两个位置与（不同的）点位链接起来。</p>
+<p>从驾驶课程元素工具栏中选择“链接”工具。。</p>
 </li>
 <li>
-<p>点击一个位置，将链接拖拽到一个点位并释放鼠标按钮。</p>
+<p>点击某个位置，将链接拖到指定位置并松开鼠标按钮。</p>
 </li>
 </ol>
 </div>
@@ -791,7 +789,7 @@ SPDX-License-Identifier: CC-BY-4.0
 <p>点击标记为<b class="button">支持的车辆操作</b>的值单元格，该单元格位于树视图下方的属性窗口中。</p>
 </li>
 <li>
-<p>在显示的对话框中输入允许的任意文本作为操作，例如<code>"Load cargo"</code> and <code>"Unload cargo"</code>.</p>
+<p>在显示的对话框中输入允许的任意文本作为操作，例如<code>"Load cargo"</code> 和 <code>"Unload cargo"</code>.</p>
 </li>
 <li>
 <p>可选地，您可以通过编辑属性为选定类型的位置选择一个符号<code>"Symbol"</code>.</p>
@@ -814,12 +812,12 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect4">
 <h5 id="_adding_and_configuring_peripheral_devices">2.1.2.1. 添加和配置外设</h5>
 <div class="paragraph">
-<p>如工厂模型元素中所述，位置可用于映射外设。<a href="#_plant_model_elements">工厂模型元素</a>，位置可用于映射外设。</p>
+<p>如<a href="#_plant_model_elements">工厂模型元素</a>, 中所述，位置可用于映射外围设备。这意味着，在完成上述步骤后，工厂模型中现已生成两个可用位置，可用于集成两个外围设备。如需集成一个示例外围设备，请执行以下附加步骤：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>通过将位置与外设关联来</p>
+<p>通过以下方式将位置与外围设备关联：</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -874,7 +872,7 @@ SPDX-License-Identifier: CC-BY-4.0
 <td class="icon">
 <i class="fa icon-note" title="Note"></i>
 </td>
-<td class="content">上述步骤描述了将位置与由回环外设驱动程序控制的虚拟外设设备关联的过程。</td>
+<td class="content">上述步骤描述了将位置与虚拟外围设备关联的过程，该虚拟外围设备由环回外围设备驱动程序（loopback peripheral driver）控制。与车辆不同（车辆无需任何额外配置即可自动分配环回车辆驱动程序），位置必须专门配置前述属性，才能分配环回外围设备驱动程序。</td>
 </tr>
 </table>
 </div>
@@ -893,7 +891,7 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect3">
 <h4 id="_working_with_vehicle_envelopes">2.1.3. 使用车辆包络线</h4>
 <div class="paragraph">
-<p>如工厂模型元素中所述，可以在点位和路径上定义车辆包络线。<a href="#_plant_model_elements">工厂模型元素</a>，可以在点位和路径上定义车辆包络线。<em>包络线键</em>始终分配给车辆包络线。<a href="#_default_scheduler">默认调度器</a>。）</p>
+<p>如 <a href="#_plant_model_elements">工厂模型元素</a> 中所述，车辆包络可在点和路径上进行定义。车辆包络是一系列顶点的集合（即具有 x 和 y 坐标的点），将这些顶点按定义的顺序连接起来，即可表示车辆可能占用的区域。除了顶点序列外，每个车辆包络还会分配一个 <em>envelope key</em>（包络键）。通过引用包络键，车辆可以指明在分配资源时应考虑哪些包络（这些包络可定义在点或路径上）。（有关更多详细信息，请参阅 <a href="#_default_scheduler">默认调度器</a>。）借助此机制，系统能够有效防止车辆分配与其他车辆已分配区域相交的区域。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -921,7 +919,7 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect3">
 <h4 id="_working_with_layers_and_layer_groups">2.1.4. 使用图层和图层组</h4>
 <div class="paragraph">
-<p>除了向工厂模型添加元素外，模型编辑器还允许使用不同的图层和图层组创建工厂模型。<a href="#_layer">Layer</a> and <a href="#_layer_group">图层组</a>.</p>
+<p>除了向工厂模型中添加元素外，模型编辑器还支持使用不同的图层和图层组来创建工厂模型。有关图层和图层组属性的更多详细信息，请参阅 <a href="#_layer">Layer</a> 和 <a href="#_layer_group">Layer group</a>。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -936,7 +934,7 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect4">
 <h5 id="_layers">2.1.4.1. 图层</h5>
 <div class="paragraph">
-<p>图层对点位、路径、位置和链接进行分组，并允许按需显示或隐藏其包含的行驶路线元素。</p>
+<p>图层用于对点、路径、位置和链接进行分组，并允许按需显示或隐藏其中包含的行驶路线元素。可以使用下方截图（见红色边框）中所示的面板来创建、删除和编辑图层。在使用图层时，请注意以下几点：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -966,7 +964,7 @@ SPDX-License-Identifier: CC-BY-4.0
 <td class="icon">
 <i class="fa icon-note" title="Note"></i>
 </td>
-<td class="content">在操作台应用程序中，图层（和图层组）的可见性也会影响车辆元素是否在工厂模型中显示。</td>
+<td class="content">在操作台应用程序中，图层（和图层组）的可见性也会影响车辆元素是否在工厂模型中显示。车辆元素会继承其上报所在点的可见性。如果车辆上报的点位于某个已隐藏的图层（或图层组）中，则该车辆元素不会在工厂模型中显示。</td>
 </tr>
 </table>
 </div>
@@ -980,7 +978,7 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect4">
 <h5 id="_layer_groups">2.1.4.2. 图层组</h5>
 <div class="paragraph">
-<p>正如名称所示，图层组对一个或多个图层进行分组，并允许同时显示或隐藏多个图层。</p>
+<p>图层组用于将一个或多个图层进行分组，并允许同时显示或隐藏多个图层。可以使用下方截图（见红色边框）中所示的面板来创建、删除和编辑图层组。在使用图层组时，请注意以下几点：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1008,13 +1006,17 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect4">
 <h5 id="_saving_the_model_locally">2.1.5.1. 在本地保存模型</h5>
 <div class="paragraph">
-<p>选择文件 &gt; 保存模型 或 文件 &gt; 另存为模型…​ 并为模型输入文件名。<b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">保存模型</b></span></b> or <b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">模型另存为…​</b></span></b>并输入模型的文件名。</p>
+<p>选择文件 &gt; 保存模型 或 文件 &gt; 另存为模型…​ 并为模型输入文件名。<b class="button"><span class="menuseq"><b class="menu">文件</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">保存模型</b></span></b> 或 <b class="button"><span class="menuseq"><b class="menu">文件</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">模型另存为…​</b></span></b>并输入模型的文件名。</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_loading_the_model_into_a_running_kernel">2.1.5.2. 将模型加载到正在运行的内核中</h5>
 <div class="paragraph">
-<p>选择“文件上传”模型至内核，您的模型将被加载到内核中，从而可用于工厂操作。<b class="button"><span class="menuseq"><b class="menu">File</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">上传模型至内核</b></span></b>您的模型将被加载到内核中，使其可用于工厂操作。</p>
+    <p><font _mstmutation="1">选择 </font><b class="button"><span class="menuseq"><font _mstmutation="1"><b class="menu" _mstmutation="1">上传模型到內核</b></font><i class="fa fa-angle-right caret"></i></span></b><font _mstmutation="1">，您的模型将被加载到内核中，以便您使用它来运行工厂。
+不过，这要求您必须先将其本地保存。
+请注意，之前加载到内核中的任何模型都将被替换，因为内核一次只能存储一个模型。</font></p>
+
+
 </div>
 </div>
 </div>
@@ -1051,20 +1053,26 @@ SPDX-License-Identifier: CC-BY-4.0
 <p>启动操作台应用程序（<code>startOperationsDesk.bat/.sh</code>)</p>
 </li>
 <li>
-<p>在内核控制中心中，选择<b class="button">车辆驱动程序</b>选项卡。</p>
+<p>在内核控制中心中，选择<b class="button">车辆驱动</b>选项卡。</p>
 <div class="olist loweralpha">
+
+
 <ol class="loweralpha" type="a">
 <li>
 <p>窗口左侧的列表显示了所选模型中的所有车辆。</p>
 </li>
 <li>
-<p>在驱动程序面板列表中双击车辆名称后，可以在右侧看到车辆的详细视图。</p>
+<p>在列表中双击车辆名称后，可在驱动程序面板的右侧查看该车辆的详细信息。
+此详细信息视图的具体设计取决于车辆所关联的驱动程序。
+通常，这里会显示车辆发送的状态信息（例如当前位置和运行模式），并提供底层设置选项（例如车辆的 IP 地址）。</p>
 </li>
 <li>
-<p>右键单击车辆列表会显示一个弹出菜单，允许将驱动程序附加到选定的车辆上。</p>
+<p>在车辆列表上单击鼠标右键，会弹出一个快捷菜单，允许为选中的车辆附加驱动程序。</p>
 </li>
 <li>
-<p>要使车辆能够被系统控制，需要将驱动程序附加到车辆上并启用它。<a href="#_configuring_vehicle_drivers">配置车辆驱动程序</a>.</p>
+<p>要使车辆受系统控制，需要为其附加一个驱动程序并将其启用。
+（在没有可与系统通信的真实车辆的情况下，出于测试目的，可以使用所谓的环回驱动程序，它提供一个虚拟车辆来大致模拟真实车辆。）
+关于如何附加和启用车辆驱动程序的详细说明，请参阅 <a href="#_configuring_vehicle_drivers">配置车辆驱动程序</a>。</p>
 </li>
 </ol>
 </div>
@@ -1086,25 +1094,28 @@ SPDX-License-Identifier: CC-BY-4.0
 <p>切换到内核控制中心应用程序。</p>
 </li>
 <li>
-<p>通过右键单击驱动程序面板车辆列表中的车辆，并选择菜单项，将车辆与回环驱动程序关联起来。<b class="button"><span class="menuseq"><b class="menu">Driver</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">回环适配器（虚拟车辆）</b></span></b>.</p>
+<p>通过右键单击驱动程序面板车辆列表中的车辆，并选择菜单项，将车辆与回环驱动程序关联起来。<b class="button"><span class="menuseq"><b class="menu">车辆详情</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">回环选项（虚拟车辆）</b></span></b>.</p>
 </li>
 <li>
 <p>通过双击列表中的车辆名称，打开车辆的详细视图。</p>
 </li>
 <li>
-<p>在现在显示在车辆列表右侧的车辆详细视图中，选择<b class="button">回环选项</b> tab.</p>
+<p>在现在显示在车辆列表右侧的车辆详细视图中，选择<b class="button">回环选项</b> 标签页。</p>
 </li>
 <li>
-<p>勾选复选框以启用驱动程序<b class="button">启用回环适配器</b> in the <b class="button">回环选项</b>标签页或车辆列表中的复选框<b class="button">Enabled?</b>列。</p>
+<p>勾选复选框以启用驱动程序<b class="button">启用回环适配器</b> 在 <b class="button">回环选项</b>标签页或车辆列表中的复选框<b class="button">已启用?</b>列。</p>
 </li>
 <li>
-<p>In the <b class="button">回环选项</b>标签页或在车辆列表中，从工厂模型中选择一个点位，以便让回环适配器将该点位报告给内核，作为（虚拟）车辆的当前位置。<b class="button">回环选项</b>标签页中，可以通过点击<b class="button">Position</b>文本字段来完成此操作。</p>
+<p>在 <b class="button">回环选项</b>标签页或在车辆列表中，从工厂模型中选择一个点位，以便让回环适配器将该点位报告给内核，作为（虚拟）车辆的当前位置。<b class="button">回环选项</b>标签页中，可以通过点击<b class="button">位置</b>文本字段来完成此操作。（在实际应用中，与真实车辆通信的车辆驱动程序会在得知车辆当前位置后，自动将其报告给内核。）</p>
 </li>
 <li>
-<p>切换到操作台客户端。</p>
+<p>切换到操作台客户端。此时，在您使用环回驱动程序放置该车辆的点上，应该会显示一个代表该车辆的图标。</p>
 </li>
 <li>
-<p>右键单击该车辆并选择<b class="button"><span class="menuseq"><b class="menu">上下文菜单</b> <i class="fa fa-angle-right caret"></i> <b class="submenu">更改集成级别</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">……以利用该车辆处理运输单</b></span></b>从而允许内核对该车辆进行调度。<code>TO_BE_UTILIZED</code>指示，该级别显示在操作台应用程序窗口左下角的属性面板中。<b class="button"><span class="menuseq"><b class="menu">上下文菜单</b> <i class="fa fa-angle-right caret"></i> <b class="submenu">更改集成级别</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">……来恢复对此车辆位置的尊重）</b></span></b>在上下文菜单中。<code>TO_BE_RESPECTED</code>并且车辆将不再被分配运输单。)</p>
+<p>在车辆面板中找到该车辆，右键点击该车辆，依次选择 <b class="button"><span class="menuseq"> <b class="submenu">更改集成级别 -> …将此车辆用于运输单</b></span></b>，以允许内核调度该车辆。
+随后，该车辆即可用于处理运输订单，此时在操作台应用程序窗口左下角的属性面板中，其集成级别将显示为 <code>TO_BE_UTILIZED</code>。
+（如需撤销此设置，在车辆面板中找到该车辆，右键点击该车辆，依次选择 <b class="button"><span class="menuseq"> <b class="menuitem">更改集成级别 ->…尊重此车辆的位置</b></span></b>。
+此时显示的集成级别将变为 <code>TO_BE_RESPECTED</code>，该车辆将不再被调度用于处理运输订单。）</p>
 </li>
 </ol>
 </div>
@@ -1112,7 +1123,14 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect3">
 <h4 id="_creating_a_transport_order">2.2.3. 创建运输单</h4>
 <div class="paragraph">
-<p>要创建运输单，操作台应用程序提供了一个对话框窗口，当从菜单中选择“操作 创建运输单…”时显示。<b class="button"><span class="menuseq"><b class="menu">Actions</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">创建运输单…​</b></span></b>从菜单中。<a href="#_default_dispatcher_configuration_entries">默认调度器配置条目</a>）。</p>
+<p>要创建运输订单，操作台应用程序提供了一个对话框，您可以通过在菜单中选择 <b class="button"><span class="menuseq"><b class="menu">操作</b>&nbsp;<i class="fa fa-angle-right caret"></i> <b class="menuitem">创建运输单…</b></span></b> 来打开。
+运输订单被定义为一系列目标位置，处理该订单的车辆需要在这些位置执行相应的操作。
+您可以从下拉菜单中选择目标位置和操作。
+您也可以选择性地指定用于处理此订单的车辆。
+如果未明确选择车辆，控制系统将根据其内部的、可配置的策略自动将订单分配给某辆车辆（请参阅 <a href="#_default_dispatcher_configuration_entries">默认调度器配置条目</a>）。
+此外，您也可以选择或定义要创建的运输订单的类型。
+另外，还可以为运输订单设置一个截止时间，以规定该订单最晚应在此时间点前完成。
+当任务池中存在多个运输订单，且 openTCS 需要决定接下来分配哪一个时，该截止时间将作为主要的考量依据。</p>
 </div>
 <div class="paragraph">
 <p>要创建新的运输单，请执行以下操作：</p>
@@ -1120,29 +1138,41 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>选择菜单项<b class="button"><span class="menuseq"><b class="menu">Actions</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">创建运输单…​</b></span></b>.</p>
+<p>选择菜单项<b class="button"><span class="menuseq"><b class="menu">操作</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">创建运输单…​</b></span></b>.</p>
 </li>
 <li>
-<p>在显示的对话框中，单击<b class="button">Add</b>按钮并选择一个位置作为目的地以及车辆应在那里执行的操作。</p>
+<p>在显示的对话框中，单击<b class="button">添加</b>按钮并选择一个位置作为目的地以及车辆应在那里执行的操作。</p>
 </li>
 <li>
-<p>通过单击<b class="button">OK</b>创建具有给定目的地的运输单后，内核将寻找可以处理该单的车辆。</p>
+<p>通过单击<b class="button">确认</b>创建具有给定目的地的运输单后，内核将寻找可以处理该单的车辆。</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_withdrawing_transport_orders_using_the_operations_desk_application">2.2.4. 使用操作台应用程序撤回运输单</h4>
+
 <div class="paragraph">
-<p>可以从正在处理它的车辆中撤回运输单。<b class="button"><span class="menuseq"><b class="menu">上下文菜单</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">撤回运输单</b></span></b>然后选择以下操作之一：</p>
+<p>可以从正在处理运输订单的车辆中撤回该订单。
+撤回运输订单后，该订单的处理将被取消，车辆（驱动程序）将不会再收到与该订单相关的任何移动指令。
+在 操作台应用程序车辆面板中通过右键点击相应的车辆，选择 <b class="button"><span class="menuseq"><b class="menu">撤销车辆运输单</b> </span></b>，然后从以下操作中选择一项来发出撤回指令：</p>
 </div>
+
 <div class="ulist">
 <ul>
 <li>
-<p>‘…​并让车辆完成移动’：</p>
+<p>“…并让车辆完成当前移动”：
+车辆将处理其已经收到的所有移动指令，并在处理完毕后停止。
+在从车辆撤回运输订单时，通常应使用这种撤回方式。</p>
 </li>
 <li>
-<p>‘…​并立即停止车辆’：<em>should</em>使它在大多数情况下很快停下来。<em>未移动</em>!</p>
+<p>“…并立即停止车辆”：
+除了常规撤回操作外，该选项还会要求车辆丢弃其已收到的所有移动指令。
+（在大多数情况下，这<em>应该</em>会使车辆很快停下来。
+然而，车辆是否还会继续移动以及具体移动多远，高度取决于车辆的类型、当前状况以及 openTCS 与该类型车辆之间的通信方式。）
+此外，撤回路线上的所有资源预订（即下一条路径和点）都将被取消（车辆当前报告的位置除外），从而使这些资源可被其他车辆使用。
+应极其谨慎地使用这种强制撤回方式，通常仅在车辆当前<em>未移动</em>时使用！</p>
+
 </li>
 </ul>
 </div>
@@ -1152,12 +1182,21 @@ SPDX-License-Identifier: CC-BY-4.0
 <td class="icon">
 <i class="fa icon-caution" title="Caution"></i>
 </td>
-<td class="content">由于强制撤回释放了之前为该车辆保留的路径和点位，因此其他车辆可能在撤回后立即获取并使用这些资源。<em>碰撞或死锁</em>在车辆之间！</td>
+<td class="content">
+由于强制撤回会释放先前为该车辆预留的路径和点，其他车辆有可能在撤回操作后立即获取并使用这些资源。
+与此同时，如果在发出撤回指令时车辆正处于移动状态，根据其类型的不同，车辆可能尚未完全停稳，并仍会沿着之前被指示的路线继续移动。
+由于这部分移动不受 openTCS 的协调控制，这可能导致车辆之间发生<em>碰撞或死锁</em>！
+因此，强烈建议仅在确有必要的情况下才发出强制撤回指令，并且必须确保车辆已在行驶路线上的某个位置完全停稳，或者无需考虑其他车辆的运行。
+在所有其他情况下，均应使用常规撤回方式。
+</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>已撤回的运输单的处理无法稍后恢复。<em>cannot</em>稍后恢复。</p>
+    <p>被撤回的运输订单<em>无法</em>在稍后恢复处理。
+若要恢复因撤回运输订单而中断的运输过程，您需要创建一个新的运输订单，该订单当然可以包含与被撤回订单相同的目的地。
+但请注意，新的运输订单不能使用相同的名称。
+其原因在于：</p>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha">
@@ -1165,7 +1204,9 @@ SPDX-License-Identifier: CC-BY-4.0
 <p>运输单的名称必须是唯一的。</p>
 </li>
 <li>
-<p>撤回运输单仅中止其处理，但尚未将其从内核内存中移除。<a href="#_order_pool_configuration_entries">订单池配置项</a>.)</p>
+    <p>撤回运输订单仅会中止其处理，但并不会立即将其从内核内存中移除。
+运输订单数据会作为历史信息保留一段时间，之后才会被彻底删除。
+（旧订单的保留时长取决于内核应用程序的配置——请参阅 <a href="#_order_pool_configuration_entries">订单池配置项</a>。）</p>
 </li>
 </ol>
 </div>
@@ -1181,29 +1222,37 @@ SPDX-License-Identifier: CC-BY-4.0
 <td class="icon">
 <i class="fa icon-note" title="Note"></i>
 </td>
-<td class="content">操作台应用程序可以通过自定义插件轻松扩展。</td>
+<td class="content">
+操作台应用程序可以通过自定义插件轻松进行扩展。
+作为参考，系统包含一个简单的负载生成器插件，它在此处也用作演示系统运行状态的示例。
+有关如何创建自定义插件并将其集成到操作台应用程序中的详细信息，请参阅开发者指南。
+</td>
 </tr>
 </table>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>在操作台应用程序中，选择<b class="button"><span class="menuseq"><b class="menu">View</b> <i class="fa fa-angle-right caret"></i> <b class="submenu">Plugins</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">持续负载</b></span></b>菜单项。</p>
+<p>在操作台应用程序中，选择<b class="button"><span class="menuseq"><b class="menu">视图</b> <i class="fa fa-angle-right caret"></i> <b class="submenu">插件</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">持续负载</b></span></b>菜单项。</p>
 </li>
 <li>
-<p>选择创建新运输单的触发条件：</p>
+<p>选择创建新运输订单的触发条件：
+新订单将仅在以下情况创建：仅创建一次；或者当系统中未处理的订单数量降至指定阈值以下时；或者在指定的超时时间到期后。</p>
 </li>
+
 <li>
-<p>通过使用订单配置文件，您可以决定运输单的目的地是随机选择还是由您自行选择。</p>
+<p>通过使用订单配置文件，您可以决定运输订单的目的地是随机选择还是由您自行指定。</p>
 <div class="paragraph">
-<p>Using <b class="button">随机创建订单</b>，您定义每次生成的运输单数量，以及单个运输单应包含的目的地数量。</p>
+<p>使用 <b class="button">随机创建运输单</b>时，您可以定义一次生成的运输订单数量，以及单个运输订单应包含的目的地数量。
+由于目的地是随机选择的，因此创建的订单对于实际系统而言不一定具有现实意义。</p>
 </div>
 <div class="paragraph">
-<p>Using <b class="button">根据定义创建订单</b>，您可以定义任意数量的运输单，每个运输单具有任意数量的目的地和属性，并保存和加载您的运输单列表。</p>
+<p>使用 <b class="button">按定义创建运输单</b>时，您可以定义任意数量的运输订单，每个订单可包含任意数量的目的地和属性，并且可以保存和加载您的运输订单列表。</p>
 </div>
 </li>
 <li>
-<p>通过激活<b class="button">持续负载</b>面板底部的相应复选框来启动订单生成器。</p>
+    <p>通过在 <b class="button">持续负载</b>面板底部的相应复选框中勾选，即可启动订单生成器。
+随后，负载生成器将根据其配置生成运输订单，直到该复选框被取消勾选或面板被关闭为止。</p>
 </li>
 </ol>
 </div>
@@ -1227,7 +1276,7 @@ SPDX-License-Identifier: CC-BY-4.0
 <p>切换到内核控制中心应用程序。</p>
 </li>
 <li>
-<p>选择<b class="button">外设驱动程序</b> tab.</p>
+<p>选择<b class="button">外设驱动程序</b>页签</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1240,10 +1289,10 @@ SPDX-License-Identifier: CC-BY-4.0
 <p>通过双击列表中的位置名称来打开该位置的详细视图。</p>
 </li>
 <li>
-<p>在外设设备列表右侧显示的当前位置的详细视图中，选择<b class="button">回环选项</b> tab.</p>
+<p>在外设设备列表右侧显示的当前位置的详细视图中，选择<b class="button">回环选项</b> 页签。</p>
 </li>
 <li>
-<p>通过在<b class="button">Enabled?</b>列中勾选复选框来启用驱动程序。</p>
+<p>通过在<b class="button">已启用?</b>列中勾选复选框来启用驱动程序。</p>
 </li>
 <li>
 <p>切换到操作台客户端。</p>
@@ -1257,7 +1306,8 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect3">
 <h4 id="_creating_a_peripheral_job">2.2.7. 创建外设任务</h4>
 <div class="paragraph">
-<p>外设作业定义为由处理该作业的外设设备执行的单个操作。</p>
+<p>外围作业被定义为外围设备在处理该作业时需要执行的单个操作。
+外围作业可以通过显式或隐式两种方式创建；以下各节将分别对这两种方式进行说明。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1279,13 +1329,18 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>选择菜单项<b class="button"><span class="menuseq"><b class="menu">Actions</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">创建外设作业…​</b></span></b>.</p>
+<p>选择菜单项<b class="button"><span class="menuseq"><b class="menu">操作</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">创建外设作业…​</b></span></b>.</p>
 </li>
 <li>
-<p>在显示的对话框中，选择与应分配外设作业的外设相关联的位置以及该外设应执行的操作。<a href="#_default_peripheral_job_dispatcher">默认外设作业调度器</a>.)</p>
+<p>在弹出的对话框中，选择与应分配该外围作业的外围设备相关联的位置，以及外围设备应执行的操作。
+此外，还需为预约令牌输入任意文本。
+（目前，预约令牌的实际内容并不重要，唯一的要求是其不能为空。
+有关预约令牌的更多详细信息，请参阅 <a href="#_default_peripheral_job_dispatcher">默认外设作业调度器</a>。）</p>
+
 </li>
 <li>
-<p>通过点击创建外设作业后<b class="button">OK</b>，内核将尝试将其分配给与给定位置关联的外设设备以处理该作业。</p>
+<p>点击 <b class="button">确定</b> 创建外围作业后，内核会尝试将其分配给与指定位置关联的外围设备进行处理。
+外围作业被分配后，回环驱动程序会模拟外围设备执行该操作的过程。</p>
 </li>
 </ol>
 </div>
@@ -1314,17 +1369,25 @@ SPDX-License-Identifier: CC-BY-4.0
 </table>
 </div>
 <div class="paragraph">
-<p>车辆可以在遍历定义了外设操作的行驶路线时隐式创建外设作业。<a href="#_peripheral_operation">外设操作</a>, the <em>执行触发器</em>外设操作的执行触发器定义了何时由外设设备执行该操作。</p>
+
+
+<p>当车辆经过定义了外围操作的路径时，可以隐式创建外围作业。
+针对路径上定义的外围操作，外围作业的确切创建时机取决于该外围操作自身的配置。
+正如 <a href="#_peripheral_operation">外设操作</a> 中所述，外围操作的<em>执行触发器</em>定义了外围设备何时应执行该操作。
+关于属于某个外围操作的外围作业的创建时间，请注意以下事项：</p>
 </div>
 <div class="ulist">
+
 <ul>
 <li>
-<p><code>AFTER_ALLOCATION</code>（以前名为<code>BEFORE_MOVEMENT</code>）：一旦为车辆分配了对应路径的资源，就会创建外设作业。</p>
+<p><code>AFTER_ALLOCATION</code>（曾命名为 <code>BEFORE_MOVEMENT</code>）：一旦为车辆分配了对应路径的资源，就会立即创建外围作业。
+这意味着，如果车辆可以预先接受多个（点和）路径，外围作业可能会在车辆到达实际路径之前就被创建。</p>
 </li>
 <li>
-<p><code>AFTER_MOVEMENT</code>：一旦车辆完全遍历路径并报告相应的移动指令已执行（即车辆到达路径的相应终点），就会创建外设作业。</p>
+<p><code>AFTER_MOVEMENT</code>：当车辆完全沿路径行驶并报告相应的移动命令已执行（即车辆到达该路径相应的终点）时，将立即创建外围作业。</p>
 </li>
 </ul>
+
 </div>
 </div>
 </div>
@@ -1339,7 +1402,8 @@ SPDX-License-Identifier: CC-BY-4.0
 <p>可以通过在外设作业表中选择它们并单击上面显示的撤回按钮来撤回与运输单无关的外设作业以及与处于最终状态（已完成或失败）的运输单相关的外设作业。</p>
 </li>
 <li>
-<p>当相应的运输单被撤回时，与运输单相关的外设作业将隐式中止。</p>
+    <p>与运输订单相关联的外围作业会在相应的运输订单被撤回时自动中止。
+不支持独立于相关运输订单单独撤回这些外围作业（除非相关的运输订单已处于最终状态——请参阅上文）。</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1364,12 +1428,12 @@ SPDX-License-Identifier: CC-BY-4.0
 <p>该外设作业是由车辆遍历路径隐式创建的（参见<a href="#_implicit_creation_of_peripheral_jobs">外设作业的隐式创建</a>).</p>
 </li>
 <li>
-<p>The <em>需要完成</em>外设作业的“需要完成”标志设置为<code>true</code>.</p>
+    <p>该外围作业的外围操作的<em>完成所需</em>标志被设置为 <code>true</code>。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>在这种情况下，继续运输单是不合理的，因为“完成必需”标志不仅表示车辆应等待外设操作完成，还表示必须成功完成。<em>需要完成</em>标志不仅指示车辆应等待外设操作完成，还指示其必须完成<em>successfully</em>.
+<p>在这种情况下，继续运输单是不合理的，因为“完成必需”标志不仅表示车辆应等待外设操作完成，还表示必须成功完成。<em>需要完成</em>标志不仅指示车辆应等待外设操作完成，还指示其必须完成<em>完成</em>.
 否则，可能无法满足继续行驶/运输单的前提条件。</p>
 </div>
 </div>
@@ -1377,15 +1441,16 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect3">
 <h4 id="_removing_a_vehicle_from_a_running_system">2.2.9. 从运行中的系统中移除车辆</h4>
 <div class="paragraph">
-<p>在某些情况下，您可能希望从系统中移除单个车辆，例如，由于硬件缺陷导致车辆暂时无法被 openTCS 使用，且该缺陷需首先处理。</p>
+    <p>在某些情况下，您可能希望从系统中移除单个车辆，例如，由于车辆存在硬件缺陷需要首先处理，导致其暂时无法被 openTCS 使用。
+以下步骤将确保不再向该车辆分配新的运输订单，并且释放其可能仍在占用的资源，以便其他车辆使用。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>在操作台应用程序中，右键单击车辆并选择<b class="button"><span class="menuseq"><b class="menu">上下文菜单</b> <i class="fa fa-angle-right caret"></i> <b class="submenu">更改集成级别</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">……以忽略此车辆</b></span></b>以禁用该车辆的运输单处理，并释放行驶路线中车辆所占用的点位。</p>
+<p>在操作台应用程序中，右键单击车辆并选择<b class="button"><b class="submenu">更改集成级别</b> <i class="fa fa-angle-right caret"></i> <b class="menuitem">…以忽略此车辆</b></span></b>以禁用该车辆的运输单处理，并释放行驶路线中车辆所占用的点位。</p>
 </li>
 <li>
-<p>在内核控制中心应用程序中，通过取消选中复选框来禁用车辆驱动器<b class="button">启用回环适配器</b> in the <b class="button">回环选项</b>选项卡或车辆列表中的<b class="button">Enabled?</b>列中的复选框。</p>
+    <p>在内核控制中心应用程序中，通过取消勾选 <b class="button">回环选项</b>选项卡中的 <b class="button">启用回环适配器</b>复选框，或者取消勾选车辆列表中 <b class="button">已启用?</b>列的复选框，来禁用该车辆的驱动程序。</p>
 </li>
 </ol>
 </div>
@@ -1393,7 +1458,8 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="sect3">
 <h4 id="_pausing_and_resuming_the_operation_of_vehicles">2.2.10. 暂停和恢复车辆操作</h4>
 <div class="paragraph">
-<p>操作台应用程序提供了两个按钮，用于暂停或恢复车辆的操作。</p>
+<p>操作台应用程序提供了两个按钮，可用于暂停或恢复车辆的运行。
+然而，为了让这些按钮生效，正在使用的车辆的相应驱动程序必须实现并支持此功能。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1413,7 +1479,7 @@ SPDX-License-Identifier: CC-BY-4.0
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>在模型编辑器应用程序中，从路径工具中选择<b class="button">Bezier</b>并通过单击第一个点、将鼠标拖动到第二个点并在该处释放鼠标按钮来连接两个点。</p>
+<p>在模型编辑器应用程序中，从路径工具中选择<b class="button">贝塞尔</b>并通过单击第一个点、将鼠标拖动到第二个点并在该处释放鼠标按钮来连接两个点。</p>
 </li>
 <li>
 <p>激活选择工具并单击之前创建的贝塞尔路径。</p>
@@ -1457,66 +1523,88 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 <div class="sect2">
 <h3 id="_automatically_selecting_a_specific_vehicle_driver_on_startup">3.3. 在启动时自动选择特定的车辆驱动器</h3>
 <div class="paragraph">
-<p>默认情况下，车辆驱动器的自动附加工作方式如下：</p>
+<p>默认情况下，车辆驱动程序的自动附加工作方式如下：
+内核会询问每个可用的车辆驱动程序是否可以附加到指定的车辆，并选择第一个可以附加的驱动程序。
+内核会最后询问回环驱动程序，因为该程序始终可用且可以附加到任何车辆，但不应阻止实际车辆驱动程序的附加。
+因此，如果您的车辆只有一个驱动程序，通常不需要进行任何额外操作即可自动选择它。</p>
 </div>
 <div class="paragraph">
-<p>在一些较少见的情况下，您可能在内核中注册了多个车辆驱动器，它们都可以附加到工厂模型中的车辆。<code>tcs:preferredAdapterClass</code>应用于车辆，其值为实现驱动程序适配器的 Java 类的名称。</p>
+    <p>在某些不太常见的情况下，您可能在内核中注册了多个车辆驱动程序，且它们都可以附加到工厂模型中的车辆。
+为了在这种情况下自动选择特定的驱动程序，需要在车辆上设置一个键为 <code>tcs:preferredAdapterClass</code> 的属性，其值为实现该驱动程序适配器工厂的 Java 类名。
+（如果您不知道这个类名，请向提供该车辆驱动程序的开发人员询问。）</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_configuring_a_virtual_vehicles_characteristics">3.4. 配置虚拟车辆的特性</h3>
+
 <div class="paragraph">
-<p>回环驱动器支持通过工厂模型中设置的属性对虚拟车辆的某些（有限的）特性进行配置。</p>
+<p>回环驱动程序支持通过工厂模型中设置的属性对虚拟车辆的特性进行一些（有限的）配置。
+您可以按以下方式设置这些属性：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>启动模型编辑器应用程序并创建或加载工厂模型。</p>
+<p>启动模型编辑器应用程序，并创建或加载工厂模型。</p>
 </li>
 <li>
-<p>在模型编辑器应用程序的工厂模型树视图中，选择一辆车辆。</p>
+<p>在模型编辑器应用程序的工厂模型树形视图中，选择一个车辆。</p>
 </li>
 <li>
-<p>在显示车辆属性的表中，单击标记为<b class="button">Miscellaneous</b>的值字段。</p>
+<p>在显示车辆属性的表格中，单击标记为 <b class="button">杂项</b> 的值字段。
+在弹出的对话框中，根据下方列表添加相应的属性键和值。</p>
 </li>
 <li>
-<p>保存模型并按照<a href="#_saving_the_plant_model">保存工厂模型</a>.</p>
+<p>保存模型，并按照<a href="#_saving_the_plant_model">保存工厂模型</a>中的说明将其上传至内核。</p>
 </li>
 </ol>
 </div>
+
 <div class="paragraph">
-<p>回环驱动程序解释具有以下键的属性：</p>
+<p>回环驱动程序会解析具有以下键的属性：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>loopback:initialPosition</code>中的描述将其上传到内核。</p>
-</li>
-<li>
-<p><code>loopback:acceleration</code>:
-将属性值设置为表示加速度（单位：mm/s）的正整数<sup>2</sup>）的正整数。</p>
-</li>
-<li>
-<p><code>loopback:deceleration</code>:
-将属性值设置为表示加速度（单位：mm/s）的负整数<sup>2</sup>）的负整数。</p>
-</li>
-<li>
-<p><code>loopback:loadOperation</code>:
-将属性值设置为表示虚拟车辆装载操作的字符串。<em>full</em>.
+<p><code>loopback:initialPosition</code>：
+将属性值设置为工厂模型中某个点的名称。
+启动时，回环适配器会将虚拟车辆的当前位置设置为该点。
 （默认值：未设置）</p>
 </li>
 <li>
-<p><code>loopback:unloadOperation</code>:
-将属性值设置为表示虚拟车辆卸载操作的字符串。<em>empty</em>.
+<p><code>loopback:acceleration</code>：
+将属性值设置为一个正整数，表示加速度，单位为 mm/s<sup>2</sup>。
+回环适配器将使用给定的加速度来模拟车辆运动。
+（默认值：500）</p>
+</li>
+<li>
+<p><code>loopback:deceleration</code>：
+将属性值设置为一个负整数，表示减速度，单位为 mm/s<sup>2</sup>。
+回环适配器将使用给定的减速度来模拟车辆运动。
+（默认值：-500）</p>
+</li>
+<li>
+<p><code>loopback:loadOperation</code>：
+将属性值设置为一个字符串，表示虚拟车辆的装载操作。
+当虚拟车辆执行此操作时，回环适配器会将其载具处理装置的状态设置为<em>满载</em>（full）。
 （默认值：未设置）</p>
 </li>
 <li>
-<p><code>loopback:operatingTime</code>:
-将属性值设置为表示虚拟车辆运行时间（毫秒）的正整数。</p>
+<p><code>loopback:unloadOperation</code>：
+将属性值设置为一个字符串，表示虚拟车辆的卸载操作。
+当虚拟车辆执行此操作时，回环适配器会将其载具处理装置的状态设置为<em>空载</em>（empty）。
+（默认值：未设置）</p>
+</li>
+<li>
+<p><code>loopback:operatingTime</code>：
+将属性值设置为一个正整数，表示虚拟车辆的操作时间，单位为毫秒。
+当虚拟车辆执行操作时，回环适配器将相应地模拟该操作时间。
+（默认值：5000）</p>
 </li>
 </ul>
 </div>
 </div>
+
+
 <div class="sect2">
 <h3 id="_transforming_coordinates_sent_to_received_from_vehicles">3.5. 转换发送给/从车辆接收的坐标</h3>
 <div class="paragraph">
@@ -1565,102 +1653,131 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 <div class="sect2">
 <h3 id="_running_kernel_and_its_clients_on_separate_systems">3.6. 在单独的系统上运行内核及其客户端</h3>
 <div class="paragraph">
-<p>内核及其客户端（模型编辑器、操作台和内核控制中心应用程序）通过 Java 远程方法调用 (RMI) 机制进行通信。</p>
+<p>内核及其客户端（模型编辑器、操作台和内核控制中心应用程序）通过 Java 远程方法调用 (RMI) 机制进行通信。
+这意味着，只要这些系统之间存在可用的网络连接，就可以在不同的主机上运行内核和客户端。</p>
 </div>
 <div class="paragraph">
-<p>默认情况下，模型编辑器、操作台和内核控制中心配置为连接到在同一主机上运行的内核。</p>
+<p>默认情况下，模型编辑器、操作台和内核控制中心被配置为连接到在同一主机上运行的内核。
+若要将它们连接到在远程主机上运行的内核（例如，在名为 myhost.example.com 的主机上），请执行以下操作：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>对于模型编辑器，设置配置参数<code>modeleditor.connectionBookmarks</code> to <code>SomeDescription|myhost.example.com|1099</code>.</p>
+<p>对于模型编辑器，将配置参数 <code>modeleditor.connectionBookmarks</code> 设置为 <code>SomeDescription|myhost.example.com|1099</code>。</p>
 </li>
 <li>
-<p>对于操作台，设置配置参数<code>operationsdesk.connectionBookmarks</code> to <code>SomeDescription|myhost.example.com|1099</code>.</p>
+<p>对于操作台，将配置参数 <code>operationsdesk.connectionBookmarks</code> 设置为 <code>SomeDescription|myhost.example.com|1099</code>。</p>
 </li>
 <li>
-<p>对于内核控制中心，设置配置参数<code>kernelcontrolcenter.connectionBookmarks</code> to <code>SomeDescription|myhost.example.com|1099</code>.</p>
+<p>对于内核控制中心，将配置参数 <code>kernelcontrolcenter.connectionBookmarks</code> 设置为 <code>SomeDescription|myhost.example.com|1099</code>。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>配置值可以是逗号分隔的 &lt;描述&gt;|&lt;主机&gt;|&lt;端口&gt; 集合列表。<code>&lt;description&gt;|&lt;host&gt;|&lt;port&gt;</code>集合。</p>
+<p>配置值可以是多个 <code>&lt;description&gt;|&lt;host&gt;|&lt;port&gt;</code> 的集合，各集合之间用逗号分隔。
+应用程序将自动尝试连接列表中的第一个主机。
+如果连接失败，它们将显示一个对话框，用于选择列表中的条目或输入其他地址进行连接。</p>
 </div>
 </div>
+
+
+
 <div class="sect2">
 <h3 id="_encrypting_communication_with_the_kernel">3.7. 加密与内核的通信</h3>
 <div class="paragraph">
-<p>默认情况下，客户端应用程序和内核通过纯 Java 远程方法调用 (RMI) 调用或 HTTP 请求进行通信。</p>
+<p>默认情况下，客户端应用程序与内核通过普通的 Java 远程方法调用 (RMI) 或 HTTP 请求进行通信。
+这些通信通道可以选择通过 SSL/TLS 进行加密。
+要实现此功能，请执行以下操作：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>生成密钥库/信任库对（<code>keystore.p12</code> and <code>truststore.p12</code>).</p>
+<p>生成密钥库和信任库文件对，即 <code>keystore.p12</code> 和 <code>truststore.p12</code>。</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>您可以使用内核应用程序目录中提供的 Unix shell 脚本或 Windows 批处理文件（<code>generateKeystores.sh/.bat</code>）来完成此操作。</p>
+<p>您可以使用内核应用程序目录中提供的 Unix shell 脚本或 Windows 批处理文件 <code>generateKeystores.sh/.bat</code> 来完成此操作。</p>
 </li>
 <li>
-<p>这些脚本使用密钥和证书管理工具 'keytool'，该工具包含在 Java JDK 和 JRE 中。<code>Path</code>环境变量中，则<code>KEYTOOL_PATH</code>相应脚本中的变量需要修改为指向 'keytool' 所在的位置。</p>
+<p>这些脚本使用了 Java JDK 和 JRE 中自带的密钥和证书管理工具 keytool。
+如果系统的 <code>Path</code> 环境变量中未包含 keytool，则需要修改相应脚本中的 <code>KEYTOOL_PATH</code> 变量，使其指向 keytool 的实际位置。</p>
 </li>
 <li>
-<p>默认情况下，生成的文件放置在内核应用程序的<code>config</code> directory.</p>
+<p>默认情况下，生成的文件会被放置在内核应用程序的 <code>config</code> 目录中。</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>复制<code>truststore.p12</code>文件到客户端应用程序（模型编辑器、操作台或内核控制中心）的<code>config</code>目录中。<code>config</code>目录中。</p>
+<p>将 <code>truststore.p12</code> 文件复制到客户端应用程序（模型编辑器、操作台或内核控制中心）的 <code>config</code> 目录中。
+同时，保留内核应用程序 <code>config</code> 目录中的该文件。</p>
 </li>
 <li>
-<p>在内核的配置文件中，为 RMI 接口和/或 Web 服务接口启用 SSL。<a href="#_rmi_kernel_interface_configuration_entries">RMI 内核接口配置条目</a> and/or <a href="#_service_web_api_configuration_entries">服务 Web API 配置条目</a>以获取配置条目的描述。）</p>
+<p>在内核的配置文件中，为 RMI 接口和/或 Web 服务接口启用 SSL。
+有关配置项的详细说明，请参阅<a href="#_rmi_kernel_interface_configuration_entries">RMI 内核接口配置项</a>和/或<a href="#_service_web_api_configuration_entries">服务 Web API 配置项</a>。</p>
 </li>
 <li>
-<p>如果您为 RMI 接口启用了 SSL，则还需要在模型编辑器、操作台和内核控制中心的配置文件中启用它。<a href="#_ssl_model_editor_side_application_configuration_entries">SSL 模型编辑器端应用程序配置条目</a>, <a href="#_ssl_operation_desk_side_application_configuration_entries">SSL 操作台端应用程序配置条目</a> and <a href="#_ssl_kcc_side_application_configuration_entries">SSL KCC 端应用程序配置条目</a>以获取配置条目的描述。）</p>
+<p>如果您为 RMI 接口启用了 SSL，则还需要在模型编辑器、操作台和内核控制中心的配置文件中启用它。
+有关配置项的详细说明，请参阅<a href="#_ssl_model_editor_side_application_configuration_entries">模型编辑器端 SSL 应用配置项</a>、<a href="#_ssl_operation_desk_side_application_configuration_entries">操作台端 SSL 应用配置项</a>和<a href="#_ssl_kcc_side_application_configuration_entries">内核控制中心端 SSL 应用配置项</a>。</p>
 </li>
 </ol>
 </div>
 </div>
+
 <div class="sect2">
 <h3 id="_enabling_rmi_on_multihomed_kernel_host">3.8. 在多宿主内核主机上启用 RMI</h3>
 <div class="paragraph">
-<p>如果您的内核运行在具有多个 IP 地址的主机上，您可能会观察到通过 RMI 连接的远程客户端出现连接问题。</p>
+<p>如果您的内核在具有多个 IP 地址的主机上运行，您可能会遇到通过 RMI 连接与远程客户端的连接问题。</p>
 </div>
 <div class="paragraph">
-<p>在这种情况下，将内核 JVM 的属性 java.rmi.server.hostname 设置为运行它的机器的正确 IP 地址。<code>java.rmi.server.hostname</code>设置为运行它的机器的正确 IP 地址。<a class="bare" href="https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/faq.html#netmultihomed">https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/faq.html#netmultihomed</a>.)</p>
+<p>客户端可能无法连接到内核，或者客户端与内核之间的通信可能很慢，尤其是在为 RMI 接口启用 SSL 时。</p>
+</div>
+<div class="paragraph">
+<p>在这种情况下，请将内核 JVM 的属性 <code>java.rmi.server.hostname</code> 设置为您运行该内核的计算机的正确 IP 地址。</p>
+</div>
+<div class="paragraph">
+<p>（另请参阅 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/faq.html#netmultihomed" class="bare">https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/faq.html#netmultihomed</a>。）</p>
 </div>
 </div>
+
 <div class="sect2">
 <h3 id="_configuring_automatic_parking_and_recharging">3.9. 配置自动停车和充电</h3>
 <div class="paragraph">
-<p>默认情况下，空闲车辆在处理完其最后一个运输单后保持在原地。</p>
+<p>默认情况下，空闲车辆在处理完最后一个运输订单后会停留在原地。
+您可以在内核的配置文件中更改此行为：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>若要自动将车辆调度至充电位置，请设置配置参数<code>defaultdispatcher.rechargeIdleVehicles</code> to <code>true</code>.
-然后，默认调度器将查找空闲车辆可以进行充电操作的位置，并创建订单将其发送到此类位置（如果未被占用）。</p>
+<p>要自动指示车辆前往充电位置，请将配置参数 <code>defaultdispatcher.rechargeIdleVehicles</code> 设置为 <code>true</code>。
+随后，默认调度器将寻找可以执行空闲车辆充电操作的位置，并创建订单将其发送至该位置（前提是该位置未被占用）。
+请注意，用于该操作的字符串是特定于驱动程序的。</p>
 </li>
 <li>
-<p>若要自动将车辆调度至停车位，请设置配置参数<code>defaultdispatcher.parkIdleVehicles</code> to <code>true</code>.
-然后，默认调度器将查找未占用的停车位置，并创建订单将空闲车辆发送到那里。</p>
+<p>要自动指示车辆前往泊车位置，请将配置参数 <code>defaultdispatcher.parkIdleVehicles</code> 设置为 <code>true</code>。
+随后，默认调度器将寻找未被占用的泊车位置，并创建订单将空闲车辆发送至该位置。</p>
 </li>
 </ul>
 </div>
 </div>
+
+
 <div class="sect2">
 <h3 id="_configuring_order_pool_cleanup">3.10. 配置订单池清理</h3>
 <div class="paragraph">
-<p>默认情况下，openTCS 每分钟检查一次已完成或失败的运输单以及超过 24 小时的外设作业。</p>
+<p>默认情况下，openTCS 每分钟会检查一次已完成或失败的运输订单以及超过 24 小时的外围作业。
+这些订单和作业将被从订单池中移除。
+要自定义此行为，请执行以下操作：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>根据您的需求设置配置项<code>orderpool.sweepInterval</code>的值。</p>
+<p>根据需要将配置项 <code>orderpool.sweepInterval</code> 设置为相应的值。
+默认值为 60000 毫秒，即一分钟的间隔。</p>
 </li>
 <li>
-<p>根据您的需求设置配置项<code>orderpool.sweepAge</code>为已完成订单和作业的最大保留时间。</p>
+<p>根据需要将配置项 <code>orderpool.sweepAge</code> 设置为已完成订单和作业的最大保留时间。
+默认值为 86400000 毫秒，即已完成的订单或作业在订单池中保留 24 小时。</p>
 </li>
 </ol>
 </div>
@@ -1668,57 +1785,76 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 <div class="sect2">
 <h3 id="_using_model_element_properties_for_project_specific_data">3.11. 使用模型元素属性进行项目特定数据存储</h3>
 <div class="paragraph">
-<p>工厂模型中的每个对象——即点位、路径、位置、位置类型和车辆——都可以增强任意项目特定的数据，这些数据可用于，例如，车辆驱动程序、自定义客户端应用程序等。</p>
+<p>工厂模型中的每个对象（即点、路径、位置、位置类型和车辆）都可以附加任意的项目特定数据，这些数据可供车辆驱动程序、自定义客户端应用程序等使用。
+此类数据的用途包括：通知车辆驱动程序在车辆沿模型中的路径移动时执行额外操作（如闪烁方向指示灯、在显示屏上显示文本字符串或发出声音警告），或控制外围系统的行为（如自动防火闸门）。</p>
 </div>
 <div class="paragraph">
-<p>数据可以存储在属性中，即附加到模型元素的键值对，其中键和相应的值都是文本字符串。<b class="button">Miscellaneous</b>在属性表中。</p>
+<p>这些数据可以存储在属性中，即附加到模型元素上的键值对，其中键和对应的值均为文本字符串。
+可以使用模型编辑器应用程序创建和编辑这些键值对：
+只需选择要添加键值对的模型元素，然后在属性表中单击标记为 <b class="button">Miscellaneous</b> 的值字段。
+在弹出的对话框中，设置用于存储项目特定信息所需的键值对。</p>
 </div>
 <div class="admonitionblock note">
 <table>
-<tr>
+<tbody><tr>
 <td class="icon">
 <i class="fa icon-note" title="Note"></i>
 </td>
-<td class="content">对于您的项目特定关键字-值对，您可以指定任意关键字。<code>"tcs:"</code>开头的关键字来存储项目特定数据。</td>
+<td class="content">
+对于项目特定的键值对，您可以指定任意键。
+openTCS 本身不会使用这些数据，它仅负责存储这些数据，并将其提供给自定义车辆驱动程序和/或其他扩展组件。
+但是，您不应使用以 <code>"tcs:"</code> 开头的键来存储项目特定数据。
+带有此前缀的键保留给 openTCS 官方功能使用，使用它们可能会导致冲突。
+</td>
 </tr>
-</table>
+</tbody></table>
 </div>
 </div>
+
 </div>
 </div>
 <div class="sect1">
 <h2 id="_reference">4. 参考</h2>
 <div class="sectionbody">
+
 <div class="sect2">
 <h3 id="_supported_navigation_principles_vehicle_types">4.1. 支持的导航原理/车辆类型</h3>
 <div class="paragraph">
-<p>openTCS 独立于特定的导航实现工作，因此可以使用任何类型的导航原理。</p>
+<p>openTCS 独立于特定的导航实现，因此可以使用任何类型的导航原理。
+定位和导航通常是在车辆端执行的任务：
+车辆仅将其当前状态（包括其位置）报告给控制系统，控制系统则命令车辆移动到不同的位置。</p>
 </div>
 <div class="paragraph">
-<p>请注意，openTCS 专注于运输单的车辆调度。</p>
+<p>请注意，openTCS 侧重于运输订单的车辆调度。
+此任务不应与 openTCS 范围之外的车辆端低级任务（如加速、减速和转向）相混淆。
+因此，openTCS 的使用不受限于特定类型的车辆。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_maximum_vehicle_fleet_size">4.2. 最大车队规模</h3>
 <div class="paragraph">
-<p>软件的设计不对单个 openTCS 实例可以管理的车辆数量施加特定限制。</p>
+<p>软件的设计并未对单个 openTCS 实例可管理的车辆数量施加特定限制。
+然而，所使用的硬件设备/运行环境（CPU、内存、通信带宽等）可能会限制系统的有效性能。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_requirements_for_vehicles">4.3. 车辆要求</h3>
-<div class="paragraph">
-<p>要使车辆被 openTCS 管理，它需要满足某些最低要求集：</p>
+<div classensus">
+<p>要使车辆受 openTCS 管理，需要满足以下最低要求：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>必须能够与车辆进行通信。</p>
+<p>必须能够与车辆进行通信。
+（这意味着必须指定并可访问车辆的通信接口。）
+只要通信硬件存在且 openTCS 有办法利用通信通道，具体如何实现通信并不重要。
+在许多情况下，使用的是标准 Wi-Fi 硬件。</p>
 </li>
 <li>
 <p>车辆必须能够报告其当前位置/状态。</p>
 </li>
 <li>
-<p>车辆必须能够执行从其当前位置到 openTCS 给出的行驶路线/环境中附近位置的移动指令。</p>
+<p>车辆必须能够执行来自 openTCS 的移动命令，从当前位置移动到行驶路线/环境中的另一个位置。</p>
 </li>
 </ol>
 </div>
@@ -1726,48 +1862,55 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 <div class="sect2">
 <h3 id="_system_requirements">4.4. 系统要求</h3>
 <div class="paragraph">
-<p>openTCS 没有任何特定的硬件要求。</p>
+<p>openTCS 没有任何特定的硬件要求。
+CPU 算力和内存容量高度取决于用例，例如行驶路线的规模与复杂性以及所管理的车辆数量。
+需要某种网络硬件（在大多数情况下，只需一个标准以太网控制器）来与车辆进行通信（以及可能与其他系统，如仓库管理系统进行通信）。</p>
 </div>
 <div class="paragraph">
-<p>要运行 openTCS，需要 Java 运行时环境 (JRE) 版本 21。<code>bin</code>已安装的 JRE 的<code>C:\Program Files\Eclipse Adoptium\jdk-21.0.3.9-hotspot\bin</code>，应包含在环境变量 PATH 中，以便使用包含的启动脚本。）</p>
+<p>要运行 openTCS，需要 Java 运行时环境 (JRE) 版本 21。
+（安装的 JRE 的目录 <code>bin</code>，例如 <code>C:\Program Files\Eclipse Adoptium\jdk-21.0.3.9-hotspot\bin</code>，应包含在环境变量 PATH 中，以便能够使用附带的启动脚本。）</p>
 </div>
 <div class="admonitionblock important">
 <table>
-<tr>
+<tbody><tr>
 <td class="icon">
 <i class="fa icon-important" title="Important"></i>
 </td>
-<td class="content">由于 openTCS 使用的某个软件库（即：Docking Frames）的限制，某些 JRE 目前与 openTCS 不兼容。<a href="https://adoptium.net/">Adoptium 项目</a>.
+<td class="content">
+由于 openTCS 使用的一个软件库（即 Docking Frames）存在限制，某些 JRE 当前与 openTCS 不兼容。
+例如，Oracle 提供的 JRE 就是如此。
+推荐使用的 JRE 是 <a href="https://adoptium.net/">Adoptium 项目</a>提供的版本。
 </td>
 </tr>
-</table>
+</tbody></table>
 </div>
 </div>
+
 <div class="sect2">
 <h3 id="_system_components_and_structure">4.5. 系统组件和结构</h3>
 <div class="paragraph">
-<p>openTCS 由以下作为独立进程运行并在客户端-服务器架构中协同工作的组件组成：</p>
+<p>openTCS 由以下组件组成，它们作为独立进程运行，并在客户端-服务器架构中协同工作：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>内核（服务器进程），运行独立于车辆的策略以及受控车辆的驱动程序</p>
+<p>内核（服务器进程），运行与车辆无关的策略以及受控车辆的驱动程序</p>
 </li>
 <li>
-<p>Clients</p>
+<p>客户端</p>
 <div class="ulist">
 <ul>
 <li>
 <p>用于对工厂模型进行建模的模型编辑器</p>
 </li>
 <li>
-<p>用于在工厂运行期间可视化工厂模型的操作台</p>
+<p>用于在工厂运行期间对工厂模型进行可视化的操作台</p>
 </li>
 <li>
-<p>用于控制和监控内核的 Kernel 控制中心，例如提供车辆及其关联驱动器的详细视图</p>
+<p>用于控制和监控内核的内核控制中心，例如提供车辆及其关联驱动程序的详细视图</p>
 </li>
 <li>
-<p>用于与其他系统通信的任意客户端，例如用于过程控制或仓库管理</p>
+<p>用于与其他系统通信的任意客户端，例如用于过程控制或仓库管理的客户端</p>
 </li>
 </ul>
 </div>
@@ -1776,99 +1919,124 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 </div>
 <div class="imageblock">
 <div class="content">
-<img alt="system overview" src="_images/system_overview.png"/>
+<img src="_images/system_overview.png" alt="system overview">
 </div>
 <div class="title">图 9. openTCS 系统概览</div>
 </div>
 <div class="paragraph">
-<p>openTCS 内核的目的是提供运输系统/工厂的抽象驾驶模型，管理运输单并为车辆计算路线。</p>
+<p>openTCS 内核的目的是提供运输系统或工厂的抽象行驶模型、管理运输订单以及为车辆计算路线。
+客户端可以与该服务器进程通信，以修改工厂模型、可视化行驶路线和运输订单的处理过程，以及创建新的运输订单。</p>
 </div>
 <div class="paragraph">
-<p>内核中的三个主要策略模块负责处理运输单：</p>
+<p>内核中的三个主要策略模块负责实现运输订单的处理：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>一个调度器，决定哪个运输单应由哪辆车辆处理。</p>
+<p>调度器：决定哪个运输订单应由哪辆车处理。此外，它还需要决定车辆在特定情况下的行为，例如当没有运输订单时或当车辆电量不足时。</p>
 </li>
 <li>
-<p>一个路由器，为车辆寻找到达目的地的最佳路线。</p>
+<p>路由器：为车辆寻找到达目的地的最佳路线。</p>
 </li>
 <li>
-<p>一个调度器，管理交通管理的资源分配，即避免车辆相互碰撞。</p>
+<p>调度器：管理交通管理的资源分配，即防止车辆发生碰撞。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>openTCS 发行版为每种策略提供了默认实现。</p>
+<p>openTCS 发行版为每种策略提供了默认实现。
+开发人员可以轻松替换这些实现，以适应特定环境的要求。</p>
 </div>
 <div class="paragraph">
-<p>作为 openTCS 内核一部分的驱动程序框架管理通信通道并将车辆驱动程序与车辆关联。</p>
+<p>作为 openTCS 内核一部分的驱动程序框架负责管理通信通道，并将车辆驱动程序与车辆关联起来。
+车辆驱动程序是内核与车辆之间的适配器，它将每种特定于车辆的通信协议转换为内核的内部通信方案，反之亦然。
+此外，驱动程序还可以通过内核控制中心客户端向用户提供底层功能，例如手动向关联车辆发送报文。
+通过使用合适的车辆驱动程序，单个 openTCS 实例可以同时管理不同类型的车辆。</p>
 </div>
 <div class="paragraph">
-<p>作为 openTCS 发行版一部分的模型编辑器客户端允许编辑可以加载到内核中的工厂模型。</p>
+<p>作为 openTCS 发行版一部分的模型编辑器客户端允许编辑可加载到内核中的工厂模型。
+例如，这包括定义装卸站、行驶轨道和车辆。</p>
 </div>
 <div class="paragraph">
-<p>作为 openTCS 发行版一部分的操作台客户端用于显示运输系统的总体状态和任何活跃的运输过程，并交互式地创建新的运输单。</p>
+<p>作为 openTCS 发行版一部分的操作台客户端用于显示运输系统的总体状态和所有活跃的运输过程，并支持交互式创建新的运输订单。</p>
 </div>
 <div class="paragraph">
-<p>作为 openTCS 发行版一部分的内核控制中心客户端允许控制和监控内核。</p>
+<p>作为 openTCS 发行版一部分的内核控制中心客户端允许控制和监控内核。
+其功能包括将车辆驱动程序分配给车辆、通过启用通信来控制它们，以及通过显示车辆状态信息来监控它们。</p>
 </div>
 <div class="paragraph">
-<p>可以实现并附加其他客户端，例如控制更高级别的工厂流程。</p>
+<p>还可以实现并附加其他客户端，例如用于控制更高级别工厂过程的客户端。
+对于 Java 客户端，openTCS 内核提供了基于 Java RMI（远程方法调用）的接口。
+此外，openTCS 还提供 Web API，用于创建和撤回运输订单，以及获取运输订单的状态更新。</p>
 </div>
 </div>
+
 <div class="sect2">
 <h3 id="_plant_model_elements">4.6. 工厂模型元素</h3>
 <div class="paragraph">
-<p>在 openTCS 中，工厂模型由以下一组元素组成。</p>
+<p>在 openTCS 中，工厂模型由以下一组元素构成。
+这些元素中与工厂模型相关的属性（例如某个点的坐标或一条路径的长度）均可通过模型编辑器客户端进行编辑。</p>
 </div>
+
+
+
 <div class="sect3">
 <h4 id="_point">4.6.1. 点位</h4>
+
 <div class="paragraph">
-<p>点位是行驶路线中离散车辆位置的逻辑映射。</p>
+<p>点是行驶路线中离散车辆位置的逻辑映射。
+在工厂运行模式下，车辆会被命令从模型中的一个点移动到另一个点。
+点包含以下属性：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A <em>type</em>，其中包括以下之一：</p>
+<p><em>类型</em>，属于以下类型之一：</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>停车位置</em>:
-指示车辆在处理运输单期间可临时停止的位置，例如用于执行操作。</p>
+<p><em>停靠位置</em>：
+表示车辆在处理订单时可以临时停靠的位置，例如用于执行某项操作。
+车辆到达此类位置时需要进行报到。
+但车辆不得在此处停留超过必要的时间。
+在使用模型编辑器客户端进行建模时，停靠位置是点的默认类型。</p>
 </li>
 <li>
-<p><em>驻车位置</em>:
-指示车辆在未处理运输单时可长时间停止的位置。</p>
+<p><em>泊车位置</em>：
+表示车辆在不处理订单时可以长时间停靠的位置。
+车辆到达此类位置时同样需要进行报到。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>A <em>position</em>，即该点在工厂坐标系中的坐标。</p>
+<p><em>位置</em>，即该点在工厂坐标系中的坐标。</p>
 </li>
 <li>
-<p>A <em>车辆方向角</em>，表示车辆占用该点位时的假设/预期方向。</p>
+<p><em>车辆方向角</em>，表示车辆占据该点时假定或预期的方向。</p>
 </li>
 <li>
-<p>A set of <em>车辆包络线</em>描述位于该点位的车辆所占用的区域。</p>
+<p>一组<em>车辆包络线</em>，用于描述位于该点的车辆所占用的区域。</p>
 </li>
 <li>
-<p>A <em>最大车辆边界框</em>描述位于该点位的车辆可能具有的最大边界框（参见<a href="#_bounding_box">边界框</a>以获取更多信息）。</p>
+<p><em>最大车辆包围盒</em>，用于描述位于该点的车辆可能具有的最大包围盒尺寸（更多信息请参阅<a href="#_bounding_box">边界框</a>）。</p>
 </li>
 </ul>
 </div>
 <div class="admonitionblock note">
 <table>
-<tr>
+<tbody><tr>
 <td class="icon">
 <i class="fa icon-note" title="Note"></i>
 </td>
-<td class="content">在 openTCS 中，0 度角位于 3 点钟位置，正值表示逆时针旋转。</td>
+<td class="content">
+在 openTCS 中，0 度角位于 3 点钟方向，正值表示逆时针旋转。
+</td>
 </tr>
-</table>
+</tbody></table>
 </div>
+
+
 <div class="sect4">
 <h5 id="_bounding_box">4.6.1.1. 边界框</h5>
 <div class="imageblock">
@@ -1877,21 +2045,29 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 </div>
 <div class="title">图 10. openTCS 中的边界框</div>
 </div>
+
 <div class="paragraph">
-<p>边界框的特征在于一个参考点，该参考点默认位于边界框底部（即高度为 0）的中心，本节后续部分将其称为底部中心。<em>基准中心</em>本节其余部分。</p>
+<p>包围盒的特征在于一个参考点，该参考点默认位于包围盒底部的中心（即高度为 0 的位置），在本节后续内容中称为<em>底部中心</em>。
+包围盒的长度和宽度相对于底部中心对称，高度则从包围盒的底部开始测量。</p>
 </div>
 <div class="paragraph">
-<p>可选地，参考点偏移量描述了参考点相对于底部中心的位置。</p>
+<p>可选的参考点偏移量用于描述参考点相对于底部中心的位置。
+参考点的坐标基于一个坐标系，该坐标系的原点位于底部中心，其坐标轴沿着包围盒的纵向和横向延伸——即 x 轴沿包围盒的长度方向，y 轴沿包围盒的宽度方向。</p>
 </div>
 <div class="paragraph">
-<p>对于车辆，边界框的方向使其纵轴与车辆的纵轴平行。</p>
+<p>对于车辆，包围盒的方向设定为其纵轴与车辆的纵轴平行。
+对于参考点偏移量，x 轴正值表示沿车辆前进方向的偏移，y 轴正值表示向车辆左侧的偏移。
+例如，车辆的物理参考点（即其报告的坐标所对应的点）与其包围盒的参考点通常是重合的。</p>
 </div>
 <div class="paragraph">
-<p>对于点位，边界框的方向根据点位的方向角确定，使得边界框的纵轴与位于该点位的车辆的纵轴平行。</p>
+<p>对于点，包围盒的方向根据该点的方向角进行设定，使得包围盒的纵轴与位于该点的车辆的纵轴平行。
+对于参考点偏移量，x 轴正值表示沿车辆前进方向的偏移，y 轴正值表示向车辆左侧的偏移。</p>
 </div>
 <div class="paragraph">
-<p>下图显示了车辆（左侧）和点位（右侧）的边界框示例。</p>
+<p>下图展示了车辆（左侧）和点（右侧）的包围盒示例。
+尽管在 openTCS 中包围盒是三维的，但此处展示的示例包围盒仅为二维，以便于直观理解。</p>
 </div>
+
 <div class="imageblock">
 <div class="content">
 <img alt="bounding box for vehicle and point.drawio" src="_images/bounding-box-for-vehicle-and-point.drawio.png"/>
@@ -1899,7 +2075,10 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 <div class="title">图 11. 车辆和点位的边界框</div>
 </div>
 <div class="paragraph">
-<p>在这两种情况下，蓝点代表各自边界框的底部中心，绿点代表它们的参考点。</p>
+<p>在这两种情况中，蓝点代表各自包围盒的底部中心，绿点代表其参考点。
+虚线代表各自包围盒的边界。
+在右侧，橙点代表实际的工厂模型点。
+在上述示例中，包围盒具有以下属性：</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1912,10 +2091,10 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Element</th>
-<th class="tableblock halign-left valign-top">Length [mm]</th>
-<th class="tableblock halign-left valign-top">Width [mm]</th>
-<th class="tableblock halign-left valign-top">Height [mm]</th>
+<th class="tableblock halign-left valign-top">元素</th>
+<th class="tableblock halign-left valign-top">长度 [mm]</th>
+<th class="tableblock halign-left valign-top">宽度 [mm]</th>
+<th class="tableblock halign-left valign-top">高度 [mm]</th>
 <th class="tableblock halign-left valign-top">参考偏移量 x [毫米]</th>
 <th class="tableblock halign-left valign-top">参考偏移量 y [毫米]</th>
 </tr>
@@ -1925,22 +2104,22 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 <td class="tableblock halign-left valign-top"><p class="tableblock">车辆</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1100</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">700</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>omitted</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>略</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-300</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Point</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">点</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1700</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1100</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>omitted</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>略</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-500</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-100</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>作为另一个示例，下图显示了边界框彼此之间的关系，以及如果车辆位于该点位时的样子。</p>
+<p>作为另一个补充示例，下图展示了这两个包围盒之间的相对关系，以及当车辆位于该点时的视觉效果。（请注意，这两个包围盒的参考点是重合的。）</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1949,193 +2128,237 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 <div class="title">图 12. 车辆和点位边界框的关系</div>
 </div>
 <div class="paragraph">
-<p>在此示例中，点位的边界框完全包围了车辆的边界框。<a href="#_default_router">默认路由器</a>.</p>
+<p>在此示例中，点的包围盒完全包含了车辆的包围盒。
+然而，在某些情况下可能并非如此，车辆的包围盒可能会超出点包围盒的一侧或多侧边界。
+为了防止车辆在这种情况被派往该点，路由器提供了一个专用的成本函数——请参阅<a href="#_default_router">默认路由器</a>。</p>
 </div>
 </div>
 </div>
+
 <div class="sect3">
 <h4 id="_path">4.6.2. 路径</h4>
 <div class="paragraph">
-<p>路径是点位之间供车辆通行的连接。</p>
+<p>路径是车辆可通行的点之间的连接。
+路径的主要属性除了起点和终点之外，还包括：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Its <em>length</em>，这在工厂运行模式下可能是与车辆相关的信息。</p>
+<p><em>长度</em>，这可能是工厂运行模式下车辆的相关信息。
+根据路由器的配置，它也可用于计算路由成本或寻找到达目标点的最优路线。</p>
 </li>
 <li>
-<p>A <em>最大速度</em> and <em>最大反向速度</em>，这在工厂运行模式下可能是与车辆相关的信息。</p>
+<p><em>最大正向速度</em>和<em>最大倒车速度</em>，这可能是工厂运行模式下车辆的相关信息。
+根据路由器的配置，它也可用于计算路由成本或寻找到达目标点的最优路线。</p>
 </li>
 <li>
-<p>A <em>locked</em>标志，当设置时，告知路由器该路径在计算车辆路线时不可使用。</p>
+<p><em>锁定</em>标志，设置该标志后，会告知路由器在为车辆计算路线时不得使用此路径。</p>
 </li>
 <li>
-<p>A sequence of <em>外设操作</em>描述当车辆遍历路径时由外设设备（按给定顺序）执行的操作。</p>
+<p>一系列<em>外围设备操作</em>，用于描述车辆穿过该路径时由外围设备按指定顺序执行的操作。</p>
 </li>
 <li>
-<p>A set of <em>车辆包络线</em>描述遍历路径的车辆所占用的区域。</p>
+<p>一组<em>车辆包络线</em>，用于描述车辆穿过该路径时所占据的区域。</p>
 </li>
 </ul>
 </div>
 <div class="sect4">
-<h5 id="_peripheral_operation">4.6.2.1. 外设操作</h5>
+<h5 id="_peripheral_operation">4.6.2.1. 外围设备操作</h5>
 <div class="paragraph">
-<p>外设操作的属性包括：</p>
+<p>外围设备操作的属性包括：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>对 <em>location</em>的引用，表示将通过该外设执行操作 — 参见<a href="#_location">Location</a>.</p>
+<p>对<em>位置</em>的引用，该位置代表执行该操作的外围设备——请参阅<a href="#_location">位置</a>。</p>
 </li>
 <li>
-<p>实际<em>operation</em>由外设执行。</p>
+<p>外围设备需要执行的实际<em>操作</em>。</p>
 </li>
 <li>
-<p>An <em>执行触发器</em>定义执行操作的时刻。</p>
+<p><em>执行触发条件</em>，用于定义执行该操作的时机。
+支持的值包括：</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>AFTER_ALLOCATION</code>：在车辆<em>分配</em>路径后触发操作执行。</p>
+<p><code>AFTER_ALLOCATION</code>：在车辆<em>已分配</em>该路径后触发执行该操作。</p>
 </li>
 <li>
-<p><code>AFTER_MOVEMENT</code>：在车辆<em>遍历</em>路径后触发操作执行。</p>
+<p><code>AFTER_MOVEMENT</code>：在车辆<em>已穿过</em>该路径后触发执行该操作。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>A <em>完成必需</em>标志，当设置时，要求完成操作以允许车辆继续行驶。<code>AFTER_ALLOCATION</code>执行触发器和完成必需标志设置为<code>true</code>时，车辆必须在路径的源点等待，直到操作完成。<code>AFTER_MOVEMENT</code>执行触发器和完成必需标志设置为<code>true</code>时，车辆必须在路径的目标点等待，直到操作完成。</p>
+<p><em>要求完成</em>标志，设置该标志后，要求必须完成该操作才允许车辆继续行驶。
+该标志与执行触发条件配合使用。
+当执行触发条件为 <code>AFTER_ALLOCATION</code> 且要求完成标志设置为 <code>true</code> 时，车辆必须在路径的起点等待，直到该操作完成。
+当执行触发条件为 <code>AFTER_MOVEMENT</code> 且要求完成标志设置为 <code>true</code> 时，车辆必须在路径的终点等待，直到该操作完成。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+
 <div class="sect3">
 <h4 id="_location">4.6.3. 位置</h4>
 <div class="paragraph">
-<p>位置是用于标记车辆可执行特殊操作（如装载或卸载货物、充电等）的点位。</p>
+<p>位置是点的标记，表示车辆可以在这些点上执行特殊操作（如装载或卸载货物、电池充电等）。
+位置的属性包括：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Its <em>type</em>，基本定义允许在该位置执行哪些操作 — 参见<a href="#_location_type">位置类型</a>.</p>
+<p><em>类型</em>，主要用于定义在该位置允许执行哪些操作——请参阅<a href="#_location_type">位置类型</a>。</p>
 </li>
 <li>
-<p>A set of <em>links</em>到可以从该位置到达的点位。</p>
+<p>一组指向点的<em>链接</em>，表示可以从哪些点到达该位置。
+为了在工厂模型中对车辆发挥作用，位置至少需要与一个点建立链接。</p>
 </li>
 <li>
-<p>A <em>locked</em>标志，当设置时，告诉调度器可能不会将需要在该位置执行操作的运输单分配给车辆。</p>
+<p><em>锁定</em>标志，设置该标志后，会告知调度器不得将需要在此位置执行操作的运输订单分配给车辆。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>此外，位置还可以映射外设设备，以便与其通信并允许车辆与之交互（例如，沿路径打开/关闭防火门）。<a href="#_adding_and_configuring_peripheral_devices">添加和配置外设</a>有关如何添加和配置外设的详细信息。</p>
+<p>此外，位置还可以映射外围设备，以便与这些设备进行通信，并允许车辆与它们进行交互（例如在路径上打开或关闭防火门）。
+有关如何添加和配置外围设备的详细信息，请参阅<a href="#_adding_and_configuring_peripheral_devices">添加和配置外围设备</a>。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_location_type">4.6.4. 位置类型</h4>
 <div class="paragraph">
-<p>位置类型是对位置进行分组的抽象元素。</p>
+<p>位置类型是对位置进行分组的抽象元素。
+位置类型仅有两个相关属性：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A set of <em>允许/支持的车辆操作</em>，定义车辆可以在这种类型的位置执行哪些操作。</p>
+<p>一组<em>允许/支持的车辆操作</em>，用于定义车辆在此类型的位置上可以执行哪些操作。</p>
 </li>
 <li>
-<p>A set of <em>允许/支持的外设操作</em>，定义映射到这种类型位置的外设设备可以执行哪些操作。</p>
+<p>一组<em>允许/支持的外围设备操作</em>，用于定义映射到此类型位置的外围设备可以执行哪些操作。</p>
 </li>
 </ul>
 </div>
 </div>
+
+
 <div class="sect3">
 <h4 id="_vehicle">4.6.5. 车辆</h4>
 <div class="paragraph">
-<p>车辆映射物理车辆，以便与其通信并可视化其位置和其他特征。</p>
+<p>车辆是对物理车辆的映射，用于与物理车辆进行通信，并可视化其位置及其他特征。
+车辆提供以下属性：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>一组能量等级阈值，其组成如下：</p>
+<p>一组电量阈值，其组成如下：</p>
 <div class="ulist">
 <ul>
 <li>
-<p>A <em>临界能量等级</em>，低于该阈值时，车辆的能量等级被视为临界。</p>
+<p><em>危险电量</em>，低于此阈值时，车辆的电量将被视为处于危险状态。
+在工厂运行期间，该值可用于决定何时必须为车辆的储能装置充电。</p>
 </li>
 <li>
-<p>A <em>良好能量等级</em>，高于该阈值时，车辆的能量等级被视为良好。<em>临界能量等级</em>.</p>
+<p><em>良好电量</em>，高于此阈值时，车辆的电量将被视为处于良好状态。
+在工厂运行期间，该值可用于决定何时无需为车辆的储能装置充电。
+配置该值时，它必须大于或等于<em>危险电量</em>。</p>
 </li>
 <li>
-<p>A <em>充分充电能量等级</em>，高于该阈值时，车辆被视为已充分充电。</p>
+<p><em>充足电量</em>，高于此阈值时，车辆将被视为已充足电。
+在工厂运行期间，该值可用于决定车辆何时可以停止充电。</p>
 </li>
 <li>
-<p>A <em>完全充电能量等级</em>，高于该阈值时，车辆被视为已完全充电。<em>充分充电能量等级</em>.</p>
+<p><em>充满电量</em>，高于此阈值时，车辆将被视为已完全充满电。
+在工厂运行期间，该值可用于决定车辆何时应当停止充电。
+配置该值时，它必须大于或等于<em>充足电量</em>。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>A <em>最大速度</em> and <em>最大反向速度</em>.
-根据路由器配置，它可用于计算路由代价/寻找到达目标点的最优路径。</p>
+<p><em>最大正向速度</em>和<em>最大倒车速度</em>。
+根据路由器的配置，这些值也可用于计算路由成本或寻找到达目标点的最优路线。</p>
 </li>
 <li>
-<p>An <em>集成级别</em>，表示当前允许将车辆集成到系统中的程度。</p>
+<p><em>集成级别</em>，用于指示当前允许车辆被集成到系统中的程度。
+车辆的集成级别只能通过运营台客户端进行调整，而不能通过模型编辑器客户端调整。
+车辆可以处于以下状态：</p>
 <div class="ulist">
 <ul>
 <li>
-<p>…​<em>ignored</em>未集成：</p>
+<p>……<em>被忽略</em>：
+车辆及其报告的位置将被完全忽略，因此该车辆不会在运营台中显示。
+该车辆不可用于运输订单。</p>
 </li>
 <li>
-<p>…​<em>noticed</em>仅显示：</p>
+<p>……<em>被感知</em>：
+车辆将在运营台中显示在其报告的位置，但系统不会为该位置分配任何资源。
+该车辆不可用于运输订单。</p>
 </li>
 <li>
-<p>…​<em>respected</em>已集成但未激活：</p>
+<p>……<em>被尊重</em>：
+系统将为车辆报告的位置分配资源。
+该车辆不可用于运输订单。</p>
 </li>
 <li>
-<p>…​<em>utilized</em>已激活：</p>
+<p>……<em>被利用</em>：
+该车辆可用于运输订单，并将被 openTCS 调度使用。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>A <em>paused</em>暂停标志，指示车辆当前是否处于暂停状态。</p>
+<p><em>暂停</em>标志，用于指示车辆当前是否处于暂停状态。
+处于暂停状态的车辆不应移动或运行。
+如果在设置暂停标志时车辆正在移动，则期望其尽快停止。
+某些车辆类型可能不支持在到达移动指令的目的地之前停止。
+在这种情况下，只要车辆处于暂停状态，openTCS 仍会确保不再向车辆发送进一步的移动指令。</p>
 </li>
 <li>
-<p>A set of <em>可接受的运输单类型</em>，每个类型由名称和优先级组成，用于在将运输单分配给车辆时过滤运输单（按类型）并对它们进行排序（按优先级）。<a href="#_transport_order">运输单</a>.</p>
+<p>一组<em>可接受的运输订单类型</em>，每种类型由名称和优先级组成。在向车辆分配运输订单时，这些类型用于按类型过滤运输订单，并按优先级对它们进行排序。
+对于车辆的可接受运输订单类型而言，较低的值表示较高的优先级。
+另请参阅<a href="#_transport_order">运输订单</a>。</p>
 </li>
 <li>
-<p>A <em>路线颜色</em>，这是用于可视化车辆前往目的地的路径的颜色。</p>
+<p><em>路线颜色</em>，用于可视化车辆前往目的地的路线的颜色。</p>
 </li>
 <li>
-<p>An <em>包络线键</em>，指示应考虑哪些包络线（在点位和路径中定义）用于该车辆。</p>
+<p><em>包络线键</em>，用于指示应考虑该车辆的哪些包络线（在点和路径上定义的包络线）。</p>
 </li>
 <li>
-<p>A <em>边界框</em>描述车辆的物理尺寸（参见<a href="#_bounding_box">边界框</a>以获取更多信息）。</p>
+<p><em>边界框</em>，用于描述车辆的物理尺寸。更多信息请参阅<a href="#_bounding_box">边界框</a>。</p>
 </li>
 </ul>
 </div>
 </div>
+
+
 <div class="sect3">
 <h4 id="_block">4.6.6. 区块</h4>
 <div class="paragraph">
-<p>区块（或区块区域）是可能适用特殊交通规则的区域。</p>
+<p>区块（或区块区域）是可能适用特殊交通规则的区域。
+它们可用于防止死锁情况，例如在路径交叉口或死胡同处。
+区块具有两个相关属性：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A set of <em>members</em>，即该区块由哪些资源（点位、路径和/或位置）组成。</p>
+<p>一组<em>成员</em>，即组成该区块的资源（点、路径和/或位置）。</p>
 </li>
 <li>
-<p>A <em>type</em>，用于确定进入区块的规则：</p>
+<p><em>类型</em>，用于确定进入区块的规则：</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>仅限单车</em>:
-此区块中聚合的资源在同一时间只能被一辆车辆使用。</p>
+<p><em>仅限单车</em>：
+该区块聚合的资源在同一时间只能被一辆车辆使用。
+在使用模型编辑器客户端进行建模时，这是区块的默认类型。</p>
 </li>
 <li>
-<p><em>仅限同向</em>:
-此区块中聚合的资源可同时被多辆车辆使用，但前提是它们以相同的方向穿越该区块。</p>
+<p><em>仅限同向</em>：
+该区块聚合的资源在同一时间可以被多辆车辆使用，但前提是它们必须沿相同方向穿过该区块。</p>
 </li>
 </ul>
 </div>
@@ -2144,107 +2367,138 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 </div>
 <div class="admonitionblock note">
 <table>
-<tr>
+<tbody><tr>
 <td class="icon">
 <i class="fa icon-note" title="Note"></i>
 </td>
-<td class="content">车辆穿越区块的方向是通过包含属于该区块资源的首个分配请求来确定的 — 参见<a href="#_default_scheduler">默认调度器</a>.
-对于请求的资源（通常是一个点位和一条路径），会检查该路径是否具有键为<code>tcs:blockEntryDirection</code>的属性。</td>
+<td class="content">
+车辆穿过区块的方向是通过首个包含属于该区块资源的分配请求来确定的——请参阅<a href="#_default_scheduler">默认调度器</a>。
+对于请求的资源（通常是一个点和一条路径），系统会检查该路径是否具有键为 <code>tcs:blockEntryDirection</code> 的属性。
+该属性的值可以是任意字符串（包括空字符串）。
+如果不存在该属性，则将使用路径的名称作为方向标识。
+</td>
 </tr>
-</table>
+</tbody></table>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_layer">4.6.7. 图层</h4>
 <div class="paragraph">
-<p>图层是对点位、路径、位置和链接进行分组的抽象元素。</p>
+<p>图层是对点、路径、位置和链接进行分组的抽象元素。
+它们可用于对复杂工厂进行建模，并将工厂区域划分为逻辑组（例如多层工厂中的各楼层）。
+图层具有以下属性：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>An <em>active</em>标志，指示某图层当前是否设置为活动（绘图）图层。</p>
+<p><em>激活</em>标志，用于指示该图层当前是否被设置为活动（绘图）图层。
+同一时间只能有一个活动图层。
+此属性仅在模型编辑器客户端中显示。</p>
 </li>
 <li>
-<p>A <em>visible</em>标志，指示某图层是显示还是隐藏。</p>
+<p><em>可见</em>标志，用于指示该图层是显示还是隐藏。
+当图层被隐藏时，其包含的模型元素将不会被显示。</p>
 </li>
 <li>
-<p>A descriptive <em>name</em>.</p>
+<p>描述性的<em>名称</em>。</p>
 </li>
 <li>
-<p>A <em>group</em>，图层被分配到的 — 参见<a href="#_layer_group">图层组</a>.
-一个图层一次只能分配给一个图层组。</p>
+<p>图层所属的<em>组</em>——请参阅<a href="#_layer_group">图层组</a>。
+一个图层在同一时间只能分配到一个图层组。</p>
 </li>
 <li>
-<p>A <em>组可见</em>标志，指示图层所属的图层组是显示还是隐藏 — 参见<a href="#_layer_group">图层组</a>.</p>
+<p><em>组可见</em>标志，用于指示该图层所属的图层组是显示还是隐藏——请参阅<a href="#_layer_group">图层组</a>。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>除上述属性外，图层还有一个序数号（不显示），用于定义图层之间的相对顺序。</p>
+<p>除了上述属性外，图层还具有一个序号（不显示），用于定义图层之间的相对顺序。
+图层的顺序由模型编辑器和运营台客户端中“图层”表中的条目顺序来表示。
+最顶部的条目对应最顶层的图层（显示在所有其他图层之上），最底部的条目对应最底层的图层（显示在所有其他图层之下）。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_layer_group">4.6.8. 图层组</h4>
 <div class="paragraph">
-<p>图层组是对图层进行分组的抽象元素。</p>
+<p>图层组是对图层进行分组的抽象元素。
+图层组具有以下属性：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A descriptive <em>name</em>.</p>
+<p>描述性的<em>名称</em>。</p>
 </li>
 <li>
-<p>A <em>visible</em>标志，指示图层组是显示还是隐藏。</p>
+<p><em>可见</em>标志，用于指示该图层组是显示还是隐藏。
+当图层组被隐藏时，分配给它的所有图层中包含的模型元素都不会被显示。
+图层组的可见状态不会影响分配给它的各个图层自身的可见状态。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+
+
 <div class="sect2">
 <h3 id="_plant_operation_elements">4.7. 工厂运行元素</h3>
 <div class="paragraph">
-<p>运输单和订单序列是仅在工厂运行时可用的元素。</p>
+<p>运输单和订单序列是仅在工厂运行期间才存在的元素。
+它们的属性主要在创建相应元素时进行设置。</p>
 </div>
 <div class="sect3">
 <h4 id="_transport_order">4.7.1. 运输单</h4>
 <div class="paragraph">
-<p>运输单是由车辆处理的一系列参数化的移动和操作。</p>
+<p>运输单是由车辆处理的一系列参数化的移动和操作。
+创建运输单时，可以设置以下属性：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A sequence of <em>destinations</em>处理车辆必须按给定顺序处理的内容。</p>
+<p>一系列<em>目的地</em>，处理车辆必须按给定顺序依次处理这些目的地。
+每个目的地由车辆必须前往的位置和必须在该位置执行的操作组成。</p>
 </li>
 <li>
-<p>An optional <em>deadline</em>，表示运输单预计被处理的时间。</p>
+<p>可选的<em>截止时间</em>，用于指示运输单预计应被处理完毕的时间。</p>
 </li>
 <li>
-<p>An optional <em>type</em>，这是一个用于过滤可能被分配给运输单的车辆的字符串。<code>"Transport"</code> and <code>"Maintenance"</code>.)</p>
+<p>可选的<em>类型</em>，为一个字符串，用于筛选可被分配到该运输单的车辆。
+只有当订单的类型属于车辆可接受的订单类型集合时，才能将该订单分配给该车辆。
+（可能有用的类型示例包括 <code>"Transport"</code> 和 <code>"Maintenance"</code>。）</p>
 </li>
 <li>
-<p>An optional <em>预期车辆</em>，指示调度器将运输单分配给指定车辆，而不是自动选择一个。</p>
+<p>可选的<em>指定车辆</em>，用于告知调度器将该运输单分配给指定的车辆，而不是自动选择车辆。</p>
 </li>
 <li>
-<p>A <em>dispensable</em>标志，指示运输单是否可以自动撤回，主要是为了使处理车辆可用于另一个运输单。</p>
+<p><em>可放弃</em>标志，用于指示该运输单是否可以被自动撤回，主要是为了让处理车辆能够腾出以执行其他运输单。
+通常被标记为可放弃的订单例如停车订单：
+当车辆正在前往停车位的途中，且为其分配了新的运输单时，尽早将新订单分配给该车辆（跳过剩余前往停车位的路程）是合理的。</p>
 </li>
 <li>
-<p>一个可选的<em>dependencies</em>集合，即对其他需要在该运输单之前处理的运输单的引用。<em>预期车辆</em>属性来实现。）</p>
+<p>可选的一组<em>依赖项</em>，即指向其他运输单的引用，这些订单必须在该运输单之前被处理。
+依赖关系具有传递性，这意味着如果订单 A 依赖于订单 B，且订单 B 依赖于订单 C，则必须先处理 C，然后处理 B，最后处理 A。
+因此，依赖项是对运输单集合施加顺序的一种手段。
+（但是，它们并不隐式要求所有运输单由同一车辆处理。
+这可以通过设置运输单的<em>指定车辆</em>属性来可选地实现。）
+下图展示了多个运输单之间的依赖关系示例：</p>
 </li>
 </ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img alt="transportorder dependencies example" src="_images/transportorder_dependencies_example.png"/>
+<img src="_images/transportorder_dependencies_example.png" alt="transportorder dependencies example">
 </div>
 <div class="title">图 13. 运输单依赖关系</div>
 </div>
 <div class="sect4">
 <h5 id="_transport_order_priorities">4.7.1.1. 运输单优先级</h5>
 <div class="paragraph">
-<p>在 openTCS 中，运输单没有优先级属性。</p>
+<p>在 openTCS 中，运输单没有优先级属性。
+这是因为运输单的优先级可能会随着时间推移或添加其他运输单而发生变化。</p>
 </div>
 <div class="paragraph">
-<p>最终，单个运输单的有效优先级取决于所使用的调度器实现。<em>deadline</em>属性旨在用于优先级排序——截止时间越早，订单的有效优先级越高。</p>
+<p>最终，单个运输单的实际优先级取决于所使用的调度器实现。
+使用 openTCS 的默认调度器时，运输单的<em>截止时间</em>属性用于确定优先级——截止时间越早，订单的实际优先级越高。
+若要从一开始就赋予某个运输单更高的优先级，可以将其截止时间设置为早于所有其他订单的截止时间，例如设置为“当前时间”或过去的某个时间点。</p>
 </div>
 </div>
 </div>
@@ -2252,154 +2506,180 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 <h4 id="_order_sequence">4.7.2. 订单序列</h4>
 <div class="admonitionblock note">
 <table>
-<tr>
+<tbody><tr>
 <td class="icon">
 <i class="fa icon-note" title="Note"></i>
 </td>
-<td class="content">操作台应用程序目前不提供创建订单序列的方法。</td>
+<td class="content">
+运营台应用程序目前不提供创建订单序列的功能。
+只能使用不属于 openTCS 发行版的专用客户端以编程方式创建它们。
+</td>
 </tr>
-</table>
+</tbody></table>
 </div>
 <div class="paragraph">
-<p>订单序列描述了一个跨越多个运输单的过程，这些运输单必须由同一辆车辆按照序列定义的精确顺序依次执行。</p>
+<p>订单序列描述了一个跨越多个运输单的流程，这些订单将由同一车辆按序列定义的精确顺序依次执行。
+一旦车辆被分配到某个订单序列，在该序列完成之前，它不得处理不属于该序列的运输单。</p>
 </div>
 <div class="paragraph">
-<p>当由同一辆车执行的复杂过程无法映射到单个运输单时，订单序列非常有用。</p>
+<p>当由同一车辆执行的复杂流程无法映射为单个运输单时，订单序列非常有用。
+例如，当流程中某些步骤的细节只有在处理完前面的步骤后才能获知时，就会出现这种情况。</p>
 </div>
 <div class="paragraph">
-<p>订单序列携带以下属性：</p>
+<p>订单序列具有以下属性：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A sequence of <em>运输单</em>，只要尚未设置完成标志（见下文），就可以对其进行扩展。</p>
+<p>一系列<em>运输单</em>，只要尚未设置完成标志（见下文），就可以继续向其中添加订单。</p>
 </li>
 <li>
-<p>A <em>complete</em>标志，指示不再向序列中添加任何运输单。</p>
+<p><em>完成</em>标志，用于指示不会再向该序列中添加新的运输单。
+此标志一旦设置便无法重置。</p>
 </li>
 <li>
-<p>A <em>故障致命</em>标志，指示如果序列中的一个运输单失败，除非失败的运输单被标记为可放弃，否则其后的所有订单应立即被视为失败。</p>
+<p><em>失败致命</em>标志，用于指示如果序列中的某个运输单失败，除非该失败的运输单被标记为可放弃，否则其后的所有订单也应立即被视为失败。</p>
 </li>
 <li>
-<p>A <em>finished</em>标志，指示订单序列已处理完毕（且车辆不再绑定到它）。</p>
+<p><em>已完成</em>标志，用于指示订单序列已被处理完毕（且车辆不再受其绑定）。
+只有当订单序列之前已被标记为完成时，才能将其标记为已完成。</p>
 </li>
 <li>
-<p>A set of <em>订单类型</em> — see <a href="#_transport_order">运输单</a>.
-只有类型为订单序列中包含的订单类型的运输单才能添加到其中。</p>
+<p>一组<em>订单类型</em>——请参阅<a href="#_transport_order">运输单</a>。
+只有类型包含在订单序列的订单类型集合中的运输单才能被添加到该序列中。</p>
 </li>
 <li>
-<p>An optional <em>预期车辆</em>，指示调度器将订单序列分配给指定车辆，而不是自动选择一辆。</p>
+<p>可选的<em>指定车辆</em>，用于告知调度器将订单序列分配给指定的车辆，而不是自动选择车辆。
+如果设置了此属性，则添加到订单序列中的所有运输单必须具有相同的指定车辆值。</p>
 </li>
 </ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img alt="ordersequence example" src="_images/ordersequence_example.png"/>
+<img src="_images/ordersequence_example.png" alt="ordersequence example">
 </div>
-<div class="title">图 14. 一个订单序列</div>
+<div class="title">图 14. 订单序列</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_peripheral_job">4.7.3. 外设任务</h4>
+<h4 id="_peripheral_job">4.7.3. 外围设备作业</h4>
 <div class="paragraph">
-<p>外设作业描述了由外设设备执行的操作。</p>
+<p>外围设备作业描述了由外围设备执行的操作。
+外围设备作业具有以下属性：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>An <em>operation</em>由外设执行 — 参见<a href="#_peripheral_operation">外设操作</a>.</p>
+<p>由外围设备执行的<em>操作</em>——请参阅<a href="#_peripheral_operation">外围设备操作</a>。</p>
 </li>
 <li>
-<p>A <em>预留令牌</em>可用于预留外设。<a href="#_reservation_token">预留令牌</a>.</p>
+<p><em>预留令牌</em>，可用于预留外围设备。
+为特定令牌预留的外围设备只能处理与该预留令牌匹配的作业——请参阅<a href="#_reservation_token">预留令牌</a>。</p>
 </li>
 <li>
-<p>An optional <em>相关车辆</em>引用创建该外设作业的车辆。</p>
+<p>可选的<em>关联车辆</em>，用于引用创建该外围设备作业的车辆。</p>
 </li>
 <li>
-<p>An optional <em>相关运输单</em>引用创建该外设作业的上下文中的运输单。</p>
+<p>可选的<em>关联运输单</em>，用于引用创建该外围设备作业所在的运输单上下文。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+
 <div class="sect2">
 <h3 id="_common_element_attributes">4.8. 公共元素属性</h3>
 <div class="sect3">
 <h4 id="_unique_name">4.8.1. 唯一名称</h4>
 <div class="paragraph">
-<p>每个工厂模型和工厂运行元素都有一个唯一的名称，用于在系统中标识它，无论其元素类型是什么。</p>
+<p>每个工厂模型元素和工厂运行元素在系统中都有一个用于标识自身的唯一名称，无论该元素的类型是什么。
+不允许为两个元素赋予相同的名称，即使例如其中一个是点，而另一个是运输单。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_generic_properties">4.8.2. 通用属性</h4>
 <div class="paragraph">
-<p>除列出的属性外，还可以为所有行驶路线元素定义任意属性作为键值对，例如，车辆驱动程序或客户端软件可以读取和评估这些属性。<code>"IP address"</code>:<code>"192.168.23.42"</code>可以在模型中为车辆定义，指明用于与车辆通信的 IP 地址；车辆驱动程序现在可以在运行时检查键<code>"IP address"</code>是否已定义，如果已定义，则使用它来自动配置到车辆的通信通道。<code>"acoustic warning"</code> and/or <code>"right-hand direction indicator"</code>的属性，并由相应的车辆驱动程序进行评估。</p>
+<p>除了列出的属性之外，还可以为所有行驶路线元素定义任意属性（以键值对的形式），例如，车辆驱动程序或客户端软件可以读取并评估这些属性。
+键和值都可以是任意字符串。
+例如，可以为模型中的车辆定义键值对 <code>"IP address"</code>:<code>"192.168.23.42"</code>，以指明用于与该车辆通信的 IP 地址；车辆驱动程序现在可以在运行时检查是否定义了键 <code>"IP address"</code> 的值，如果定义了，则使用该值自动配置与车辆的通信通道。
+这些通用属性的另一个用途是定义在模型中特定路径上执行的车辆特定动作。
+例如，如果车辆在当前处于某条特定路径上时应发出声音警告和/或打开右转向灯，则可以为该路径定义键为 <code>"acoustic warning"</code> 和/或 <code>"right-hand direction indicator"</code> 的属性，并由相应的车辆驱动程序进行评估。</p>
 </div>
 </div>
 </div>
+
 <div class="sect2">
 <h3 id="_default_strategies">4.9. 默认策略</h3>
+
 <div class="paragraph">
-<p>openTCS 为每个策略模块提供了默认实现。</p>
+<p>openTCS 为每个策略模块都提供了默认实现。
+这些实现可以轻松替换，以适应特定项目的需求。
+（请参阅开发者指南。）</p>
 </div>
+
 <div class="sect3">
 <h4 id="_default_dispatcher">4.9.1. 默认调度器</h4>
 <div class="paragraph">
-<p>当运输单或车辆可用时，调度器需要决定如何处理哪个运输单，以及哪辆车执行什么任务。</p>
+<p>当运输订单或车辆变为可用时，调度器需要决定哪个运输订单应如何处理以及哪辆车应执行什么任务。
+为了做出此决定，默认调度器会执行以下步骤：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>新的运输单正在准备进行处理。</p>
+<p>准备处理新的运输订单。
+这包括检查常规的可路由性和未完成的依赖关系。</p>
 </li>
 <li>
-<p>对当前正在进行的进程进行更新。</p>
+<p>更新当前处于活动状态的处理流程。
+这包括：</p>
 <div class="ulist">
 <ul>
 <li>
-<p>运输单的撤回</p>
+<p>撤回运输订单</p>
 </li>
 <li>
-<p>运输单的成功完成</p>
+<p>成功完成运输订单</p>
 </li>
 <li>
-<p>为正在处理订单序列的车辆分配后续运输单</p>
+<p>为正在处理订单序列的车辆分配后续的运输订单</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>尽可能将当前空闲的车辆分配给可处理的运输单。</p>
+<p>如果可能，将当前未被占用的车辆分配给可处理的运输订单。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>考虑车辆的准则如下：</p>
+<p>车辆被纳入考虑的标准为：</p>
 <div class="ulist">
 <ul>
 <li>
 <p>它必须位于行驶路线中的已知位置。</p>
 </li>
 <li>
-<p>它不得被分配给运输单，或者已分配的运输单必须<em>dispensable</em>。例如，停车订单或当车辆能量水平不关键时的充电订单即属于这种情况。</p>
+<p>它不能被分配给运输订单，或者已分配的运输订单必须是<em>可放弃的</em>。
+例如，停车订单即属于此类；或者当车辆电量未处于危险状态时，充电订单也属于此类。</p>
 </li>
 <li>
-<p>它不得正在处理订单序列；或者，当前正在处理的运输单必须<em>dispensable</em>并且必须是标记为<em>complete</em>.</p>
+<p>它不能正在处理订单序列；或者，当前正在处理的运输订单必须是<em>可放弃的</em>，且必须是标记为<em>已完成</em>的订单序列中的最后一个订单。</p>
 </li>
 <li>
-<p>的订单序列中的最后一个订单。</p>
+<p>其电量不能处于危险状态。
+（具有危险电量的车辆仅在首个目的地操作为充电操作的运输订单中才会被纳入考虑。）</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>考虑运输单的准则如下：</p>
+<p>运输订单被纳入考虑的标准为：</p>
 <div class="ulist">
 <ul>
 <li>
-<p>它必须总体上可调度。</p>
+<p>它在常规情况下必须是可调度的。</p>
 </li>
 <li>
-<p>它不得属于已由车辆处理的订单序列的一部分。</p>
+<p>它不能属于已经被车辆处理的订单序列的一部分。</p>
 </li>
 </ul>
 </div>
@@ -2409,13 +2689,15 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 <div class="ulist">
 <ul>
 <li>
-<p>如果空闲车辆少于可处理的运输单，则根据可配置的准则对车辆列表进行排序。</p>
+<p>如果空闲车辆少于可处理的运输订单，则车辆列表将按可配置的标准进行排序。
+默认调度器随后会遍历排序后的列表，对于每辆车，查找其可处理的所有订单，计算所需路线，根据可配置的标准对候选订单进行排序，并分配第一个订单。</p>
 </li>
 <li>
-<p>如果可处理的运输单少于空闲车辆，则根据可配置的准则对运输单列表进行排序。</p>
+<p>如果可处理的运输订单少于空闲车辆，则运输订单列表将按可配置的标准进行排序。
+默认调度器随后会遍历排序后的列表，对于每个运输订单，查找所有可以处理该订单的车辆，计算所需路线，根据可配置的标准对候选车辆进行排序，并分配第一个车辆。</p>
 </li>
 <li>
-<p>有关排序准则的配置选项，请参阅<a href="#_default_dispatcher_configuration_entries">默认调度器配置条目</a>.</p>
+<p>有关排序标准的配置选项，请参阅<a href="#_default_dispatcher_configuration_entries">默认调度器配置项</a>。</p>
 </li>
 </ul>
 </div>
@@ -2424,38 +2706,38 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 </div>
 </li>
 <li>
-<p>如果可能，仍空闲的车辆将被发送到充电位置。</p>
+<p>如果可能，仍未被占用的车辆会被送往充电地点。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>考虑车辆的准则如下：</p>
-<div class="ulist">
-<ul>
-<li>
-<p>它必须位于行驶路线中的已知位置。</p>
-</li>
-<li>
-<p>其能量水平为<em>degraded</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>如果可能，仍空闲的车辆会被发送到停车位。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>考虑车辆的准则包括：</p>
+<p>车辆被纳入考虑的标准为：</p>
 <div class="ulist">
 <ul>
 <li>
 <p>它必须位于行驶路线中的已知位置。</p>
 </li>
 <li>
-<p>它不能已经位于停车位。</p>
+<p>其电量处于<em>下降（不足）</em>状态。</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>如果可能，仍未被占用的车辆会被送往停车位。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>车辆被纳入考虑的标准为：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>它必须位于行驶路线中的已知位置。</p>
+</li>
+<li>
+<p>它不能已经位于停车位上。</p>
 </li>
 </ul>
 </div>
@@ -2466,78 +2748,94 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 </ol>
 </div>
 <div class="sect4">
-<h5 id="_default_parking_position_selection">4.9.1.1. 默认停车位选择</h5>
+<h5 id="_default_parking_position_selection">4.9.1.1. 默认停车位置选择</h5>
 <div class="paragraph">
-<p>当将车辆发送到停车位时，默认选择最近（根据路由器计算）的空闲位置。</p>
+<p>将车辆派往停车位时，默认会选择距离最近（根据路由器计算）的空闲位置。
+也可以通过在车辆上设置以下键的属性，为车辆分配固定位置：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>tcs:preferredParkingPosition</code>:
-预期为模型中一个点位的名称。</p>
+<p><code>tcs:preferredParkingPosition</code>：
+预期为模型中某个点的名称。
+如果该点已被占用，则会选择最接近的未占用停车位（如果有的话）。</p>
 </li>
 <li>
-<p><code>tcs:assignedParkingPosition</code>:
-预期为模型中一个点位的名称。<code>tcs:preferredParkingPosition</code>.</p>
+<p><code>tcs:assignedParkingPosition</code>：
+预期为模型中某个点的名称。
+如果该点已被占用，车辆不会被派往其他停车位置，即保持原地不动。
+此属性优先于 <code>tcs:preferredParkingPosition</code>。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_optional_parking_position_priorities">4.9.1.2. 可选停车位优先级</h5>
+<h5 id="_optional_parking_position_priorities">4.9.1.2. 可选停车位置优先级</h5>
 <div class="paragraph">
-<p>可选地（参见默认调度器配置条目以了解如何启用），可以显式优先选择停车位，并且车辆可以像“停车位队列”一样被重新停放。<a href="#_default_dispatcher_configuration_entries">默认调度器配置条目</a>如何启用它），可以显式地对停车位进行优先级排序，并且车辆可以以某种“停车位队列”的方式进行重新停放。</p>
+<p>可选地（有关如何启用此功能，请参阅<a href="#_default_dispatcher_configuration_entries">默认调度器配置项</a>），停车位置可以被明确优先安排，车辆也可以按某种“停车位置队列”重新停放。
+这可能是可取的，例如，将车辆停放在频繁作为运输订单首个目的地的位置附近。
+（例如，想象一个工厂，货物一直从 A 运输到 B。即使当前没有运输订单，仍然可能优先选择靠近 A 的停车位置，以在运输订单到达时缩短响应时间。）</p>
 </div>
 <div class="paragraph">
-<p>要为停车位分配优先级，请在点位上设置键为 tcs:parkingPositionPriority 的属性。<code>tcs:parkingPositionPriority</code>在点位上。</p>
+<p>要为停车位分配优先级，请在该点上设置键为 <code>tcs:parkingPositionPriority</code> 的属性。
+该属性的值应为十进制整数，数值越低，停车位的优先级越高。</p>
 </div>
 <div class="admonitionblock note">
 <table>
-<tr>
+<tbody><tr>
 <td class="icon">
 <i class="fa icon-note" title="Note"></i>
 </td>
-<td class="content">如果具有较高优先级的停车位未被占用但车辆无法到达，则可能会选择具有较低优先级且可达的停车位。</td>
+<td class="content">
+如果具有较高优先级的停车位未被占用但车辆无法到达，则可能会选择具有较低优先级但可到达的停车位。
+</td>
 </tr>
-</table>
+</tbody></table>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_default_recharging_location_selection">4.9.1.3. 默认充电位置选择</h5>
 <div class="paragraph">
-<p>当将车辆发送到充电位置时，默认选择最近（根据路由器计算）的空闲位置。</p>
+<p>将车辆派往充电地点时，默认会选择距离最近（根据路由器计算）的空闲位置。
+也可以通过在车辆上设置以下键的属性，来为车辆分配固定位置：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>tcs:preferredRechargeLocation</code>:
-预期为一个位置的名称。</p>
+<p><code>tcs:preferredRechargeLocation</code>：
+预期为某个地点的名称。
+如果该地点已被占用，则选择最接近的未被占用的充电地点（如果有的话）。</p>
 </li>
 <li>
-<p><code>tcs:assignedRechargeLocation</code>:
-预期为一个位置的名称。<code>tcs:preferredRechargeLocation</code>.</p>
+<p><code>tcs:assignedRechargeLocation</code>：
+预期为一个地点的名称。
+如果该地点已经被占用，车辆不会被派往其他充电地点。
+此属性优先于 <code>tcs:preferredRechargeLocation</code>。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_immediate_transport_order_assignment">4.9.1.4. 即时运输单分配</h5>
+<h5 id="_immediate_transport_order_assignment">4.9.1.4. 立即运输订单分配</h5>
 <div class="paragraph">
-<p>除了根据前几节中描述的流程和规则隐式分配运输单外，还可以显式（即立即）分配运输单。<em>implicit</em>根据前几节中描述的流程和规则分配运输单，运输单也可以被分配<em>explicitly</em>（即立即）。</p>
+<p>除了根据前几节所述的流程和规则进行<em>隐式</em>分配运输订单之外，运输订单也可以被<em>显式</em>分配（即立即分配）。
+对于已设置预定车辆的运输订单，支持立即分配。
+这在某些情况下非常有用，例如运输订单及其预定车辆通常处于可以分配的状态，但由于常规调度流程中的某些筛选条件而无法分配时。</p>
 </div>
 <div class="paragraph">
-<p>尽管运输单的立即分配绕过了常规调度器流程中的一些过滤条件，但它仅在特定情况下有效。</p>
+<p>尽管运输订单的立即分配绕过了常规调度流程中的一些过滤条件，但它只在特定情况下起作用。
+关于运输订单的状态：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>运输单的状态必须为<code>DISPATCHABLE</code>.</p>
+<p>运输订单的状态必须为 <code>DISPATCHABLE</code>（可调度）。</p>
 </li>
 <li>
-<p>运输单不得属于订单序列的一部分。</p>
+<p>运输订单不得属于订单序列的一部分。</p>
 </li>
 <li>
-<p>运输单的预期车辆必须已设置。</p>
+<p>必须设置运输订单的预定车辆。</p>
 </li>
 </ul>
 </div>
@@ -2547,16 +2845,16 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 <div class="ulist">
 <ul>
 <li>
-<p>车辆的加工状态必须为<code>IDLE</code>.</p>
+<p>车辆的处理状态必须为 <code>IDLE</code>（空闲）。</p>
 </li>
 <li>
-<p>车辆的状态必须为<code>IDLE</code> or <code>CHARGING</code>.</p>
+<p>车辆的状态必须为 <code>IDLE</code>（空闲）或 <code>CHARGING</code>（充电中）。</p>
 </li>
 <li>
-<p>车辆的集成级别必须为<code>TO_BE_UTILIZED</code>.</p>
+<p>车辆的集成级别必须为 <code>TO_BE_UTILIZED</code>（待使用）。</p>
 </li>
 <li>
-<p>车辆必须在已知位置报告。</p>
+<p>车辆必须报告在已知位置。</p>
 </li>
 <li>
 <p>车辆不得处理订单序列。</p>
@@ -2565,188 +2863,230 @@ See <a href="#_kernel_configuration">内核配置</a>有关所有内核配置条
 </div>
 <div class="admonitionblock note">
 <table>
-<tr>
+<tbody><tr>
 <td class="icon">
 <i class="fa icon-note" title="Note"></i>
 </td>
-<td class="content">除了相应运输单及其预期车辆的状态外，调度器可能还有进一步的实现特定原因来拒绝即时分配。</td>
+<td class="content">
+除了运输订单和预定车辆的各自状态之外，调度器可能还有其他特定于实现的原因来拒绝立即分配。
+</td>
 </tr>
-</table>
+</tbody></table>
 </div>
 </div>
 </div>
+
+
 <div class="sect3">
 <h4 id="_default_router">4.9.2. 默认路由器</h4>
 <div class="paragraph">
-<p>默认路由器在行驶路线中的一个位置到另一个位置之间找到最便宜的路线。<a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra 算法</a>为此。）</p>
+<p>默认路由器用于在行驶路线中找到从一个位置到另一个位置的最低成本路径。
+（它通过实现<a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra算法</a>来实现。）
+它会考虑已被锁定的路径，但不考虑位置和/或其他车辆的预期未来行为。
+因此，它不会绕行速度较慢或停在路上阻挡去路的车辆。</p>
 </div>
 <div class="sect4">
 <h5 id="_cost_functions">4.9.2.1. 成本函数</h5>
 <div class="paragraph">
-<p>用于评估行驶路线中路径的成本函数可以通过配置进行选择。<a href="#_default_router_configuration_entries">默认路由器配置条目</a>，相关的配置条目是<code>defaultrouter.shortestpath.edgeEvaluators</code>。）</p>
+<p>用于评估行驶路线中路径的成本函数可以通过配置进行选择。
+（参见<a href="#_default_router_configuration_entries">默认路由器配置项</a>，相关配置项为<code>defaultrouter.shortestpath.edgeEvaluators</code>。）
+提供以下成本函数/配置选项：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>DISTANCE</code>（默认值）：</p>
+<p><code>DISTANCE</code>（默认）：
+路由成本等于路径的长度。</p>
 </li>
 <li>
-<p><code>TRAVELTIME</code>:
-路由代价计算为在路径上行驶的预计时间（以秒为单位），即路径长度除以允许的最大车辆速度。</p>
+<p><code>TRAVELTIME</code>：
+路由成本计算为在路径上行驶的预期时间（以秒为单位），即路径长度除以车辆允许的最大速度。</p>
 </li>
 <li>
-<p><code>EXPLICIT_PROPERTIES</code>:
-车辆在路径上的路由代价取自键为<code>tcs:routingCostForward&lt;GROUP&gt;</code> and <code>tcs:routingCostReverse&lt;GROUP&gt;</code>.
-The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href="#_routing_groups">路由组</a>)。<code>tcs:routingCostForwardExample</code> and <code>tcs:routingCostReverseExample</code>.
-这样，可以为路径分配不同的路由代价，例如针对不同车辆类型。<br/>请注意，为了使此 cost function 正常工作，routing cost properties 的值应为十进制整数。<code>Infinity</code>，属性值可设置为该字符串，表示该 routing group 的车辆完全不得使用此 path。</p>
+<p><code>EXPLICIT_PROPERTIES</code>：
+车辆在路径上的路由成本取自键为<code>tcs:routingCostForward&lt;GROUP&gt;</code>和<code>tcs:routingCostReverse&lt;GROUP&gt;</code>的路径属性。
+所使用的<code>&lt;GROUP&gt;</code>是车辆的路由组（参见<a href="#_routing_groups">路由组</a>）。
+例如，如果车辆的路由组设置为“Example”，则该车辆的路由成本将取自键为<code>tcs:routingCostForwardExample</code>和<code>tcs:routingCostReverseExample</code>的路径属性。
+这样，可以为路径分配不同的路由成本，例如针对不同类型的车辆。
+请注意，为了让此成本函数正常工作，路由成本属性的值应为十进制整数。
+一个例外是字符串<code>Infinity</code>，可以将其设置为属性值，表示相应路由组的车辆根本不能使用该路径。</p>
 </li>
 <li>
-<p><code>HOPS</code>:
-模型中每条路径的路由代价均为 1，这将选择包含最少路径/点位的路由。</p>
+<p><code>HOPS</code>：
+模型中每条路径的路由成本均为1，这将导致选择路径/点数量最少的路线。</p>
 </li>
 <li>
-<p><code>BOUNDING_BOX</code>:
-车辆在路径上的路由代价是通过将车辆的边界框与路径目标点处允许的最大边界框进行比较来确定的 — 参见<a href="#_bounding_box">边界框</a>.
-如果车辆的边界框超出目标点的边界框，则对应路径的路由代价被视为无穷大，表明该车辆根本不能使用此路径。</p>
+<p><code>BOUNDING_BOX</code>：
+车辆在路径上的路由成本通过将车辆的包围盒与路径目标点处允许的最大包围盒进行比较来确定——参见<a href="#_bounding_box">包围盒</a>。
+如果车辆的包围盒超出目标点的包围盒，则相应路径的路由成本被视为无限高，表示该车辆根本不能使用该路径。
+否则，相应路径的路由成本为0。
+这可用于防止车辆被引导至/穿过可用空间不足的点。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>开发人员可以使用 openTCS API 集成其他自定义代价函数。</p>
+<p>开发人员可以使用openTCS API集成额外的自定义成本函数。</p>
 </div>
 <div class="paragraph">
-<p>在配置中可以通过用逗号分隔列出多个成本函数来选择它们。<code>"DISTANCE, TRAVELTIME"</code>，路由的成本计算为 path 长度之和以及车辆通过它所需的时间。</p>
+<p>可以在配置中通过逗号分隔列出多个成本函数来选择。
+由各个函数计算的成本将被累加。
+例如，当使用<code>"DISTANCE, TRAVELTIME"</code>时，路线成本计算为路径长度与车辆通过所需时间的总和。</p>
 </div>
 <div class="admonitionblock note">
 <table>
-<tr>
+<tbody><tr>
 <td class="icon">
 <i class="fa icon-note" title="Note"></i>
 </td>
-<td class="content">显然，将距离加到时间上没有意义。</td>
+<td class="content">
+显然，将距离与持续时间相加是没有意义的。
+选择适用于特定用例且合适的配置是用户的责任。
+</td>
 </tr>
-</table>
+</tbody></table>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_routing_groups">4.9.2.2. 路由组</h5>
 <div class="paragraph">
-<p>在计算路线时，可以对工厂中的车辆区别对待。<code>tcs:routingGroup</code>设置为任意字符串。</p>
+<p>在计算车辆路线时，可以对工厂中的车辆进行差异化处理。
+如果它们具有不同的特性，并且实际上在行驶路线中有不同的最佳路线，这可能非常有用。
+为此，模型中的路径或使用的成本函数需要反映这种差异。
+默认情况下不会这样做——除非另有说明，否则默认路由器会以相同的方式为所有车辆计算路线。
+为了让路由器知道它应该为车辆单独计算路线，请将键为<code>tcs:routingGroup</code>的属性设置为任意字符串。
+（具有相同值设置的车辆共享相同的路由表，空字符串是所有车辆的默认值。）</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_avoidingexcluding_resources_when_computing_routes">4.9.2.3. 在计算路由时避免/排除资源</h5>
+<h5 id="_avoidingexcluding_resources_when_computing_routes">4.9.2.3. 在计算路线时避免/排除资源</h5>
 <div class="paragraph">
-<p>在为运输单计算路线时，可以定义一组应避免由处理相应运输单的车辆使用的资源（即点位、路径或位置）。<code>tcs:resourcesToAvoid</code>可以设置为以逗号分隔的资源名称列表。</p>
+<p>在为运输订单计算路线时，可以定义一组应由处理相应运输订单的车辆避免的资源（即点、路径或位置）。
+为此，可以在运输订单上将键为<code>tcs:resourcesToAvoid</code>的属性设置为资源名称的逗号分隔列表。</p>
 </div>
 </div>
 </div>
+
 <div class="sect3">
 <h4 id="_default_scheduler">4.9.3. 默认调度器</h4>
 <div class="paragraph">
-<p>默认调度器实施了一种简单的交通管理策略。</p>
+<p>默认调度器实现了一种简单的交通管理策略。
+它通过仅允许对工厂模型中的资源（点、路径和位置）进行互斥使用来实现，具体说明如下。</p>
 </div>
 <div class="sect4">
 <h5 id="_allocating_resources">4.9.3.1. 分配资源</h5>
 <div class="paragraph">
-<p>当请求为车辆分配一组资源时，调度器执行以下检查以确定是否可以立即授予分配：</p>
+<p>当请求为车辆分配一组资源时，调度器会执行以下检查以确定是否可以立即授予该分配：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>检查请求资源的车辆是否<em>not</em> paused.</p>
+<p>检查请求资源的车辆是否<em>未</em>暂停。</p>
 </li>
 <li>
-<p>检查请求的资源是否对车辆一般可用。</p>
+<p>检查请求的资源通常是否对该车辆可用。</p>
 </li>
 <li>
-<p>检查请求的资源是否属于类型为<code>SINGLE_VEHICLE_ONLY</code>.
-如果不满足条件，则跳过此检查。</p>
+<p>检查请求的资源是否属于类型为 <code>SINGLE_VEHICLE_ONLY</code>（仅限单车）的区块。
+如果不属于，则跳过此检查。
+如果属于，则将请求的资源集扩展为有效资源集，并检查扩展后的资源是否对该车辆可用。</p>
 </li>
 <li>
-<p>检查请求的资源是否属于类型为<code>SAME_DIRECTION_ONLY</code>的区块。</p>
+<p>检查请求的资源是否属于类型为 <code>SAME_DIRECTION_ONLY</code>（仅限同向）的区块。
+如果不属于，则跳过此检查。
+如果属于，则检查车辆打算穿过该区块的方向是否与区块当前被其他车辆穿过的方向相同。</p>
 </li>
 <li>
-<p>检查与请求资源相关的区域是否可供该车辆使用且未被其他车辆分配（前提是请求资源的车辆引用了包络线键，且请求的资源定义了具有该键的车辆包络线）。</p>
+<p>检查与请求的资源相关的区域是否对该车辆可用且未被其他车辆分配（前提是请求资源的车辆引用了包围盒键，且请求的资源定义了具有该键的车辆包围盒）。
+如果请求的资源或其他车辆占用的资源属于某些区块，则检查的区域将被扩展，以包含这些区块中所有资源的包围盒（同时考虑所涉及车辆的相应包围盒键）。</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>如果所有检查都成功，则进行分配。</p>
+<p>如果所有检查均通过，则进行分配。
+如果任何一项检查失败，则该分配将被排队等待后续处理。</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_freeing_resources">4.9.3.2. 释放资源</h5>
 <div class="paragraph">
-<p>每当资源释放时（例如，当车辆完成移动到下一个点位且车辆驱动器向内核报告此情况时），都会检查队列中等待的分配（按照请求发生的顺序）。</p>
+<p>每当资源被释放时（例如，当车辆完成向下一个点的移动且车辆驱动程序将此情况报告给内核时），系统会检查队列中等待的分配（按照请求发生的顺序）。
+任何现在可以进行的分配都会被执行。
+无法进行的分配将继续等待。</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_fairness_of_scheduling">4.9.3.3. 调度的公平性</h5>
 <div class="paragraph">
-<p>此策略确保在资源可用时使用它们。</p>
+<p>该策略确保在资源可用时会被使用。
+然而，它并不能严格保证公平性/避免饥饿：
+如果其他车辆能够持续分配这些资源的大型子集，那么等待分配大型资源集的车辆理论上可能会永远等待。
+这种情况很可能是工厂模型图拓扑存在问题的迹象，因此对于默认实现而言，这种缺陷被认为是可以接受的。</p>
 </div>
 </div>
 </div>
+
+
 <div class="sect3">
 <h4 id="_default_peripheral_job_dispatcher">4.9.4. 默认外设任务调度器</h4>
 <div class="paragraph">
-<p>当外设作业或外设设备可用时，外设作业调度器需要决定哪个外设作业应如何处理，以及哪个外设设备应执行什么操作。</p>
+<p>当外围作业或外围设备可用时，外围作业分派器需要决定哪些外围作业应该执行以及哪些外围设备应该执行哪些任务。
+为了做出这个决定，默认的外围作业分派器采取以下步骤：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>目前空闲但已设置其预留令牌的外设，如有可能，将被分配给可处理的外设作业。</p>
+<p>如果可能，当前未被占用但已设置预留令牌的外围设备将被分配给可处理的外围作业。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>考虑纳入计算的外设标准如下：</p>
+<p>外围设备被纳入考虑的标准如下：</p>
 <div class="ulist">
 <ul>
 <li>
-<p>它不得被分配给任何外设作业。</p>
+<p>它不能被分配到外围任务。</p>
 </li>
 <li>
-<p>它必须已设置其预留令牌。</p>
+<p>必须设置它的预留令牌。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>考虑纳入计算的外设作业标准如下：</p>
+<p>外围作业被纳入考虑的标准如下：</p>
 <div class="ulist">
 <ul>
 <li>
-<p>它必须与某个外设的预留令牌相匹配。</p>
+<p>它必须与外围设备的预留令牌匹配。</p>
 </li>
 <li>
-<p>它必须能够由某个外设进行处理。</p>
+<p>它必须可以被外围设备处理。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>如果有多个满足这些条件的外设作业，则根据创建时间最先创建的那个优先分配。</p>
+<p>如果有多个外围作业符合这些条件，将优先分配创建时间最早的作业。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>未能分配到具有匹配预留令牌的外设作业的外设，其预留将被释放。</p>
+<p>无法分配给具有匹配预留令牌的外围作业的外围设备，其预留将被释放。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>保留外设的释放通过一个可替换的策略执行。</p>
+<p>预留的外围设备的释放是通过可替换策略来执行的。
+默认策略按照以下规则释放外围设备：</p>
 <div class="ulist">
 <ul>
 <li>
-<p>外设的状态必须为<code>IDLE</code>.</p>
+<p>外围设备的状态必须为 <code>IDLE</code>（空闲）。</p>
 </li>
 <li>
-<p>外设的处理状态必须为<code>IDLE</code>.</p>
+<p>外围设备的处理状态必须为 <code>IDLE</code>（空闲）。</p>
 </li>
 <li>
-<p>外设的预留令牌必须已设置。</p>
+<p>外围设备的预留令牌必须已设置。</p>
 </li>
 </ul>
 </div>
@@ -2755,28 +3095,28 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </div>
 </li>
 <li>
-<p>目前空闲且未设置其预留令牌的外设，如有可能，将被分配给可处理的外设作业。</p>
+<p>如果可能，当前未被占用且未设置预留令牌的外围设备将被分配给可处理的外围作业。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>考虑外围设备的标准是：</p>
+<p>外围设备被纳入考虑的标准如下：</p>
 <div class="ulist">
 <ul>
 <li>
-<p>它必须未分配给任何外围作业。</p>
+<p>它不能被分配到外围任务。</p>
 </li>
 <li>
-<p>它的预留令牌必须未设置。</p>
+<p>它的预留令牌不得被设置。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>考虑外围作业的标准是：</p>
+<p>外围作业被纳入考虑的标准如下：</p>
 <div class="ulist">
 <ul>
 <li>
-<p>它必须可供外围设备处理。</p>
+<p>它通常必须可以被外围设备处理。</p>
 </li>
 <li>
 <p>它必须能够被外围设备处理。</p>
@@ -2785,14 +3125,15 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </div>
 </li>
 <li>
-<p>为外围设备选择外围作业是通过可替换的策略执行的。默认策略根据以下规则选择外围作业：</p>
+<p>外围设备的外围作业选择是通过可替换策略进行的。
+默认策略按照以下规则选择外围作业：</p>
 <div class="ulist">
 <ul>
 <li>
 <p>外围作业的操作位置必须与给定位置匹配。</p>
 </li>
 <li>
-<p>如果有多个符合这些条件的外围作业，则根据创建时间选择最旧的一个。</p>
+<p>如果有多个外围作业符合这些条件，将选择根据创建时间最早的那个。</p>
 </li>
 </ul>
 </div>
@@ -2805,7 +3146,8 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="sect4">
 <h5 id="_reservation_token">4.9.4.1. 预留令牌</h5>
 <div class="paragraph">
-<p>如上所述，预留令牌与外设作业分配给外设设备相关。</p>
+<p>如上所述，预留令牌与将外围作业分配给外围设备有关。
+本节描述不同类型的预留令牌：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2814,10 +3156,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>可选地，可以为运输单提供预留令牌。</p>
+<p>运输单可以选择性地提供预留令牌。</p>
 </li>
 <li>
-<p>如果运输单的预留令牌已设置，则它用于在该运输单上下文中创建的外围作业（即，由处理运输单的车辆隐式创建的外围作业 - 参见<a href="#_implicit_creation_of_peripheral_jobs">外围作业的隐式创建</a>).</p>
+<p>如果设置了运输单的预留令牌，它将在与运输单相关的外围作业中使用（即用于由处理运输单的车辆隐式创建的外围作业——参见<a href="#_implicit_creation_of_peripheral_jobs">外围作业的隐式创建</a>）。</p>
 </li>
 </ul>
 </div>
@@ -2830,14 +3172,14 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>外围作业必须始终提供预留令牌。</p>
 </li>
 <li>
-<p>对于车辆沿定义了外围操作的路径行驶时隐式创建的外围作业，预留令牌设置为</p>
+<p>对于那些由车辆在行驶经过定义有外围操作的路径时隐式创建的外围作业，预留令牌设置为：</p>
 <div class="ulist">
 <ul>
 <li>
 <p>对应车辆正在处理的运输单的预留令牌</p>
 </li>
 <li>
-<p>或者如果运输单上未设置预留令牌，则设置为车辆名称。</p>
+<p>或者如果运输单上未设置预留令牌，则为车辆的名称。</p>
 </li>
 </ul>
 </div>
@@ -2846,14 +3188,16 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </div>
 </li>
 <li>
-<p>代表外围设备的位置的预留令牌。</p>
+<p>用于表示外围设备的地点的预留令牌。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>最初，表示外设的位置的预留令牌未设置。</p>
+<p>最初，表示外围设备的某个位置的预留令牌未被设置。
+这表明外围设备通常可以接受带有任何预留令牌的外围作业。</p>
 </li>
 <li>
-<p>一旦将外设作业分配给该外设，该位置的预留令牌将被设置为该外设作业的预留令牌。</p>
+<p>一旦外围设备被分配了外围作业，该位置的预留令牌就会被设置为该外围作业的预留令牌。
+因此，外围设备只对具有相同预留令牌的外围作业可用，直到外围设备的预留被释放（即，直到外围设备的预留令牌被重置）。</p>
 </li>
 </ul>
 </div>
@@ -2868,11 +3212,17 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="sect3">
 <h4 id="_application_language">4.10.1. 应用程序语言</h4>
 <div class="paragraph">
-<p>默认情况下，所有带有用户界面的 openTCS 应用程序均以英语显示文本。</p>
+<p>默认情况下，所有带有用户界面的 openTCS 应用程序都以英文显示文本。
+不过，这些应用程序已经为国际化做好了准备，并且可以配置为以其他语言显示文本，只要有相应的翻译。
+openTCS 发行版自带默认语言（英语）和德语翻译。
+还可以集成其他翻译——如何操作将在《开发者指南》中描述。</p>
 </div>
 <div class="paragraph">
-<p>为了设置语言，每个应用程序都有一个配置条目，需要将其设置为要使用的语言的语言标签。<em>语言标签</em>用于指定要使用的语言。<a href="#_kernel_control_center_application_configuration_entries">内核控制中心应用程序配置条目</a>, <a href="#_model_editor_application_configuration_entries">模型编辑器应用程序配置条目</a> and <a href="#_operations_desk_application_configuration_entries">操作台应用程序配置条目</a>。）</p>
+<p>要设置语言，每个应用程序都有一个配置条目，需要将其设置为所使用语言的<em>语言标签</em>。
+（参见 <a href="#_kernel_control_center_application_configuration_entries">内核控制中心应用程序配置项</a>、<a href="#_model_editor_application_configuration_entries">模型编辑器应用程序配置项</a> 和 <a href="#_operations_desk_application_configuration_entries">操作台应用程序配置项</a>。）
+语言标签的示例包括：</p>
 </div>
+
 <div class="ulist">
 <ul>
 <li>
@@ -2890,33 +3240,198 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </ul>
 </div>
 <div class="paragraph">
-<p>默认情况下，配置条目设置为 "en"，从而显示英语文本。<code>locale</code>将配置条目设置为“de”。</p>
+<p>默认情况下，配置项被设置为 "en"，因此显示英文文本。
+由于包含了德语翻译，例如，您可以通过将操作台（Operations Desk）应用程序的 <code>locale</code> 配置项设置为 "de" 来将其切换为德语。
+（请注意，此操作需要重启应用程序才能生效。）</p>
 </div>
 <div class="paragraph">
-<p>如果配置应用程序使用没有相应翻译的语言，则将使用默认（英语）语言。</p>
+<p>如果将应用程序配置为使用没有对应翻译的语言，系统将使用默认语言（英语）。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_kernel_configuration">4.10.2. 内核配置</h4>
+
 <div class="paragraph">
 <p>内核应用程序从以下文件读取其配置数据：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>config/opentcs-kernel-defaults-baseline.properties</code>,</p>
+<p><code>config/opentcs-kernel-defaults-baseline.properties</code>，</p>
 </li>
 <li>
-<p><code>config/opentcs-kernel-defaults-custom.properties</code> and</p>
+<p><code>config/opentcs-kernel-defaults-custom.properties</code>，以及</p>
 </li>
 <li>
-<p><code>config/opentcs-kernel.properties</code>.</p>
+<p><code>config/opentcs-kernel.properties</code>。</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>这些文件按此顺序读取，在一个文件中设置的配置值可以在后续的任何文件中被覆盖。<code>opentcs-kernel.properties</code> only.</p>
+<p>这些文件按此顺序读取，一个文件中设置的配置值可以在之后的任何文件中被覆盖。
+对于用户，建议保持前两个文件不变，并仅在 <code>opentcs-kernel.properties</code> 中设置覆盖值和项目特定的配置数据。</p>
 </div>
+
+<div class="sect4">
+<h5 id="_kernel_application_configuration_entries">4.10.2.1. 内核应用程序配置项</h5>
+<div class="paragraph">
+<p>内核应用程序本身可以使用以下配置项进行配置：</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>kernelapp.autoEnableDriversOnStartup</code></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>类型：Boolean</p>
+</li>
+<li>
+<p>更改生效触发时机：在加载工厂模型时/之后</p>
+</li>
+<li>
+<p>描述：是否在启动时自动启用驱动程序。</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><code>kernelapp.autoEnablePeripheralDriversOnStartup</code></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>类型：Boolean</p>
+</li>
+<li>
+<p>更改生效触发时机：在加载工厂模型时/之后</p>
+</li>
+<li>
+<p>描述：是否在启动时自动启用外围设备驱动程序。</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><code>kernelapp.saveModelOnTerminateModelling</code></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>类型：Boolean</p>
+</li>
+<li>
+<p>更改生效触发时机：在加载工厂模型时/之后</p>
+</li>
+<li>
+<p>描述：在退出建模（modelling）状态时是否隐式保存模型。</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><code>kernelapp.saveModelOnTerminateOperating</code></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>类型：Boolean</p>
+</li>
+<li>
+<p>更改生效触发时机：在加载工厂模型时/之后</p>
+</li>
+<li>
+<p>描述：在退出运行（operating）状态时是否隐式保存模型。</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><code>kernelapp.updateRoutingTopologyOnPathLockChange</code></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>类型：Boolean</p>
+</li>
+<li>
+<p>更改生效触发时机：立即</p>
+</li>
+<li>
+<p>描述：当路径被锁定或解锁时，是否隐式更新路由器的拓扑结构。</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><code>kernelapp.rerouteOnRoutingTopologyUpdate</code></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>类型：Boolean</p>
+</li>
+<li>
+<p>更改生效触发时机：立即</p>
+</li>
+<li>
+<p>描述：当拓扑结构发生变化时，是否立即为车辆重新规划路线。</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><code>kernelapp.rerouteOnDriveOrderFinished</code></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>类型：Boolean</p>
+</li>
+<li>
+<p>更改生效触发时机：立即</p>
+</li>
+<li>
+<p>描述：车辆在完成一个行驶订单（drive order）后，是否应立即重新规划路线。</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><code>kernelapp.requireManualReroutingAfterUnexpectedPosition</code></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>类型：Boolean</p>
+</li>
+<li>
+<p>更改生效触发时机：立即</p>
+</li>
+<li>
+<p>描述：车辆在报告意外位置后，是否需要手动重新规划路线。<br>
+不建议禁用此功能，因为这可能导致车辆在偏离路线后继续运行。</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><code>kernelapp.vehicleResourceManagementType</code></dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>类型：String</p>
+</li>
+<li>
+<p>更改生效触发时机：立即</p>
+</li>
+<li>
+<p>描述：车辆资源（即车辆分配的路径、点和位置）的管理类型。<br>
+可能的值：<br>
+LENGTH_IGNORED（忽略长度）：资源<em>始终</em>释放至（但不包括）车辆的当前位置。当您主要想利用车辆包围盒（vehicle envelopes）进行交通管理时，此类型非常有用。<br>
+LENGTH_RESPECTED（尊重长度）：仅释放不再被车辆“覆盖”的资源（根据车辆长度及其后方路径的长度计算）。这是在引入车辆包围盒之前管理资源的“经典”方式。</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+
+
 <div class="sect4">
 <h5 id="_kernel_application_configuration_entries">4.10.2.1. 内核应用程序配置条目</h5>
 <div class="paragraph">
@@ -3071,10 +3586,12 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </dl>
 </div>
 </div>
+
+
 <div class="sect4">
 <h5 id="_order_pool_configuration_entries">4.10.2.2. 订单池配置条目</h5>
 <div class="paragraph">
-<p>可以使用以下配置条目对内核的运输单池进行配置：</p>
+<p>内核的运输单池可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3083,13 +3600,13 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>4.10.2.2. 订单池配置条目</p>
-</li>
-<li>
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用：即时</p>
+<p>变更生效触发条件：即时生效</p>
+</li>
+<li>
+<p>描述：在清理操作中，要移除的运输单或外围作业的最小存活时间（毫秒）。</p>
 </li>
 </ul>
 </div>
@@ -3099,13 +3616,13 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>描述：在清理过程中移除的运输单或外设计作业的最小年龄（以毫秒为单位）。</p>
-</li>
-<li>
 <p>类型：长整型</p>
 </li>
 <li>
-<p>触发更改应用：加载工厂模型时/之后</p>
+<p>变更生效触发条件：在加载工厂模型时或之后</p>
+</li>
+<li>
+<p>描述：清理操作之间的间隔时间（毫秒）。</p>
 </li>
 </ul>
 </div>
@@ -3113,10 +3630,13 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </dl>
 </div>
 </div>
+
+
+
 <div class="sect4">
-<h5 id="_default_dispatcher_configuration_entries">描述：清理之间的间隔（以毫秒为单位）。</h5>
+<h5 id="_default_dispatcher_configuration_entries">4.10.2.3. 默认调度器配置条目</h5>
 <div class="paragraph">
-<p>可以使用以下配置条目对默认调度器进行配置：</p>
+<p>默认调度器可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3128,10 +3648,18 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：逗号分隔的字符串列表</p>
 </li>
 <li>
-<p>4.10.2.3. 默认调度器配置条目</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>类型：逗号分隔的字符串列表<br/>触发更改应用：应用程序启动时<br/>描述：用于优先排序运输单候选项以进行分配的关键字。<br/>可能的关键字：<br/>DEADLINE_AT_RISK_FIRST：优先排序截止时间有风险的运输单。<br/>BY_COMPLETE_ROUTING_COSTS：按完整行驶路线代价排序，最低优先。<br/>BY_INITIAL_ROUTING_COSTS：按首个目的地的行驶路线代价排序。<br/>BY_ORDER_NAME：按运输单名称排序，字典序。<br/>BY_ORDER_TYPE_PRIORITY：按车辆配置的单类型优先级排序，最高（即最小整数值）优先。</p>
+<p>描述：用于对待分配的运输单候选进行优先排序的键。<br>
+可能的键：<br>
+BY_AGE：按运输单存活时间排序，最早的优先。<br>
+BY_DEADLINE：按运输单截止时间排序，最紧急的优先。<br>
+DEADLINE_AT_RISK_FIRST：截止时间处于风险中的运输单优先。<br>
+BY_COMPLETE_ROUTING_COSTS：按完整路径成本排序，最低的优先。<br>
+BY_INITIAL_ROUTING_COSTS：按第一个目的地的路径成本排序。<br>
+BY_ORDER_NAME：按运输单名称字典序排序。<br>
+BY_ORDER_TYPE_PRIORITY：按车辆配置的订单类型优先级排序，最高优先级（即整数值最小）优先。</p>
 </li>
 </ul>
 </div>
@@ -3144,10 +3672,15 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：逗号分隔的字符串列表</p>
 </li>
 <li>
-<p>应用更改的触发时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：用于优先排序运输单以进行分配的依据键。<br/>可能的键：<br/>BY_AGE: 按年龄排序，最老优先。<br/>BY_DEADLINE: 按截止时间排序，最紧急优先。<br/>DEADLINE_AT_RISK_FIRST：优先排序截止时间有风险的运输单。<br/>BY_NAME: 按名称排序，字典序。</p>
+<p>描述：用于对待分配的运输单进行优先排序的键。<br>
+可能的键：<br>
+BY_AGE：按存活时间排序，最早的优先。<br>
+BY_DEADLINE：按截止时间排序，最紧急的优先。<br>
+DEADLINE_AT_RISK_FIRST：截止时间处于风险中的运输单优先。<br>
+BY_NAME：按名称字典序排序。</p>
 </li>
 </ul>
 </div>
@@ -3160,10 +3693,17 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：逗号分隔的字符串列表</p>
 </li>
 <li>
-<p>应用更改的触发时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：用于优先排序车辆候选者以进行分配的依据键。<br/>可能的键：<br/>BY_ENERGY_LEVEL：按车辆能量水平排序，最高优先。<br/>IDLE_FIRST：优先排序状态为空闲的车辆。<br/>BY_COMPLETE_ROUTING_COSTS：按完整行驶路线代价排序，最低优先。<br/>BY_INITIAL_ROUTING_COSTS：按首个目的地的路由代价排序。<br/>BY_VEHICLE_NAME：按车辆名称字典序排序。<br/>BY_ORDER_TYPE_PRIORITY：按为该车辆配置的单类型优先级排序，最高优先级（即最小整数值）排在前面。</p>
+<p>描述：用于对待分配的车辆候选进行优先排序的键。<br>
+可能的键：<br>
+BY_ENERGY_LEVEL：按车辆能量等级排序，最高的优先。<br>
+IDLE_FIRST：状态为 IDLE 的车辆优先。<br>
+BY_COMPLETE_ROUTING_COSTS：按完整路径成本排序，最低的优先。<br>
+BY_INITIAL_ROUTING_COSTS：按第一个目的地的路径成本排序。<br>
+BY_VEHICLE_NAME：按车辆名称字典序排序。<br>
+BY_ORDER_TYPE_PRIORITY：按车辆配置的订单类型优先级排序，最高优先级（即整数值最小）优先。</p>
 </li>
 </ul>
 </div>
@@ -3176,10 +3716,14 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：逗号分隔的字符串列表</p>
 </li>
 <li>
-<p>更改生效触发条件：应用启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：用于优先分配车辆的键。<br/>可能的键：<br/>BY_ENERGY_LEVEL：按能量水平排序，最高优先。<br/>IDLE_FIRST：将状态为空闲的车辆排在前面。<br/>BY_NAME: 按名称字典序排序。</p>
+<p>描述：用于对待分配的车辆进行优先排序的键。<br>
+可能的键：<br>
+BY_ENERGY_LEVEL：按能量等级排序，最高的优先。<br>
+IDLE_FIRST：状态为 IDLE 的车辆优先。<br>
+BY_NAME：按名称字典序排序。</p>
 </li>
 </ul>
 </div>
@@ -3192,10 +3736,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>更改生效触发条件：应用启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：在截止时间之前，订单变为紧急的时间窗口（毫秒）。</p>
+<p>描述：在其截止时间之前，运输单变为紧急的时间窗口（毫秒）。</p>
 </li>
 </ul>
 </div>
@@ -3208,10 +3752,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>更改生效触发条件：即时</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：在为运输单分配车辆时要考虑的最大路线数量。</p>
+<p>描述：在为车辆分配运输单时，考虑的最大路径数量。</p>
 </li>
 </ul>
 </div>
@@ -3224,10 +3768,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>更改生效触发条件：即时</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：是否应分配前往当前位置且无操作的订单。</p>
+<p>描述：是否分配无操作且目标为当前位置的运输单。</p>
 </li>
 </ul>
 </div>
@@ -3240,10 +3784,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：是否应将无法路由的传入运输单标记为 UNROUTABLE。</p>
+<p>描述：是否将无法规划路径的传入运输单标记为 UNROUTABLE。</p>
 </li>
 </ul>
 </div>
@@ -3253,13 +3797,18 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>类型：String</p>
+<p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：当车辆的重新路由导致完全没有路径时使用的策略。<br/>然后车辆以配置的方式继续使用之前的路径。<br/>可能的值：<br/>IGNORE_PATH_LOCKS：坚持使用之前的路径，忽略路径锁定。<br/>PAUSE_IMMEDIATELY：不向车辆发送更多指令；等待另一次重新路由机会。<br/>PAUSE_AT_PATH_LOCK：仅向车辆发送直到其到达锁定路径的更多指令；然后等待另一次重新路由机会。</p>
+<p>描述：当车辆重新规划路径完全无结果时采用的策略。<br>
+此时车辆将以配置的方式继续使用先前的路径。<br>
+可能的值：<br>
+IGNORE_PATH_LOCKS：坚持使用先前路径，忽略路径锁定。<br>
+PAUSE_IMMEDIATELY：不再向车辆发送更多运输单；等待下一次重新规划机会。<br>
+PAUSE_AT_PATH_LOCK：继续向车辆发送运输单，直到到达锁定的路径点；然后等待下一次重新规划机会。</p>
 </li>
 </ul>
 </div>
@@ -3269,13 +3818,13 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>类型：Boolean</p>
+<p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：是否为空闲车辆自动创建停车订单。</p>
+<p>描述：是否自动为空闲车辆创建停车运输单。</p>
 </li>
 </ul>
 </div>
@@ -3285,13 +3834,13 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>类型：Integer</p>
+<p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：在创建空闲车辆的停车订单之前等待的时间（毫秒）。</p>
+<p>描述：在为空闲车辆创建停车运输单之前等待的时间（毫秒）。</p>
 </li>
 </ul>
 </div>
@@ -3301,13 +3850,13 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>类型：Boolean</p>
+<p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：在创建停车订单时是否考虑停车位置优先级。</p>
+<p>描述：创建停车运输单时是否考虑停车位优先级。</p>
 </li>
 </ul>
 </div>
@@ -3317,10 +3866,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>类型：Boolean</p>
+<p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
 <p>描述：是否将车辆重新停放到优先级更高的停车位。</p>
@@ -3336,10 +3885,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：是否为空闲车辆自动创建充电运输单。</p>
+<p>描述：是否自动为空闲车辆创建充电运输单。</p>
 </li>
 </ul>
 </div>
@@ -3352,10 +3901,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：在空闲车辆创建充电运输单之前等待的时间（毫秒）。</p>
+<p>描述：在为空闲车辆创建充电运输单之前等待的时间（毫秒）。</p>
 </li>
 </ul>
 </div>
@@ -3368,10 +3917,11 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：车辆是否必须充电至完全充满。<br/>如果为假，车辆只需充电至充足即可。</p>
+<p>描述：车辆是否必须充电至满电状态。<br>
+若为 false，则车辆只需充电至足够状态即可。</p>
 </li>
 </ul>
 </div>
@@ -3384,10 +3934,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用：加载工厂模型时/之后</p>
+<p>变更生效触发条件：在加载工厂模型时或之后</p>
 </li>
 <li>
-<p>描述：车辆重新调度之间的间隔（毫秒）。</p>
+<p>描述：车辆重新调度的间隔时间（毫秒）。</p>
 </li>
 </ul>
 </div>
@@ -3395,10 +3945,13 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </dl>
 </div>
 </div>
+
+
+
 <div class="sect4">
-<h5 id="_default_router_configuration_entries">4.10.2.4. 默认路由器配置条目</h5>
+<h5 id="_default_router_configuration_entries">4.10.2.4. 默认路径规划器配置条目</h5>
 <div class="paragraph">
-<p>可以使用以下配置条目对默认路由器进行配置：</p>
+<p>默认路径规划器可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3410,10 +3963,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：路由器为单个请求计算的最大路线数量。</p>
+<p>描述：路径规划器为单个请求计算的最大路径数量。</p>
 </li>
 </ul>
 </div>
@@ -3426,10 +3979,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用的时机：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：即使车辆已到达目的地，是否仍计算路径。</p>
+<p>描述：即使车辆已在目的地，是否仍计算路径。</p>
 </li>
 </ul>
 </div>
@@ -3437,7 +3990,7 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </dl>
 </div>
 <div class="paragraph">
-<p>可以使用以下配置条目对最短路径算法进行配置：</p>
+<p>最短路径算法可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3449,10 +4002,13 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：要使用的路由算法。有效值：<br/>'DIJKSTRA'：使用 Dijkstra 算法计算路径。<br/>'BELLMAN_FORD'：使用 Bellman-Ford 算法计算路径。<br/>'FLOYD_WARSHALL'：使用 Floyd-Warshall 算法计算路径。</p>
+<p>描述：要使用的路径规划算法。有效值：<br>
+'DIJKSTRA'：使用 Dijkstra 算法计算路径。<br>
+'BELLMAN_FORD'：使用 Bellman-Ford 算法计算路径。<br>
+'FLOYD_WARSHALL'：使用 Floyd-Warshall 算法计算路径。</p>
 </li>
 </ul>
 </div>
@@ -3465,10 +4021,16 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：逗号分隔的字符串列表</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：要使用的路径评估器/成本因子的类型。<br/>多个评估器的结果将相加。有效值：<br/>'DISTANCE'：路径的成本等于其所有路径长度之和。<br/>'TRAVELTIME'：路径的成本等于车辆的预期行驶时间。<br/>'EXPLICIT_PROPERTIES'：路径的成本等于从路径属性中提取的显式给定成本之和。<br/>'HOPS'：路径的成本等于其包含的路径数量。<br/>'BOUNDING_BOX'：如果车辆的边界框未超出<em>any</em>路径上点位的边界框，则路径的成本为 0。否则，路径的成本被视为无限高，导致该路径被有效丢弃。</p>
+<p>描述：要使用的路径评估器/成本因子类型。<br>
+多个评估器的结果相加。有效值：<br>
+'DISTANCE'：路径成本等于其所有路径段的长度之和。<br>
+'TRAVELTIME'：路径成本等于车辆的预期行驶时间。<br>
+'EXPLICIT_PROPERTIES'：路径成本等于从路径属性中提取的显式给定成本之和。<br>
+'HOPS'：路径成本等于其包含的路径段数量。<br>
+'BOUNDING_BOX'：如果车辆的包围盒不超出路径上任意点的包围盒，则路径成本为 0；否则，路径成本被视为无穷大，导致该路径被有效丢弃。</p>
 </li>
 </ul>
 </div>
@@ -3476,7 +4038,7 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </dl>
 </div>
 <div class="paragraph">
-<p>可以使用以下配置条目对边评估器 EXPLICIT_PROPERTIES 进行配置：<code>EXPLICIT_PROPERTIES</code>可以通过以下配置项进行设置：</p>
+<p>路径评估器 <code>EXPLICIT_PROPERTIES</code> 可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3485,13 +4047,14 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>类型：String</p>
+<p>类型：字符串</p>
 </li>
 <li>
-<p>应用更改的触发时机：即时</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：如果对应的路径上未设置任何属性，则用作边的路由成本的默认值。<br/>该值应为整数。如果不是，则该边将从路由中排除。</p>
+<p>描述：如果对应的路径段未设置属性，则用作路径段路径成本的默认值。<br>
+该值应为整数。如果不是整数，则该路径段将从路径规划中排除。</p>
 </li>
 </ul>
 </div>
@@ -3499,10 +4062,11 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </dl>
 </div>
 </div>
+
 <div class="sect4">
 <h5 id="_default_peripheral_job_dispatcher_configuration_entries">4.10.2.5. 默认外设作业调度器配置条目</h5>
 <div class="paragraph">
-<p>可以使用以下配置条目对默认外设作业调度器进行配置：</p>
+<p>默认外设作业调度器可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3511,13 +4075,13 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>类型：Integer</p>
+<p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发时机：加载工厂模型时/之后</p>
+<p>变更生效触发条件：在加载工厂模型时或之后</p>
 </li>
 <li>
-<p>描述：外设重新调度的间隔时间。</p>
+<p>描述：外设重新调度的间隔时间（毫秒）。</p>
 </li>
 </ul>
 </div>
@@ -3525,10 +4089,15 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </dl>
 </div>
 </div>
+
+
+
+
+
 <div class="sect4">
 <h5 id="_service_web_api_configuration_entries">4.10.2.6. 服务 Web API 配置条目</h5>
 <div class="paragraph">
-<p>可以使用以下配置条目对内核的服务 Web API 进行配置：</p>
+<p>内核的服务 Web API 可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3537,10 +4106,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>类型：Boolean</p>
+<p>类型：布尔值</p>
 </li>
 <li>
-<p>应用更改的触发时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：是否启用该接口。</p>
@@ -3553,10 +4122,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>类型：IP address</p>
+<p>类型：IP 地址</p>
 </li>
 <li>
-<p>应用更改的触发时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：HTTP 服务器绑定的地址，例如 0.0.0.0 或 127.0.0.1。</p>
@@ -3569,10 +4138,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>类型：Integer</p>
+<p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：HTTP 服务器绑定的端口。</p>
@@ -3585,10 +4154,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <div class="ulist">
 <ul>
 <li>
-<p>类型：String</p>
+<p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用的时机：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
 <p>描述：允许访问 API 的密钥。</p>
@@ -3604,10 +4173,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用的时机：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：保留的状态事件的最大数量。</p>
+<p>描述：保留的状态事件最大数量。</p>
 </li>
 </ul>
 </div>
@@ -3620,7 +4189,7 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用的时机：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：是否使用 SSL 加密连接。</p>
@@ -3636,10 +4205,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用的时机：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：请求体可被处理的最大大小（以 MB 为单位）。</p>
+<p>描述：允许处理的请求体最大大小（MB）。</p>
 </li>
 </ul>
 </div>
@@ -3647,10 +4216,11 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </dl>
 </div>
 </div>
+
 <div class="sect4">
 <h5 id="_rmi_kernel_interface_configuration_entries">4.10.2.7. RMI 内核接口配置条目</h5>
 <div class="paragraph">
-<p>可以使用以下配置条目对内核的 RMI 接口进行配置：</p>
+<p>内核的 RMI 接口可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -3662,7 +4232,7 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用的时机：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：是否启用该接口。</p>
@@ -3678,10 +4248,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用的时机：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：RMI 的 TCP 端口。</p>
+<p>描述：RMI 注册表的 TCP 端口。</p>
 </li>
 </ul>
 </div>
@@ -3694,10 +4264,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用的时机：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：远程调度器的TCP端口。</p>
+<p>描述：远程调度器服务的 TCP 端口。</p>
 </li>
 </ul>
 </div>
@@ -3710,10 +4280,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：远程查询服务的TCP端口。</p>
+<p>描述：远程查询服务的 TCP 端口。</p>
 </li>
 </ul>
 </div>
@@ -3726,10 +4296,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：是否使用SSL加密连接。</p>
+<p>描述：是否使用 SSL 加密连接。</p>
 </li>
 </ul>
 </div>
@@ -3742,10 +4312,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：远程外设服务的TCP端口。</p>
+<p>描述：远程外设服务的 TCP 端口。</p>
 </li>
 </ul>
 </div>
@@ -3758,10 +4328,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：远程外设作业服务的TCP端口。</p>
+<p>描述：远程外设作业服务的 TCP 端口。</p>
 </li>
 </ul>
 </div>
@@ -3774,10 +4344,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：远程内核服务门户的TCP端口。</p>
+<p>描述：远程内核服务门户的 TCP 端口。</p>
 </li>
 </ul>
 </div>
@@ -3790,10 +4360,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：远程工厂模型服务的TCP端口。</p>
+<p>描述：远程工厂模型服务的 TCP 端口。</p>
 </li>
 </ul>
 </div>
@@ -3806,7 +4376,7 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：远程运输单服务的 TCP 端口。</p>
@@ -3822,7 +4392,7 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：远程车辆服务的 TCP 端口。</p>
@@ -3838,7 +4408,7 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：远程通知服务的 TCP 端口。</p>
@@ -3854,10 +4424,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：远程调度器的 TCP 端口。</p>
+<p>描述：远程调度器服务的 TCP 端口。</p>
 </li>
 </ul>
 </div>
@@ -3870,10 +4440,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：整数</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：远程路由器的 TCP 端口。</p>
+<p>描述：远程路径规划器服务的 TCP 端口。</p>
 </li>
 </ul>
 </div>
@@ -3886,10 +4456,10 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：长整型</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：清理非活动客户端的间隔时间（毫秒）。</p>
+<p>描述：清理非活跃客户端的间隔时间（毫秒）。</p>
 </li>
 </ul>
 </div>
@@ -3897,6 +4467,7 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </dl>
 </div>
 </div>
+
 <div class="sect4">
 <h5 id="_ssl_server_side_encryption_configuration_entries">4.10.2.8. SSL 服务器端加密配置条目</h5>
 <div class="paragraph">
@@ -4162,9 +4733,9 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </div>
 </div>
 <div class="sect4">
-<h5 id="_watchdog_configuration_entries">4.10.2.12. 看门狗配置项</h5>
+<h5 id="_watchdog_configuration_entries">4.10.2.12. 监视器配置项</h5>
 <div class="paragraph">
-<p>看门狗可以使用以下配置项进行配置：</p>
+<p>监视器可以使用以下配置项进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4268,31 +4839,33 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 </div>
 </div>
 </div>
+
+
 <div class="sect3">
 <h4 id="_kernel_control_center_configuration">4.10.3. 内核控制中心配置</h4>
 <div class="paragraph">
-<p>内核控制台应用程序从以下文件读取其配置数据：</p>
+<p>内核控制中心应用程序从以下文件读取其配置数据：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>config/opentcs-kernelcontrolcenter-defaults-baseline.properties</code>,</p>
+<p><code>config/opentcs-kernelcontrolcenter-defaults-baseline.properties</code>，</p>
 </li>
 <li>
-<p><code>config/opentcs-kernelcontrolcenter-defaults-custom.properties</code> and</p>
+<p><code>config/opentcs-kernelcontrolcenter-defaults-custom.properties</code>，</p>
 </li>
 <li>
-<p><code>config/opentcs-kernelcontrolcenter.properties</code>.</p>
+<p><code>config/opentcs-kernelcontrolcenter.properties</code>。</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>这些文件按此顺序读取，在一个文件中设置的配置值可以在任何后续文件中被覆盖。<code>opentcs-kernelcontrolcenter.properties</code> only.</p>
+<p>文件按此顺序读取，且一个文件中设置的配置值可以在后续任何文件中被覆盖。对于用户，建议保留前两个文件不做修改，仅在 <code>opentcs-kernelcontrolcenter.properties</code> 中设置覆盖值和项目特定的配置数据。</p>
 </div>
 <div class="sect4">
-<h5 id="_kernel_control_center_application_configuration_entries">4.10.3.1. 内核控制中心应用程序配置项</h5>
+<h5 id="_kernel_control_center_application_configuration_entries">4.10.3.1. 内核控制中心应用程序配置条目</h5>
 <div class="paragraph">
-<p>内核控制台应用程序本身可以使用以下配置项进行配置：</p>
+<p>内核控制中心应用程序本身可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4304,11 +4877,11 @@ The <code>&lt;GROUP&gt;</code>要使用的是车辆的路由组（参见<a href=
 <p>类型：字符串</p>
 </li>
 <li>
-<p>应用更改的触发器：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：内核控制中心应用程序的区域设置，作为 BCP 47 语言标签。<br/>
-Examples: 'en', 'de', 'zh'</p>
+<p>描述：内核控制中心应用程序的语言区域，采用 BCP 47 语言标签。<br>
+示例：'en'、'de'、'zh'</p>
 </li>
 </ul>
 </div>
@@ -4318,10 +4891,10 @@ Examples: 'en', 'de', 'zh'</p>
 <div class="ulist">
 <ul>
 <li>
-<p>类型：&lt;描述&gt;\|&lt;主机名&gt;\|&lt;端口&gt; 的逗号分隔列表</p>
+<p>类型：逗号分隔的 &lt;描述&gt;\|&lt;主机名&gt;\|&lt;端口&gt; 列表</p>
 </li>
 <li>
-<p>应用更改的触发器：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：要使用的内核连接书签。</p>
@@ -4337,10 +4910,12 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>应用更改的触发器：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：是否在启动时自动连接到内核。<br/>如果为“true”，将使用第一个连接书签进行初始连接尝试。<br/>如果为“false”，将显示对话框以输入连接参数。</p>
+<p>描述：是否在启动时自动连接到内核。<br>
+如果为 'true'，将使用第一个连接书签进行初始连接尝试。<br>
+如果为 'false'，将显示一个对话框以输入连接参数。</p>
 </li>
 </ul>
 </div>
@@ -4353,10 +4928,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发器：即时</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：日志文本区域中的最大字符数。</p>
+<p>描述：日志文本区域的最大字符数。</p>
 </li>
 </ul>
 </div>
@@ -4369,10 +4944,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：是否启用并显示用于外设驱动的面板。</p>
+<p>描述：是否启用并显示外设驱动程序面板。</p>
 </li>
 </ul>
 </div>
@@ -4381,9 +4956,9 @@ Examples: 'en', 'de', 'zh'</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_ssl_kcc_side_application_configuration_entries">4.10.3.2. SSL KCC 端应用程序配置项</h5>
+<h5 id="_ssl_kcc_side_application_configuration_entries">4.10.3.2. SSL KCC 端应用程序配置条目</h5>
 <div class="paragraph">
-<p>内核控制台应用程序的 SSL 连接可以使用以下配置项进行配置：</p>
+<p>内核控制中心应用程序的 SSL 连接可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4395,7 +4970,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：是否使用 SSL 加密与内核的 RMI 连接。</p>
@@ -4411,7 +4986,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：SSL 信任库的路径。</p>
@@ -4427,7 +5002,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：SSL 信任库的密码。</p>
@@ -4439,6 +5014,9 @@ Examples: 'en', 'de', 'zh'</p>
 </div>
 </div>
 </div>
+
+
+
 <div class="sect3">
 <h4 id="_model_editor_configuration">4.10.4. 模型编辑器配置</h4>
 <div class="paragraph">
@@ -4447,23 +5025,23 @@ Examples: 'en', 'de', 'zh'</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>config/opentcs-modeleditor-defaults-baseline.properties</code>,</p>
+<p><code>config/opentcs-modeleditor-defaults-baseline.properties</code>，</p>
 </li>
 <li>
-<p><code>config/opentcs-modeleditor-defaults-custom.properties</code>,</p>
+<p><code>config/opentcs-modeleditor-defaults-custom.properties</code>，</p>
 </li>
 <li>
-<p><code>config/opentcs-modeleditor.properties</code>.</p>
+<p><code>config/opentcs-modeleditor.properties</code>。</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>这些文件按此顺序读取，在一个文件中设置的配置值可以在任何后续文件中被覆盖。<code>opentcs-modeleditor.properties</code> only.</p>
+<p>文件按此顺序读取，且一个文件中设置的配置值可以在后续任何文件中被覆盖。对于用户，建议保留前两个文件不做修改，仅在 <code>opentcs-modeleditor.properties</code> 中设置覆盖值和项目特定的配置数据。</p>
 </div>
 <div class="sect4">
-<h5 id="_model_editor_application_configuration_entries">4.10.4.1. 模型编辑器应用程序配置项</h5>
+<h5 id="_model_editor_application_configuration_entries">4.10.4.1. 模型编辑器应用程序配置条目</h5>
 <div class="paragraph">
-<p>模型编辑器应用程序本身可以使用以下配置项进行配置：</p>
+<p>模型编辑器应用程序本身可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4475,11 +5053,11 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：工厂概览应用程序的区域设置，采用 BCP 47 语言标签格式。<br/>
-Examples: 'en', 'de', 'zh'</p>
+<p>描述：工厂概览应用程序的语言区域，采用 BCP 47 语言标签。<br>
+示例：'en'、'de'、'zh'</p>
 </li>
 </ul>
 </div>
@@ -4489,10 +5067,10 @@ Examples: 'en', 'de', 'zh'</p>
 <div class="ulist">
 <ul>
 <li>
-<p>类型：&lt;描述&gt;\|&lt;主机名&gt;\|&lt;端口&gt; 的逗号分隔列表</p>
+<p>类型：逗号分隔的 &lt;描述&gt;\|&lt;主机名&gt;\|&lt;端口&gt; 列表</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：要使用的内核连接书签。</p>
@@ -4508,10 +5086,12 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用的时机：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：在连接到内核时是否使用配置的书签。<br/>如果为“true”，则将使用第一个连接书签进行连接尝试。<br/>如果为“false”，将显示对话框以输入连接参数。</p>
+<p>描述：连接到内核时是否使用配置的书签。<br>
+如果为 'true'，将使用第一个连接书签进行连接尝试。<br>
+如果为 'false'，将显示一个对话框以输入连接参数。</p>
 </li>
 </ul>
 </div>
@@ -4524,10 +5104,11 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：类名</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：用于位置主题类的名称。<br/>必须是扩展自 org.opentcs.components.plantoverview.LocationTheme 的类</p>
+<p>描述：用于位置主题的类名。<br>
+必须是继承 org.opentcs.components.plantoverview.LocationTheme 的类。</p>
 </li>
 </ul>
 </div>
@@ -4536,9 +5117,9 @@ Examples: 'en', 'de', 'zh'</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_ssl_model_editor_side_application_configuration_entries">4.10.4.2. SSL 模型编辑器端应用程序配置项</h5>
+<h5 id="_ssl_model_editor_side_application_configuration_entries">4.10.4.2. SSL 模型编辑器端应用程序配置条目</h5>
 <div class="paragraph">
-<p>模型编辑器应用程序的 SSL 连接可以使用以下配置项进行配置：</p>
+<p>模型编辑器应用程序的 SSL 连接可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4550,10 +5131,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：是否使用 SSL 加密到内核的 RMI 连接。</p>
+<p>描述：是否使用 SSL 加密与内核的 RMI 连接。</p>
 </li>
 </ul>
 </div>
@@ -4566,7 +5147,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：SSL 信任库的路径。</p>
@@ -4582,7 +5163,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：SSL 信任库的密码。</p>
@@ -4596,7 +5177,7 @@ Examples: 'en', 'de', 'zh'</p>
 <div class="sect4">
 <h5 id="_model_editor_element_naming_scheme_configuration_entries">4.10.4.3. 模型编辑器元素命名方案配置条目</h5>
 <div class="paragraph">
-<p>模型编辑器应用程序的元素命名方案可以使用以下配置项进行配置：</p>
+<p>模型编辑器应用程序的元素命名方案可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4608,10 +5189,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：新点位元素的默认前缀。</p>
+<p>描述：新点元素的默认前缀。</p>
 </li>
 </ul>
 </div>
@@ -4624,10 +5205,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：新点位元素的编号模式。</p>
+<p>描述：新点元素的编号模式。</p>
 </li>
 </ul>
 </div>
@@ -4640,7 +5221,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：新路径元素的默认前缀。</p>
@@ -4656,7 +5237,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：新路径元素的编号模式。</p>
@@ -4672,7 +5253,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：新位置类型元素的默认前缀。</p>
@@ -4688,7 +5269,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：新位置类型元素的编号模式。</p>
@@ -4704,7 +5285,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：新位置元素的默认前缀。</p>
@@ -4720,7 +5301,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：新位置元素的编号模式。</p>
@@ -4736,10 +5317,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：新链接元素的默认前缀。</p>
+<p>描述：新连接元素的默认前缀。</p>
 </li>
 </ul>
 </div>
@@ -4752,10 +5333,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：新链接元素的编号模式。</p>
+<p>描述：新连接元素的编号模式。</p>
 </li>
 </ul>
 </div>
@@ -4768,10 +5349,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：新区块的默认前缀。</p>
+<p>描述：新路径区域的默认前缀。</p>
 </li>
 </ul>
 </div>
@@ -4784,10 +5365,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：新区块的编号模式。</p>
+<p>描述：新路径区域的编号模式。</p>
 </li>
 </ul>
 </div>
@@ -4800,7 +5381,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：在应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：新布局元素的默认前缀。</p>
@@ -4816,7 +5397,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：新布局元素的编号模式。</p>
@@ -4832,7 +5413,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：新车辆的默认前缀。</p>
@@ -4848,7 +5429,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：新车辆的编号模式。</p>
@@ -4860,6 +5441,7 @@ Examples: 'en', 'de', 'zh'</p>
 </div>
 </div>
 </div>
+
 <div class="sect3">
 <h4 id="_operations_desk_configuration">4.10.5. 操作台配置</h4>
 <div class="paragraph">
@@ -4868,23 +5450,23 @@ Examples: 'en', 'de', 'zh'</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>config/opentcs-operationsdesk-defaults-baseline.properties</code>,</p>
+<p><code>config/opentcs-operationsdesk-defaults-baseline.properties</code>，</p>
 </li>
 <li>
-<p><code>config/opentcs-operationsdesk-defaults-custom.properties</code>,</p>
+<p><code>config/opentcs-operationsdesk-defaults-custom.properties</code>，</p>
 </li>
 <li>
-<p><code>config/opentcs-operationsdesk.properties</code>.</p>
+<p><code>config/opentcs-operationsdesk.properties</code>。</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>这些文件按此顺序读取，在一个文件中设置的配置值可以在任何后续文件中被覆盖。<code>opentcs-operationsdesk.properties</code> only.</p>
+<p>文件按此顺序读取，且一个文件中设置的配置值可以在后续任何文件中被覆盖。对于用户，建议保留前两个文件不做修改，仅在 <code>opentcs-operationsdesk.properties</code> 中设置覆盖值和项目特定的配置数据。</p>
 </div>
 <div class="sect4">
-<h5 id="_operations_desk_application_configuration_entries">4.10.5.1. 操作台应用程序配置项</h5>
+<h5 id="_operations_desk_application_configuration_entries">4.10.5.1. 操作台应用程序配置条目</h5>
 <div class="paragraph">
-<p>操作台应用程序本身可以使用以下配置项进行配置：</p>
+<p>操作台应用程序本身可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -4896,11 +5478,11 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：工厂概览应用程序的区域设置，采用 BCP 47 语言标签格式。<br/>
-Examples: 'en', 'de', 'zh'</p>
+<p>描述：工厂概览应用程序的语言区域，采用 BCP 47 语言标签。<br>
+示例：'en'、'de'、'zh'</p>
 </li>
 </ul>
 </div>
@@ -4910,10 +5492,10 @@ Examples: 'en', 'de', 'zh'</p>
 <div class="ulist">
 <ul>
 <li>
-<p>类型：&lt;描述&gt;\|&lt;主机名&gt;\|&lt;端口&gt; 的逗号分隔列表</p>
+<p>类型：逗号分隔的 &lt;描述&gt;\|&lt;主机名&gt;\|&lt;端口&gt; 列表</p>
 </li>
 <li>
-<p>触发更改应用：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：要使用的内核连接书签。</p>
@@ -4929,10 +5511,12 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：在连接到内核时是否使用配置的书签。<br/>如果为“true”，则连接尝试将使用第一个连接书签。<br/>如果为“false”，将显示对话框以输入连接参数。</p>
+<p>描述：连接到内核时是否使用配置的书签。<br>
+如果为 'true'，将使用第一个连接书签进行连接尝试。<br>
+如果为 'false'，将显示一个对话框以输入连接参数。</p>
 </li>
 </ul>
 </div>
@@ -4945,10 +5529,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：GUI 窗口在启动时是否最大化。</p>
+<p>描述：GUI 窗口是否应在启动时最大化。</p>
 </li>
 </ul>
 </div>
@@ -4961,10 +5545,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：GUI 窗口的配置宽度（像素）。</p>
+<p>描述：GUI 窗口配置的宽度（像素）。</p>
 </li>
 </ul>
 </div>
@@ -4977,10 +5561,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：GUI 窗口的配置高度（像素）。</p>
+<p>描述：GUI 窗口配置的高度（像素）。</p>
 </li>
 </ul>
 </div>
@@ -4993,7 +5577,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：GUI 窗口在屏幕上的配置 x 坐标（像素）。</p>
@@ -5009,7 +5593,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：GUI 窗口在屏幕上的配置 y 坐标（像素）。</p>
@@ -5025,10 +5609,11 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：类名</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：用于位置主题的类的名称。<br/>必须是扩展自 org.opentcs.components.plantoverview.LocationTheme 的类</p>
+<p>描述：用于位置主题的类名。<br>
+必须是继承 org.opentcs.components.plantoverview.LocationTheme 的类。</p>
 </li>
 </ul>
 </div>
@@ -5041,10 +5626,11 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：类名</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：用于车辆主题的类的名称。<br/>必须是扩展自 org.opentcs.components.plantoverview.VehicleTheme 的类</p>
+<p>描述：用于车辆主题的类名。<br>
+必须是继承 org.opentcs.components.plantoverview.VehicleTheme 的类。</p>
 </li>
 </ul>
 </div>
@@ -5057,10 +5643,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：在显示车辆时是否应忽略报告的精确位置。</p>
+<p>描述：显示车辆时是否忽略上报的精确位置。</p>
 </li>
 </ul>
 </div>
@@ -5073,10 +5659,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>描述：在显示车辆时是否应忽略报告的朝向角度。</p>
+<p>描述：显示车辆时是否忽略上报的方向角。</p>
 </li>
 </ul>
 </div>
@@ -5089,7 +5675,7 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：整数</p>
 </li>
 <li>
-<p>应用更改的触发条件：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：要显示的最新用户通知的最大数量。</p>
@@ -5105,10 +5691,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>应用更改的触发条件：立即</p>
+<p>变更生效触发条件：即时生效</p>
 </li>
 <li>
-<p>描述：是否启用强制撤回上下文菜单项。</p>
+<p>描述：是否应启用强制撤回的上下文菜单项。</p>
 </li>
 </ul>
 </div>
@@ -5117,9 +5703,9 @@ Examples: 'en', 'de', 'zh'</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_ssl_operation_desk_side_application_configuration_entries">4.10.5.2. SSL 操作台侧应用程序配置条目</h5>
+<h5 id="_ssl_operation_desk_side_application_configuration_entries">4.10.5.2. SSL 操作台端应用程序配置条目</h5>
 <div class="paragraph">
-<p>操作台应用程序的 SSL 连接可以使用以下配置项进行配置：</p>
+<p>操作台应用程序的 SSL 连接可通过以下配置条目进行配置：</p>
 </div>
 <div class="dlist">
 <dl>
@@ -5131,10 +5717,10 @@ Examples: 'en', 'de', 'zh'</p>
 <p>类型：布尔值</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
-<p>说明：是否为与内核的 RMI 连接使用 SSL 加密。</p>
+<p>描述：是否使用 SSL 加密与内核的 RMI 连接。</p>
 </li>
 </ul>
 </div>
@@ -5144,10 +5730,10 @@ Examples: 'en', 'de', 'zh'</p>
 <div class="ulist">
 <ul>
 <li>
-<p>类型：String</p>
+<p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：SSL 信任库的路径。</p>
@@ -5160,10 +5746,10 @@ Examples: 'en', 'de', 'zh'</p>
 <div class="ulist">
 <ul>
 <li>
-<p>类型：String</p>
+<p>类型：字符串</p>
 </li>
 <li>
-<p>触发更改应用的时机：应用程序启动时</p>
+<p>变更生效触发条件：应用启动时</p>
 </li>
 <li>
 <p>描述：SSL 信任库的密码。</p>
@@ -5175,6 +5761,7 @@ Examples: 'en', 'de', 'zh'</p>
 </div>
 </div>
 </div>
+
 </div>
 </div>
 </div>
